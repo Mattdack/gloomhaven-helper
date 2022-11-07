@@ -1,13 +1,22 @@
 const sequelize = require('../config/connection');
+const seedUsers = require('./seedUsers')
+const seedCampaigns = require('./seedCampaigns');
+const seedEncounters = require('./seedEncounters');
 const seedEffects = require('./seedEffects');
-const seedPaintings = require('./paintingData');
+const seedMonsters = require('./seedMonsters');
+const seedPlayers = require('./seedPlayers');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
+  await seedUsers();
+  await seedCampaigns();
+  await seedPlayers();
+  await seedEncounters();
+  await seedMonsters();
   await seedEffects();
 
-  await seedPaintings();
+
 
   process.exit(0);
 };

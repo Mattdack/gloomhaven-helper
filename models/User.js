@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Campaign extends Model {}
+class User extends Model {}
 
-Campaign.init(
+User.init(
   {
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -14,13 +14,11 @@ Campaign.init(
         isAlphaNumeric: true,
       },
     },
-    numPlayers: {
-      type: DataTypes.INTEGER,
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isInt: true,
-        min: 2,
-        max: 4,
+        len: [8, 30],
       },
     },
   },
@@ -29,4 +27,4 @@ Campaign.init(
   }
 );
 
-module.exports = Campaign;
+module.exports = User;

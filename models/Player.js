@@ -5,7 +5,7 @@ class Player extends Model {}
 
 Player.init(
   {
-    name: {
+    playerName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -13,7 +13,7 @@ Player.init(
         isAlpha: true,
       },
     },
-    level: {
+    playerLevel: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 1,
@@ -21,7 +21,7 @@ Player.init(
         isInt: true,
       },
     },
-    health: {
+    playerHealth: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 10,

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Campaign extends Model {}
+class Campaign extends Model { }
 
 Campaign.init(
   {
@@ -14,15 +14,11 @@ Campaign.init(
         isAlphaNumeric: true,
       },
     },
-    numPlayers: {
+    PlayerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-        min: 2,
-        max: 4,
-      },
-    },
+      unique: true
+    }
   },
   {
     sequelize,

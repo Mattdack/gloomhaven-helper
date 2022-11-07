@@ -30,14 +30,6 @@ const effectIcons = [
     effect: '&#xf06d;'
   },
   {
-    name: 'Curse',
-    effect: '&#xf0e7;'
-  },
-  {
-    name: 'Bless',
-    effect: '&#xf36f;'
-  },
-  {
     name: 'Shield',
     effect: '&#xf3ed;'
   }

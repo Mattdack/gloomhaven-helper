@@ -2,29 +2,29 @@ const { Player } = require('../models');
 
 const players = [
   {
-    name: 'Red Guard',
-    level: 1,
-    health: 10,
-    experience: 0,
+    playerName: 'Red Guard',
+    playerLevel: 1,
+    playerHealth: 10,
+    experience: 0
   },
   {
-    name: 'Demolitionist',
-    level: 1,
-    health: 8,
-    experience: 0,
+    playerName: 'Demolitionist',
+    playerLevel: 1,
+    playerHealth: 8,
+    experience: 0
   },
   {
-    name: 'Hatchet',
-    level: 1,
-    health: 8,
-    experience: 0,
+    playerName: 'Hatchet',
+    playerLevel: 1,
+    playerHealth: 8,
+    experience: 0
   },
   {
-    name: 'Voidwarden',
-    level: 1,
-    health: 6,
-    experience: 0,
-  },
+    playerName: 'Voidwarden',
+    playerLevel: 1,
+    playerHealth: 6,
+    experience: 0
+  }
 ];
 
 const seedPlayers = () => Player.bulkCreate(players);

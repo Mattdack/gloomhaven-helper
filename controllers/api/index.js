@@ -1,16 +1,19 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
-// Replace "xxxController with name of file"
-const petsRoutes = require("./petsController");
-const ownerRoutes = require('./ownersController');
-const toyRoutes = require('./toysController')
+// separate routes
+const campaignRoutes = require('./campaign-routes');
+const effectRoutes = require('./effect-routes');
+const encounterRoutes = require('./encounter-routes');
+const monsterRoutes = require('./monster-routes');
+const playerRoutes = require('./player-routes');
+const userRoutes = require('./user-routes');
 
-// Replace pets & rename pet routes. Endpoint of this url is /api/pets
-router.use("/pets", petsRoutes);
-// Replace owners & rename owner routes. Endpoint of this url is /api/owners
-router.use("/owners", ownerRoutes);
-// Replace toys & rename toy routes. Endpoint of this url is /api/toys
-router.use('/toys', toyRoutes)
+// path used on routes made
+router.use('/campaigns', campaignRoutes);
+router.use('/effects', effectRoutes);
+router.use('/encounters', encounterRoutes);
+router.use('/monsters', monsterRoutes);
+router.use('/players', playerRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;

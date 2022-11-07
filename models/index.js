@@ -5,12 +5,6 @@ const Monster = require("./Monster")
 const Player = require("./Player")
 const User = require("./User")
 
-Owner.hasMany(Pet);
-Pet.belongsTo(Owner);
-
-Pet.hasMany(Toy);
-Toy.belongsTo(Pet);
-
 User.hasMany(Campaign);
 Campaign.belongsTo(User);
 

@@ -22,15 +22,6 @@ Player.init(
         isInt: true,
       },
     },
-    attack: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 1,
-      validate: {
-        isInt: true,
-        min: 1,
-      },
-    },
     health: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,13 +31,13 @@ Player.init(
         min: 0,
       },
     },
-    move: {
+    experience: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      default: 2,
+      default: 1,
+      unique: true,
       validate: {
         isInt: true,
-        min: 0,
       },
     },
   },

@@ -13,14 +13,21 @@ Monster.init(
         isAlpha: true,
       },
     },
-    attack: {
+    level: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      default: 1,
+      default: 0,
       validate: {
-        isInt: true,
-        min: 1,
-      },
+        max: 8,
+        isNumeric: true
+      }
+    },
+    special: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 60]
+      }
     },
     health: {
       type: DataTypes.INTEGER,
@@ -40,6 +47,16 @@ Monster.init(
         min: 0,
       },
     },
+    attack: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 1,
+      validate: {
+        isInt: true,
+        min: 1,
+      },
+    },
+    
     isElite: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

@@ -1,0 +1,9 @@
+body {  
+    margin:0;
+    background-color: rgb(218, 137, 99);
+    background-image: url(./images/GloomhavenBackground.webp);
+    background-size: cover;
+    font-family: 'Shadows Into Light'; 
+    color: rgb(216, 222, 58);
+}
+

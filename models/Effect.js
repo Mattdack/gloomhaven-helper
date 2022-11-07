@@ -16,4 +16,4 @@ Effect.init({
 });
 
 module.exports=Effect
-<script src="https://kit.fontawesome.com/1eb41d99df.js" crossorigin="anonymous"></script>
+{/* <script src="https://kit.fontawesome.com/1eb41d99df.js" crossorigin="anonymous"></script> */}

@@ -1,0 +1,24 @@
+<aside>
+    <div class="card-header col-md-12 text-center">
+        <h3>
+            Turn Order
+        </h3>
+    </div>
+   
+    <ul class="order col-md-3">
+         {{#each player as |player|}}
+        <li>
+            {{playerName}}
+            <input type="number" id="{{playerName}}" name="turnOrder" min="1" max="100">
+        </li>
+        {{else}}
+        <p class="empty">No Players Added</p>
+        {{/each}}
+        {{#each monster as |monster|}}
+        <li>
+            {{name}}
+            <input type="number" id="{{playerName}}" name="turnOrder" min="1" max="100">
+        </li>
+        {{/each}}
+    </ul>
+</aside>

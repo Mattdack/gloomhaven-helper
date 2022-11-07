@@ -7,7 +7,7 @@ const seedAll = async () => {
 
   await seedEffects();
 
-  await seedPaintings();
+  await seedMonsters();
 
   process.exit(0);
 };

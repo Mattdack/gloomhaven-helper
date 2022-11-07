@@ -1,6 +1,6 @@
 const { Monster } = require('../models');
 
-const monsterStats = [
+const monsters = [
   {
     name: 'Living Corpse',
     level: 0,
@@ -31,7 +31,7 @@ const monsterStats = [
   {
     name: 'Giant Viper',
     level: 0,
-    special: poison,
+    special: 'poison',
     health: 2,
     move: 2,
     attack: 1,
@@ -40,7 +40,7 @@ const monsterStats = [
   {
     name: 'Black Sludge',
     level: 1,
-    special: Shield,
+    special: 'Shield',
     health: 9,
     move: 1,
     attack: 2,
@@ -48,6 +48,6 @@ const monsterStats = [
   }
 ];
 
-const seedMonsters = () => Monster.bulkCreate(monsterStats);
+const seedMonsters = () => Monster.bulkCreate(monsters);
 
 module.exports = seedMonsters;

@@ -62,6 +62,11 @@ Monster.init(
       allowNull: false,
       default: false,
     },
+    effect: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    }
   },
   {
     sequelize,

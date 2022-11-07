@@ -5,7 +5,7 @@ class Player extends Model {}
 
 Player.init(
   {
-    name: {
+    playerName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -13,16 +13,15 @@ Player.init(
         isAlpha: true,
       },
     },
-    level: {
+    playerLevel: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 1,
-      unique: true,
       validate: {
         isInt: true,
       },
     },
-    health: {
+    playerHealth: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 10,
@@ -35,11 +34,15 @@ Player.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 1,
-      unique: true,
       validate: {
         isInt: true,
       },
     },
+    effect: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    }
   },
   {
     sequelize,

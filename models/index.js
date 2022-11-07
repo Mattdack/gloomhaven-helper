@@ -1,9 +1,9 @@
+const User = require("./User");
 const Campaign = require("./Campaign");
-const Encounter = require("./Encounter")
-const Effect = require("./Effect")
-const Monster = require("./Monster")
-const Player = require("./Player")
-const User = require("./User")
+const Encounter = require("./Encounter");
+const Player = require("./Player");
+const Monster = require("./Monster");
+const Effect = require("./Effect");
 
 User.hasMany(Campaign);
 Campaign.belongsTo(User);
@@ -11,23 +11,23 @@ Campaign.belongsTo(User);
 Campaign.hasMany(Encounter);
 Encounter.belongsTo(Campaign);
 
-Campaign.hasMany(Player);
-Player.belongsTo(Campaign);
+Campaign.belongsToMany(Player,{through: `CampaignPlayer`});
+Player.belongsToMany(Campaign,{through: `CampaignPlayer`});
 
-Encounter.hasMany(Monster);
-Monster.belongsTo(Encounter);
+Monster.belongsToMany(Encounter,{through: `EncounterMonster`});
+Encounter.belongsToMany(Monster,{through: `EncounterMonster`});
 
-Player.hasMany(Effect);
-Effect.belongsTo(Player);
+Player.belongsToMany(Effect,{through: `PlayerEffect`});
+Effect.belongsToMany(Player,{through: `PlayerEffect`});
 
-Monster.hasMany(Effect);
-Effect.belongsTo(Monster);
+Monster.belongsToMany(Effect,{through: `MonsterEffect`});
+Effect.belongsToMany(Monster,{through: `MonsterEffect`});
 
 module.exports = {
-    Campaign:Campaign,
-    Encounter:Encounter,
-    Effect:Effect,
-    Monster:Monster,
-    Player:Player,
-    User:User,
+    Campaign,
+    Player,
+    Encounter,
+    Effect,
+    Monster,
+    User,
 }

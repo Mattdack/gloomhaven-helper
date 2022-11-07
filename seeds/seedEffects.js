@@ -3,43 +3,35 @@ const { Effect } = require('../models');
 const effectIcons = [
   {
     name: 'Muddle',
-    effects: '&#xf128;'
+    effect: '&#xf128;'
   },
   {
     name: 'Immobilize',
-    effects: '&#xf05e;'
+    effect: '&#xf05e;'
   },
   {
     name: 'Stun',
-    effects: '&#xf185;'
+    effect: '&#xf185;'
   },
   {
     name: 'Strengthen',
-    effects: '&#xf44b;'
+    effect: '&#xf44b;'
   },
   {
     name: 'Disarm',
-    effects: '&#xf256;'
+    effect: '&#xf256;'
   },
   {
     name: 'Poison',
-    effects: '&#xf54c;'
+    effect: '&#xf54c;'
   },
   {
     name: 'Wound',
-    effects: '&#xf06d;'
-  },
-  {
-    name: 'Curse',
-    effects: '&#xf0e7;'
-  },
-  {
-    name: 'Bless',
-    effects: '&#xf36f;'
+    effect: '&#xf06d;'
   },
   {
     name: 'Shield',
-    effects: '&#xf3ed;'
+    effect: '&#xf3ed;'
   }
 ];
 

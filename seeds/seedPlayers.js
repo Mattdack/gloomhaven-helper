@@ -1,6 +1,6 @@
 const { Player } = require('../models');
 
-const playerStats = [
+const players = [
   {
     playerName: 'Red Guard',
     playerLevel: 1,
@@ -27,6 +27,6 @@ const playerStats = [
   }
 ];
 
-const seedPlayers = () => Player.bulkCreate(monsterStats);
+const seedPlayers = () => Player.bulkCreate(players);
 
 module.exports = seedPlayers;

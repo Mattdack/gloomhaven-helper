@@ -8,17 +8,12 @@ Effect.init({
     name: {
          type: DataTypes.STRING
     },
-    species: {
+    effect: {
          type: DataTypes.STRING
-    },
-    age: DataTypes.INTEGER,
-    isCute: {
-        type: DataTypes.BOOLEAN,
-        defaultValue:true
-   },
-
+    }
 },{
     sequelize
 });
 
 module.exports=Effect
+{/* <script src="https://kit.fontawesome.com/1eb41d99df.js" crossorigin="anonymous"></script> */}

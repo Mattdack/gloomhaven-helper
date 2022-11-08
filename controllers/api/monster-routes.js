@@ -84,4 +84,13 @@ router.delete('/:id', (req, res) => {
     .catch((err) => res.json(err));
 });
 
+router.post(`/:id/effect`, async (req, res) => {
+  try{
+    const targetMonster = await Monster.findByPk(req.params.id);
+    await targetMonster.addEffect(req.body.effect);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

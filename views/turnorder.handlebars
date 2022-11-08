@@ -1,24 +1,23 @@
 <aside>
-    <div class="card-header col-md-12 text-center">
-        <h3>
-            Turn Order
-        </h3>
-    </div>
-   
-    <ul class="order col-md-3">
-         {{#each player as |player|}}
-        <li>
-            {{playerName}}
-            <input type="number" id="{{playerName}}" name="turnOrder" min="1" max="100">
-        </li>
-        {{else}}
-        <p class="empty">No Players Added</p>
-        {{/each}}
-        {{#each monster as |monster|}}
-        <li>
-            {{name}}
-            <input type="number" id="{{playerName}}" name="turnOrder" min="1" max="100">
-        </li>
-        {{/each}}
-    </ul>
+  <div class="card-header col-md-12 text-center">
+    <h3>
+      Turn Order
+    </h3>
+  </div>
+<ul id="sortable1" class="connectedSortable">
+    {{#each players as |player|}}
+      <li> {{playerName}}</li>
+      <input type="number" id="{{playerName}}" name="turnorder" min="1" max="100" />
+    {{else}}
+      <p class="empty">No Players Added</p>
+    {{/each}}
+<ul id="sortable1" class="connectedSortable"></ul>
+    {{#each players as |monster|}}
+      <li> {{name}}</li>
+      <input type="number" id="{{name}}" name="turnorder" min="1" max="100" />
+    {{else}}
+      <p class="empty">No Monsters Added</p>
+    {{/each}}
+  </form>
+  <input type="submit" value="Submit">
 </aside>

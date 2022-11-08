@@ -13,32 +13,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
+
 <body>
-    <header>
-        <nav class="flex items-center justify-between flex-wrap bg-slate-800 p-6">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <span class="font-semibold text-xl tracking-tight"><img
-                        src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp">Helper</span>
-            </div>
-            <div class="block lg:hidden">
-                <button
-                    class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
-                        xmlns="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp">
-                        <title>Menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                    </svg>
-                </button>
-            </div>
-    </header>
+    <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 my-4 mx-100 shadow-2xl w-12/12">
+        <div class="text-2xl text-white font-semibold inline-flex items-center">
+            <img src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp" class="w-25 mr-7"
+                alt="logo-img"><span>helper</span>
+        </div>
+        <div>
+            <ul class="flex text-white">
+                <li class="ml-5 px-2 py-1"><a href="/">Home</a></li>
+                {{!-- {{#if logged_in}} --}}
+                <li class="ml-5 px-2 py-1"><a href="/dashboard">Dashboard</a></li>
+                <li class="ml-5 px-2 py-1"><a href="/logout">Logout</a></li>
+                {{!-- {{else}} --}}
+                <li class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
     <main>
         {{{body}}}
     </main>
-    <footer class="flex-row justify-center">
+    <footer class="">
         &copy;Gloomhaven Helper
     </footer>
 </body>
 
 </html>
 <script src="/js/logout.js"></script>
-

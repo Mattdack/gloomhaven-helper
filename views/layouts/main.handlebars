@@ -15,14 +15,14 @@
 </head>
 
 <body>
-    <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 my-4 mx-100 shadow-2xl w-12/12">
-        <div class="text-2xl text-white font-semibold inline-flex items-center">
+    <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 mx-100 shadow-2xl w-12/12">
+        <div class="text-2xl text-brown font-semibold inline-flex items-center">
             <img src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp" class="w-25 mr-7"
                 alt="logo-img"><span>helper</span>
         </div>
         <div>
-            <ul class="flex text-white">
-                <li class="ml-5 px-2 py-1"><a href="/">Home</a></li>
+            <ul class="flex text-brown">
+                <li class="ml-5 px-2 py-1"><a href="/home">Home</a></li>
                 {{!-- {{#if logged_in}} --}}
                 <li class="ml-5 px-2 py-1"><a href="/dashboard">Dashboard</a></li>
                 <li class="ml-5 px-2 py-1"><a href="/logout">Logout</a></li>
@@ -32,6 +32,9 @@
         </div>
     </nav>
     <main>
+        <aside>
+           <a href="/turnorder">Turn Order</a>
+        </aside>
         {{{body}}}
     </main>
     <footer class="">
@@ -40,4 +43,6 @@
 </body>
 
 </html>
+{{#if logged_in}}
 <script src="/js/logout.js"></script>
+{{/if}}

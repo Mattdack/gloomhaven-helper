@@ -1,11 +1,12 @@
-body {
-    margin: 0;
-    background-color: rgb(218, 137, 99);
-    background-image: url(./images/GloomhavenBackground.webp);
+
+body {  
+    margin:0;
+    background-color: rgb(32, 32, 81);
+    /* background-image: url(./images/GloomhavenBackground.webp);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: fixed;
-    font-family: 'Shadows Into Light';
+    background-position: fixed; */
+    font-family: 'Shadows Into Light'; 
     color: rgb(216, 222, 58);
 }
 

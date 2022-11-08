@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { Encounter } = require('../../models');
+const { Effect } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const encounterData = await Encounter.findAll({
-      // add separate modals connected to Encounter if needed
+    const effectData = await Effect.findAll({
+      // add separate modals connected to Effect if needed
       // include: [{ model:  }],
     });
-    res.status(200).json(encounterData);
+    res.status(200).json(effectData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -15,37 +15,37 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const encounterData = await Encounter.findByPk(req.params.id, {
+    const effectData = await Effect.findByPk(req.params.id, {
 
     });
 
-    if (!encounterData) {
-      res.status(404).json({ message: 'No Encounter found with that id!' });
+    if (!effectData) {
+      res.status(404).json({ message: 'No Effect found with that id!' });
       return;
     }
 
-    res.status(200).json(encounterData);
+    res.status(200).json(effectData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// TODO: need to fill out according to Encounter parameters
+// TODO: need to fill out according to Effect parameters
 router.post('/', async (req, res) => {
   try {
-    const encounterData = await Encounter.create({
+    const effectData = await Effect.create({
       name: req.body.name,
       effects: req.body.effects,
     });
-    res.status(200).json(encounterData);
+    res.status(200).json(effectData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// TODO: need to fill out according to Encounter parameters
+// TODO: need to fill out according to Effect parameters
 router.put('/:id', (req, res) => {
-    Encounter.update(
+    Effect.update(
       {
         name: req.body.name,
         effects: req.body.effects,
@@ -56,20 +56,20 @@ router.put('/:id', (req, res) => {
         },
       }
     )
-      .then((updatedEncounter) => {
-        res.json(updatedEncounter);
+      .then((updatedEffect) => {
+        res.json(updatedEffect);
       })
       .catch((err) => res.json(err));
 });
 
 router.delete('/:id', (req, res) => {
-  Encounter.destroy({
+  Effect.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((deletedEncounter) => {
-      res.json(deletedEncounter);
+    .then((deletedEffect) => {
+      res.json(deletedEffect);
     })
     .catch((err) => res.json(err));
 });

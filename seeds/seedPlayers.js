@@ -2,7 +2,7 @@ const { Player } = require('../models');
 
 const players = [
   {
-    playerName: 'Red Guard',
+    playerName: 'RedGuard',
     playerLevel: 1,
     playerHealth: 10,
     experience: 0,

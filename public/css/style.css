@@ -10,6 +10,36 @@ body {
     color: rgb(216, 222, 58);
 }
 
+aside {
+    flex: 0;
+    background-color: var(--tertiary);
+    padding: 80px;
+    text-align: left;
+    color: var(--light);
+}
+
+.card {
+    margin: 0 0 20px 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 5px;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    border-style: double;
+    border-width: thick;
+    background-color: rgb(111, 111, 152);
+    color: var(--light);
+  }
+
+  .player-card {
+    margin: 20px;
+    flex: 0 1 300px;
+    border: 7px double var(--dark);
+    border-radius: 10px;
+    /* background-color: pink; */
+    color: var(--dark);
+  }
+
 /* sortable turn order */
 #sortable1, #sortable2 {
     border: 1px solid #eee;

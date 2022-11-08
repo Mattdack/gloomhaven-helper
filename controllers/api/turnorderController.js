@@ -11,13 +11,13 @@ router.get('/'), async (req, res) => {
                 }]
         });
 
-        const dbMosnterData = await Encounter.findAll({
+        const dbMonsterData = await Encounter.findAll({
             include:[{
                 model:Monster,
                 attribute:["name"]
             }]
         })
-        const newMosnterList = dbMonsterData.map((monsters)=>
+        const newMonsterList = dbMonsterData.map((monsters)=>
         monsters.get({ plain: true}))
 
         const newPlayerList = dbPlayerData.map((characters) =>
@@ -26,7 +26,7 @@ router.get('/'), async (req, res) => {
 
         res.render('Home', {
                 players:newPlayerList,
-                monsters:newMosnterList,
+                monsters:newMonsterList,
                 logged_in:req.session.logged_in
             
         })

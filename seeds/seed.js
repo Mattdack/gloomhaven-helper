@@ -5,6 +5,7 @@ const seedEncounters = require('./seedEncounters');
 const seedEffects = require('./seedEffects');
 const seedMonsters = require('./seedMonsters');
 const seedPlayers = require('./seedPlayers');
+const { Monster } = require('../models');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -16,8 +17,8 @@ const seedAll = async () => {
   await seedMonsters();
   await seedEffects();
 
-
-
+  const me = await Monster.findByPk(1);
+  await me.addEffect(1);
   process.exit(0);
 };
 

@@ -37,11 +37,6 @@ Player.init(
       validate: {
         isInt: true,
       },
-    },
-    effect: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null,
     }
   },
   {

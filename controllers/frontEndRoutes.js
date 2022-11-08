@@ -29,39 +29,55 @@ router.get("/home",(req,res)=>{
     })
 })
 
-// only info for characters turn order
-router.get('/turnorder'), async (req, res) => {
-    try {
-        const dbPlayerData = await Campaign.findAll({
-            include: [
-                {
-                    model: Player,
-                    attributes: ['playerName']
-                }]
-        });
+router.get("/home",(req,res)=>{
+    // TODO: findall gets all Players and then parses them into passable data
+    Player.findAll().then(players=>{
+        const playersHbsData = players.map(project=>project.get({plain:true}))
+        console.log(players);
+        console.log("==============")
+        console.log(playersHbsData)
 
-        const dbMonsterData = await Encounter.findAll({
-            include:[{
-                model:Monster,
-                attribute:["name"]
-            }]
+        res.render("home",{
+            //this is passing projects however the value has been changed to the format that handlebars likes
+            players:playersHbsData,
+            // logged_in:req.session.logged_in
         })
-        const newMonsterHbs = dbMonsterData.map((monsters)=>
-        monsters.get({ plain: true}))
+    })
+})
 
-        const newPlayerHbs = dbPlayerData.map((characters) =>
-        characters.get({ plain: true })
-        );
+// // only info for characters turn order
+// router.get('/turnorder'), async (req, res) => {
+//     try {
+//         const dbPlayerData = await Campaign.findAll({
+//             include: [
+//                 {
+//                     model: Player,
+//                     attributes: ['playerName']
+//                 }]
+//         });
 
-        res.render('turnorder', {
-                players:newPlayerHbs,
-                monsters:newMonsterHbs,
-                logged_in:req.session.logged_in
+//         const dbMonsterData = await Encounter.findAll({
+//             include:[{
+//                 model:Monster,
+//                 attribute:["name"]
+//             }]
+//         })
+//         const newMonsterHbs = dbMonsterData.map((monsters)=>
+//         monsters.get({ plain: true}))
+
+//         const newPlayerHbs = dbPlayerData.map((characters) =>
+//         characters.get({ plain: true })
+//         );
+
+//         res.render('turnorder', {
+//                 players:newPlayerHbs,
+//                 monsters:newMonsterHbs,
+//                 // logged_in:req.session.logged_in
             
-        })
-    } catch (err) {
-    res.status(400).json(err);
-  }
-}
+//         })
+//     } catch (err) {
+//     res.status(400).json(err);
+//   }
+// }
 
 module.exports = router;

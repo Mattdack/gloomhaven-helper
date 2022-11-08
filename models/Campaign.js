@@ -14,11 +14,6 @@ Campaign.init(
         isAlphaNumeric: true,
       },
     },
-    PlayerId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: true
-    }
   },
   {
     sequelize,

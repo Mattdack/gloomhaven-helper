@@ -1,64 +1,38 @@
 const router = require('express').Router();
-const { Campaign, Player, Monster } = require('../../models');
+const { Campaign, Player, Monster, Encounter } = require('../../models');
 
 router.get('/'), async (req, res) => {
     try {
-        const dbCharacterData = await Campaign.findAll({
+        const dbPlayerData = await Campaign.findAll({
             include: [
                 {
                     model: Player,
                     attributes: ['playerName']
-                },
-                {
-                    model: Monster,
-                    attributes: ["name"]
-                }
-            ]
+                }]
         });
 
-        const newList = dbCharacterData.map((characters) =>
+        const dbMonsterData = await Encounter.findAll({
+            include:[{
+                model:Monster,
+                attribute:["name"]
+            }]
+        })
+        const newMonsterList = dbMonsterData.map((monsters)=>
+        monsters.get({ plain: true}))
+
+        const newPlayerList = dbPlayerData.map((characters) =>
         characters.get({ plain: true })
         );
 
-        res.render('Turn Order', {
-            characters,
+        res.render('Home', {
+                players:newPlayerList,
+                monsters:newMonsterList,
+                logged_in:req.session.logged_in
+            
         })
     } catch (err) {
     res.status(400).json(err);
   }
 }
-
-// router.post('/', async (req, res) => {
-//   try {
-//     const newCampaignList = await Campaign.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newCampaign);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-// router.delete('/', async (req, res) => {
-//   try {
-//     const campaignData = await .destroy({
-//       where: {
-//         id: req.params.id,
-//         user_id: req.session.user_id,
-//       },
-//     });
-
-//     if (!campaignData) {
-//       res.status(404).json({ message: 'No campaign found with this id!' });
-//       return;
-//     }
-
-//     res.status(200).json(campaignData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

@@ -6,18 +6,20 @@
   </div>
 <ul id="sortable1" class="connectedSortable">
     {{#each players as |player|}}
-      <li> {{playerName}}</li>
-      <input type="number" id="{{playerName}}" name="turnorder" min="1" max="100" />
+      <li class="ui-state-default" id={{playerName}}> {{playerName}} 
+        <input type="number" name="turnorder" min="1" max="100" />
+      </li>
     {{else}}
       <p class="empty">No Players Added</p>
     {{/each}}
 <ul id="sortable1" class="connectedSortable"></ul>
-    {{#each players as |monster|}}
-      <li> {{name}}</li>
-      <input type="number" id="{{name}}" name="turnorder" min="1" max="100" />
+    {{#each monsters as |monster|}}
+      <li class="ui-state-default monsterturn"> {{name}} 
+      <input type="number" id={{name}} name="turnorder" min="1" max="100" />
+      </li>
     {{else}}
       <p class="empty">No Monsters Added</p>
     {{/each}}
   </form>
-  <input type="submit" value="Submit">
+  <button class="delBtn" id="delInput">Next Round</button>
 </aside>

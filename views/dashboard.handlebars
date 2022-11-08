@@ -1,0 +1,13 @@
+<h1>Welcome back, {{username}}</h1>
+<h2>My Projects:</h2>
+{{#each campaign}}
+    <div class="card">
+        <a href="/campaign/{{id}}"><h3>{{name}}</h3></a>
+        <h4>Needs: ${{needed_funding}}</h4>
+        <p>{{description}}</p>
+        <button class="delBtn" data-projId="{{id}}">Delete Me</button>
+        <hr>
+    </div>
+{{/each}}
+
+<script src="/js/dashboard.js"></script>

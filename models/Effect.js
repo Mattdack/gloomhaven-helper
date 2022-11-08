@@ -9,7 +9,7 @@ Effect.init({
          type: DataTypes.STRING,
          allowNull:false
     },
-    effect: {
+    image: {
          type: DataTypes.STRING,
          allowNull:false
     }

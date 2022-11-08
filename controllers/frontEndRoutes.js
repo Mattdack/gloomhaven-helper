@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const {Player} = require('../models');
+const {Campaign, Player, Monster, Encounter } = require('../models');
 
 // TODO: route is localhost:3001
 router.get("/",(req,res)=>{
@@ -28,5 +28,40 @@ router.get("/home",(req,res)=>{
         })
     })
 })
+
+// only info for characters turn order
+router.get('/turnorder'), async (req, res) => {
+    try {
+        const dbPlayerData = await Campaign.findAll({
+            include: [
+                {
+                    model: Player,
+                    attributes: ['playerName']
+                }]
+        });
+
+        const dbMonsterData = await Encounter.findAll({
+            include:[{
+                model:Monster,
+                attribute:["name"]
+            }]
+        })
+        const newMonsterHbs = dbMonsterData.map((monsters)=>
+        monsters.get({ plain: true}))
+
+        const newPlayerHbs = dbPlayerData.map((characters) =>
+        characters.get({ plain: true })
+        );
+
+        res.render('turnorder', {
+                players:newPlayerHbs,
+                monsters:newMonsterHbs,
+                logged_in:req.session.logged_in
+            
+        })
+    } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 module.exports = router;

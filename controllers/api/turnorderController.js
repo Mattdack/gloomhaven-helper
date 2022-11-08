@@ -17,16 +17,16 @@ router.get('/'), async (req, res) => {
                 attribute:["name"]
             }]
         })
-        const newMonsterList = dbMonsterData.map((monsters)=>
+        const newMonsterHbs = dbMonsterData.map((monsters)=>
         monsters.get({ plain: true}))
 
-        const newPlayerList = dbPlayerData.map((characters) =>
+        const newPlayerHbs = dbPlayerData.map((characters) =>
         characters.get({ plain: true })
         );
 
-        res.render('Home', {
-                players:newPlayerList,
-                monsters:newMonsterList,
+        res.render('turnorder', {
+                players:newPlayerHbs,
+                monsters:newMonsterHbs,
                 logged_in:req.session.logged_in
             
         })

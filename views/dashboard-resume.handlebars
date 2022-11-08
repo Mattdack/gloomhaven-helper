@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-auto">
+        {{#if loggedIn}}
+        <h2>Welcome, {{user.username}}!</h2>
+        {{/if}}
+    </div>
+</div>
+<br>
+{{#if campaign.length}}
+<div class="card flex-column">
+    {{#each campaigns as |campaign|}}
+    {{>editItem campaign}}
+    {{/each}}
+</div>
+{{/if}}

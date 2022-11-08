@@ -15,23 +15,18 @@
 </head>
 
 <body class="flex-column min-100-vh">
-    <header class="hero"></header>
-    <div class="flex items-center justify-between flex-wrap bg-slate-800 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight"><img
-                    src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp">Helper</span>
-        </div>
-    </div>
-    <a href="/">Home</a>
-            {{#if logged_in}}
-        <a href="/dashboard">Dashboard</a>
-        <button id ="logoutBtn">logout</button>
-            {{else}}
-        <a href="/login">Login</a>
-            {{/if}}
+    <nav class="navbar">
+        <ul>
+            <li class="li-inline nav-item"><a href="/">Home</a></li>
+            <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="li-inline nav-item"><a href="/login">Login</a></li>
+            <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+    <header class="hero">
+        <h1 class="app-title"><a href="/">Gloomhaven Helper</a></h1>
     </header>
     <main class="col-auto">
-        
         {{{body}}}
     </main>
     <footer class="flex-row justify-center">
@@ -41,4 +36,3 @@
 
 </html>
 <script src="/js/logout.js"></script>
-

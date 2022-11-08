@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Rufasa85/sessions-sneakers#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",

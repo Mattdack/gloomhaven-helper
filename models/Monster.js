@@ -61,11 +61,6 @@ Monster.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
       default: false,
-    },
-    effect: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null,
     }
   },
   {

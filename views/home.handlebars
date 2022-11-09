@@ -128,12 +128,7 @@
 <h2>Monsters</h2>
 {{#each monsters as |monster|}}
 {{>monsterstats}}
-{{/each}}
-
-{{#each monsters |monster|}}
-<ol>
-<li>{{name}}{{>healthbar}}</li>
-</ol>
+<li>{{>healthbar}}</li>
 {{/each}}
 
 
@@ -146,20 +141,14 @@
   </div>
   <form>
     <ul id="sortable1" class="connectedSortable">
-    {{#each playerss as |player|}}
-      <li class="ui-state-default {{playerName}}" > {{playerName}} 
-        <input type="number" name="turnorder" min="1" max="100" />
-      </li>
-    {{else}}
-      <p class="empty">No Players Added</p>
+    {{#each players as |player|}}
+      <li class="ui-state-default {{playerName}}" > {{playerName}} <input type="number" name="turnorder" min="1" max="100" /></li>
     {{/each}}
-<ul id="sortable1" class="connectedSortable"></ul>
-    {{#each monsterss as |monster|}}
+<ul id="sortable2" class="connectedSortable"></ul>
+    {{#each monsters as |monster|}}
       <li class="ui-state-default monsterturn"> {{name}} 
       <input type="number" id={{name}} name="turnorder" min="1" max="100" />
       </li>
-    {{else}}
-      <p class="empty">No Monsters Added</p>
       {{/each}}
   </form>
   <button class="delBtn" id="delInput">Next Round</button>

@@ -1,11 +1,11 @@
 const { startCase, update } = require("lodash");
 
 // Turn Order: Sortable
-$( function() {
-    $( "#sortable1, #sortable2" ).sortable({
-      connectWith: ".connectedSortable"
-    }).disableSelection();
-  } );
+// $( function() {
+//     $( "#sortable1, #sortable2" ).sortable({
+//       connectWith: ".connectedSortable"
+//     }).disableSelection();
+//   } );
 
 //   Turn Order: Clear Input
 const delButton = document.querySelectorAll("#delInput");

@@ -59,7 +59,7 @@ const monsterHP = document.querySelector("monsterHP")
 
 canvas.style.marginTop = window.innerHeight / 2 - height / 2 + "px";
 //  TODO: for each id: let health = 
-let health = monsterHP.value;
+let health = 100
 const healthBarWidth = 200;
 const healthBarHeight = 30;
 const x = width / 2 - healthBarWidth / 2;

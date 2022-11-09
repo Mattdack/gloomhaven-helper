@@ -41,10 +41,5 @@
 <h2>Monsters</h2>
 {{#each monsters as |monster|}}
 {{>monsterstats}}
-{{/each}}
-
-{{#each monsters |monster|}}
-<ol>
-<li>{{name}}{{>healthbar}}</li>
-</ol>
+<li>{{>healthbar}}</li>
 {{/each}}

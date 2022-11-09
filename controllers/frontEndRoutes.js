@@ -26,6 +26,10 @@ router.get("/home",(req,res)=>{
         console.log(players);
         console.log("==============")
         console.log(playersHbsData)
+
+
+
+        
         res.render("home",{
             players:playersHbsData,
             logged_in:req.session.logged_in
@@ -33,40 +37,30 @@ router.get("/home",(req,res)=>{
     })
 })
 
-// // only info for characters turn order
-// router.get('/turnorder'), async (req, res) => {
-//     try {
-//         const dbPlayerData = await Campaign.findAll({
-//             include: [
-//                 {
-//                     model: Player,
-//                     attributes: ['playerName']
-//                 }]
-//         });
+// only info for characters turn order
+router.get('/home'), async (req, res) => {
+    try {
+        const dbPlayerData = await Campaign.findAll();
 
-//         const dbMonsterData = await Encounter.findAll({
-//             include:[{
-//                 model:Monster,
-//                 attribute:["name"]
-//             }]
-//         })
-//         const newMonsterHbs = dbMonsterData.map((monsters)=>
-//         monsters.get({ plain: true}))
+        const dbMonsterData = await Encounter.findAll()
 
-//         const newPlayerHbs = dbPlayerData.map((characters) =>
-//         characters.get({ plain: true })
-//         );
+        const newPlayerHbs = dbPlayerData.map((characters) =>
+        characters.get({ plain: true }));
 
-//         res.render('turnorder', {
-//                 players:newPlayerHbs,
-//                 monsters:newMonsterHbs,
-//                 // logged_in:req.session.logged_in
+        const newMonsterHbs = dbMonsterData.map((monsters)=>
+        monsters.get({ plain: true}));
+
+
+        res.render('home', {
+                players:newPlayerHbs,
+                monsters:newMonsterHbs,
+                // logged_in:req.session.logged_in
             
-//         })
-//     } catch (err) {
-//     res.status(400).json(err);
-//   }
-// }
+        })
+    } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 //TODO: this allows for us to see the person's id with the session in use 
 router.get("/sessions",(req,res)=>{

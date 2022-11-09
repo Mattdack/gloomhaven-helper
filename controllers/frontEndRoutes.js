@@ -17,7 +17,24 @@ router.get("/signup",(req,res)=>{
     })
 })
 
+router.get("/dashboard",(req,res)=>{
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    res.render("dashboard",{
+        logged_in:req.session.logged_in
+    })
+})
+
+
 router.get("/home",(req,res)=>{
+<<<<<<< HEAD
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    Player.findAll().then(players=>{
+        const playersHbsData = players.map(player=>player.get({plain:true}))
+=======
     // TODO: findall gets all Players and then parses them into passable data
     Player.findAll({
         include: [{
@@ -29,6 +46,7 @@ router.get("/home",(req,res)=>{
         }]
     }).then(players=>{
         const playersHbsData = players.map(project=>project.get({plain:true}))
+>>>>>>> dev
         console.log(players);
         console.log("==============")
         console.log(playersHbsData)

@@ -22,12 +22,12 @@
         </div>
         <div>
             <ul class="flex text-brown">
-                <li class="ml-5 px-2 py-1"><a href="/home">Home</a></li>
-                {{!-- {{#if logged_in}} --}}
-                <li class="ml-5 px-2 py-1"><a href="/dashboard">Dashboard</a></li>
-                <li class="ml-5 px-2 py-1"><a href="/logout">Logout</a></li>
-                {{!-- {{else}} --}}
-                <li class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800"><a href="/">Login</a></li>
+                {{#if logged_in}}
+                <a class="ml-5 px-2 py-1" href="/home">Home</a></li>
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id='logoutBtn' href="/login">Logout</button></li>
+                {{else}}
+                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/login">Login</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
@@ -40,6 +40,4 @@
 </body>
 
 </html>
-{{#if logged_in}}
 <script src="/js/logout.js"></script>
-{{/if}}

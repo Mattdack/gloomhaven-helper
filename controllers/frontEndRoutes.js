@@ -5,7 +5,7 @@ const {Campaign, Player, Monster, Encounter } = require('../models');
 // TODO: route is localhost:3001
 router.get("/login",(req,res)=>{
         if(req.session.logged_in){
-            // return res.redirect("/home")
+            return res.redirect("/home")
         }
         res.render("login",{
             logged_in:req.session.logged_in

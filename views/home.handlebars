@@ -125,11 +125,11 @@
   <button class="delBtn" id="delInput">Next Round</button>
 </aside>
 
-<h2>Monsters</h2>
+{{!-- <h2>Monsters</h2>
 {{#each monsters as |monster|}}
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
-{{/each}}
+{{/each}} --}}
 
 
 {{!-- Turn Order --}}
@@ -159,3 +159,18 @@
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
 {{/each}}
+
+{{!-- {{#each monsters}}
+<div class="card">
+    <p>Monster name: {{name}}</p>
+    <p>Level: {{level}}</p>
+    <p>Special: {{special}}</p>
+    <p>Health: {{health}}</p>
+    <p>Move: {{move}}</p>
+    <p>Attack: {{attack}}</p>
+    <p>effects: </p>
+    {{#each Effects}}
+    <p>{{name}}</p>
+    {{/each}}
+</div>
+{{/each}} --}}

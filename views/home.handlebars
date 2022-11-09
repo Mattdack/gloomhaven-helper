@@ -27,7 +27,7 @@
       <p class="empty">No Players Added</p>
     {{/each}}
 <ul id="sortable1" class="connectedSortable"></ul>
-    {{#each players as |monster|}}
+    {{#each monsters as |monster|}}
       <li class="ui-state-default monsterturn"> {{name}} 
       <input type="number" id={{name}} name="turnorder" min="1" max="100" />
       </li>

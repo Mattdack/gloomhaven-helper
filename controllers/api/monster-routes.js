@@ -30,7 +30,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Monster parameters
 router.post('/', async (req, res) => {
   try {
     const monsterData = await Monster.create({

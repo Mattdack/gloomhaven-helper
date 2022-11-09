@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const effectData = await Effect.findByPk(req.params.id, {
-
     });
 
     if (!effectData) {

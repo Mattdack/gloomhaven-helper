@@ -1,11 +1,17 @@
 const router = require('express').Router();
-const { Player } = require('../../models');
+const { Player, Effect } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
     const playerData = await Player.findAll({
       // add separate modals connected to Player if needed
-      // include: [{ model:  }],
+      include: [{
+        model: Effect,
+        attributes: ["name"],
+        through: {
+          attributes: []
+        }
+      }],
     });
     res.status(200).json(playerData);
   } catch (err) {
@@ -30,7 +36,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Player parameters
 router.post('/', async (req, res) => {
   try {
     const playerData = await Player.create({
@@ -45,7 +50,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Player parameters
 router.put('/:id', (req, res) => {
     Player.update(
       {
@@ -82,6 +86,20 @@ router.post(`/:id/effect`, async (req, res) => {
   try{
     const targetPlayer = await Player.findByPk(req.params.id);
     await targetPlayer.addEffect(req.body.effect);
+
+    const updatedTargetPlayer = await Player.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{
+        model: Effect,
+        attributes: ["name"],
+        through: {
+          attributes: []
+        }
+      }],
+    });
+    res.status(200).json(updatedTargetPlayer);
   } catch (err) {
     res.status(400).json(err);
   }

@@ -18,9 +18,9 @@ router.get("/signup",(req,res)=>{
 })
 
 router.get("/home",(req,res)=>{
-    // if(!req.session.logged_in){
-    //     return res.redirect("/login")
-    // }
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
     Player.findAll().then(players=>{
         const playersHbsData = players.map(player=>player.get({plain:true}))
         console.log(players);

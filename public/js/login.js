@@ -1,4 +1,5 @@
-const loginForm = document.querySelector('#login')
+//TODO: this is linked to the login button on the login form...NOT the login button at main.handlebar page
+const loginForm = document.querySelector('#loginForm')
 loginForm.addEventListener('submit',e => {
     e.preventDefault();
     console.log('prevented default')
@@ -14,7 +15,8 @@ loginForm.addEventListener('submit',e => {
         }
     }).then(res=>{
         if(res.ok){
-            location.assign('/home')
+            // location.assign('/home')
+            location.reload()
         } else {
             alert('incorrect login')
         }

@@ -7,7 +7,6 @@ $( function() {
 
 //   Turn Order: Clear Input
 const delButton = document.querySelectorAll("#delInput");
-
 delBtn.addEventListener("click",event=>{
 event.preventDefault();
 let clear = document.getElementByName('turnorder');

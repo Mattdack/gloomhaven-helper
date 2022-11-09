@@ -53,10 +53,13 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const width = canvas.width = 320;
 const height = canvas.height = 480;
+const plusHP = document.getElementById("plusHP")
+const minusHP = document.getElementById("minusHP")
+const monsterHP = document.querySelector("monsterHP")
 
 canvas.style.marginTop = window.innerHeight / 2 - height / 2 + "px";
 //  TODO: for each id: let health = 
-let health = 100;
+let health = monsterHP.value;
 const healthBarWidth = 200;
 const healthBarHeight = 30;
 const x = width / 2 - healthBarWidth / 2;
@@ -70,8 +73,13 @@ const frame = function() {
   requestAnimationFrame(frame);
 }
 
-canvas.onclick = function() {
+minusHP.onclick = function() {
   health -= 1;
+  healthBar.updateHealth(health);
+};
+
+plusHP.onclick = function() {
+  health += 1;
   healthBar.updateHealth(health);
 };
 

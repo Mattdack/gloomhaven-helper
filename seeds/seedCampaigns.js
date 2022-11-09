@@ -6,11 +6,6 @@ const campaigns = [
         numPlayers: 4,
         UserId: 1,
     },
-    {
-        name: "DarkPathTravelers",
-        numPlayers: 4,
-        UserId: 2,
-    },
 ]
 
 const seedCampaigns = () => Campaign.bulkCreate(campaigns);

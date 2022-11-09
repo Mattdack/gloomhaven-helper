@@ -51,24 +51,6 @@ router.get("/home", async (req, res) => {
     }
     );
 
-    // const encounterMonsters = await Monster.findAll({
-    //   where: {
-    //     '$Encounter.EncounterMonster.EncounterId$': 1,
-    //   },
-    //   include: [
-    //     {
-    //       model: Encounter,
-    //       as: 'EncounterMonster'
-    //     },
-    //     {
-    //       model: Effect,
-    //       attributes: ["name"],
-    //       through: {
-    //         attributes: [],
-    //       },
-    //     },
-    //   ],
-    // });
     const encMonsters = encounterMonsters.map((monster) =>
       monster.get({ plain: true })
     );

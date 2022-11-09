@@ -68,7 +68,7 @@ router.get('/home'), async (req, res) => {
   }
 }
 
-//TODO: this allows for us to see the person's id with the session in use 
+//this allows for us to see the person's id with the session in use 
 router.get("/sessions",(req,res)=>{
     res.json(req.session)
 })

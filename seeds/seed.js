@@ -19,6 +19,8 @@ const seedAll = async () => {
 
   const me = await Monster.findByPk(1);
   await me.addEffect(1);
+  await encounters[1].addMonsters([1,2,3]);
+
   process.exit(0);
 };
 

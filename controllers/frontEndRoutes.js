@@ -5,13 +5,21 @@ const router = express.Router();
 const {Campaign, Player, Monster, Encounter } = require('../models');
 
 // TODO: route is localhost:3001
-router.get("/",(req,res)=>{
+router.get("/login",(req,res)=>{
         // TODO: findall gets all Players and then parses them into passable data
         res.render("login",{
             //this is passing projects however the value has been changed to the format that handlebars likes
             // logged_in:req.session.logged_in
         })
     })
+    
+router.get("/signup",(req,res)=>{
+    // TODO: findall gets all Players and then parses them into passable data
+    res.render("signup",{
+        //this is passing projects however the value has been changed to the format that handlebars likes
+        // logged_in:req.session.logged_in
+    })
+})
 
 router.get("/home",(req,res)=>{
     // TODO: findall gets all Players and then parses them into passable data

@@ -125,3 +125,10 @@ aside {
 ::-webkit-scrollbar-thumb:hover {
     background: #1e81b0;
 }
+
+canvas {
+    background: #EEE;
+    display: block;
+    margin: 0 auto;
+    border: solid 6px #444;
+}

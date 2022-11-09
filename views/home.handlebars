@@ -142,7 +142,7 @@
 {{#each monsters as |monster|}}
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
-{{/each}}
+{{/each}} --}}
 
 <<<<<<< HEAD
 {{#each monsters |monster|}}
@@ -179,4 +179,18 @@
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
 {{/each}}
->>>>>>> dev
+
+{{!-- {{#each monsters}}
+<div class="card">
+    <p>Monster name: {{name}}</p>
+    <p>Level: {{level}}</p>
+    <p>Special: {{special}}</p>
+    <p>Health: {{health}}</p>
+    <p>Move: {{move}}</p>
+    <p>Attack: {{attack}}</p>
+    <p>effects: </p>
+    {{#each Effects}}
+    <p>{{name}}</p>
+    {{/each}}
+</div>
+{{/each}} --}}

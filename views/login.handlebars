@@ -1,19 +1,16 @@
+<body class="bg-[url(https://www.backerkit.com/blog/wp-content/uploads/2017/10/gloomhaven-isaac-childres-1.jpg)] bg-cover">
+
 <div class="card">
     <h2 class="card-header">Login</h2>
-    <form class="card-body login-form">
-        <div class="form-group">
-            <label class="form-label">Username:</label>
-            <input type="text" class="form-input" id="username-input-login">
-            </div>
-        <div class="form-group">
-            <label class="form-label">Password:</label>
-            <input type="password" class="form-input" id="password-input-login">
-            </div>
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Login</button>
-            </div>
+    <form class="card-body login-form" id="loginForm">
+            <input type="text" name="loginUser" id="loginUser" placeholder="username">
+            <input type="text" name="loginPassword" id="loginPassword" placeholder="password">
+            <button>Login</button>
         </form>
     <br>
-    <a href="/signup">Sign Up</a>
-    </div>
+    <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/signup">Don't have an account? Sign Up!</a>
+</div>
+
+</body>
+
 <script src="/js/login.js"></script>

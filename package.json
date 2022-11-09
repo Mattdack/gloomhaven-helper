@@ -4,7 +4,7 @@
   "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) # gloomhaven-helper",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node seeds/seed.js",
     "build:tailwind": "tailwindcss -i ./public/style.css -o ./public/output.css --watch"

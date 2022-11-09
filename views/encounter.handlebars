@@ -1,0 +1,24 @@
+<h1>Welcome back, {{username}}</h1>
+<h2>My Projects:</h2>
+{{#each campaign}}
+    <div class="card">
+        <a href="/campaign/{{id}}"><h3>{{name}}</h3></a>
+        <h4>Needs: ${{needed_funding}}</h4>
+        <p>{{description}}</p>
+        <button class="delBtn" data-projId="{{id}}">Delete Me</button>
+        <hr>
+    </div>
+{{/each}}
+
+{{!-- add party to campaign --}}
+  <h2>Who is in your party?</h2>
+  <form action="" id="addCharacter">
+{{>addparty}}
+  </form>
+
+{{>newmonster}}
+{{>monstersaddedlist}}
+
+<button>Do the thing!</button>
+
+<script src="/js/encounter.js"></script>

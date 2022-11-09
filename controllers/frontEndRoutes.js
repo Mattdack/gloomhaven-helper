@@ -1,17 +1,21 @@
-// TODO: anything in the res.render is referencing the name of the handlebar file
-
 const express = require('express');
 const router = express.Router();
 const {Campaign, Player, Monster, Encounter, Effect } = require('../models');
 
 // TODO: route is localhost:3001
-router.get("/",(req,res)=>{
-        // TODO: findall gets all Players and then parses them into passable data
+router.get("/login",(req,res)=>{
+        if(req.session.logged_in){
+            return res.redirect("/home")
+        }
         res.render("login",{
-            //this is passing projects however the value has been changed to the format that handlebars likes
-            // logged_in:req.session.logged_in
+            logged_in:req.session.logged_in
         })
+})
+
+router.get("/signup",(req,res)=>{
+    res.render("signup",{
     })
+})
 
 router.get("/home",(req,res)=>{
     // TODO: findall gets all Players and then parses them into passable data
@@ -28,49 +32,45 @@ router.get("/home",(req,res)=>{
         console.log(players);
         console.log("==============")
         console.log(playersHbsData)
-        console.log("==============")
 
+
+
+        
         res.render("home",{
-            //this is passing projects however the value has been changed to the format that handlebars likes
             players:playersHbsData,
-            // logged_in:req.session.logged_in
+            logged_in:req.session.logged_in
         })
     })
 })
 
 // only info for characters turn order
-router.get('/turnorder'), async (req, res) => {
+router.get('/home'), async (req, res) => {
     try {
-        const dbPlayerData = await Campaign.findAll({
-            include: [
-                {
-                    model: Player,
-                    attributes: ['playerName']
-                }]
-        });
+        const dbPlayerData = await Campaign.findAll();
 
-        const dbMonsterData = await Encounter.findAll({
-            include:[{
-                model:Monster,
-                attribute:["name"]
-            }]
-        })
-        const newMonsterHbs = dbMonsterData.map((monsters)=>
-        monsters.get({ plain: true}))
+        const dbMonsterData = await Encounter.findAll()
 
         const newPlayerHbs = dbPlayerData.map((characters) =>
-        characters.get({ plain: true })
-        );
+        characters.get({ plain: true }));
 
-        res.render('turnorder', {
+        const newMonsterHbs = dbMonsterData.map((monsters)=>
+        monsters.get({ plain: true}));
+
+
+        res.render('home', {
                 players:newPlayerHbs,
                 monsters:newMonsterHbs,
-                logged_in:req.session.logged_in
+                // logged_in:req.session.logged_in
             
         })
     } catch (err) {
     res.status(400).json(err);
   }
 }
+
+//TODO: this allows for us to see the person's id with the session in use 
+router.get("/sessions",(req,res)=>{
+    res.json(req.session)
+})
 
 module.exports = router;

@@ -7,7 +7,7 @@ body {
     background-repeat: no-repeat;
     background-position: fixed; */
     font-family: 'Shadows Into Light'; 
-    color: rgb(216, 222, 58);
+    color: rgb(149, 133, 55);
 }
 
 aside {
@@ -18,9 +18,11 @@ aside {
     color: var(--light);
 }
 
+
 .card {
     margin: 0 0 20px 0;
     flex: 0 0 50%;
+    align-items: center;
     max-width: 50%;
     padding: 5px;
     border: 3px solid var(--dark);
@@ -32,13 +34,30 @@ aside {
   }
 
   .player-card {
-    margin: 20px;
-    flex: 0 1 300px;
-    border: 7px double var(--dark);
-    border-radius: 10px;
-    /* background-color: pink; */
-    color: var(--dark);
+        width: 300px;
+        height: 125px;
+        background-color: rgb(156, 48, 48);
+        background: linear-gradient(#f8f8f8, rgb(136, 63, 63));
+        box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        margin: 1.5rem;
+        color:rgb(60, 55, 29)
   }
+
+  .monster-card {
+    width: 300px;
+    height: 125px;
+    background-color: rgb(156, 48, 48);
+    background: linear-gradient(#f8f8f8, rgb(136, 63, 63));
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5rem;
+    color:rgb(60, 55, 29)
+}
 
 /* sortable turn order */
 #sortable1, #sortable2 {

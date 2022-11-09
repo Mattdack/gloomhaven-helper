@@ -1,24 +1,22 @@
-const loginFormHandler = async (event) => {
-    event.preventDefault();
-
-    const usernameEl = document.querySelector('#username-input-login');
-    const passwordEl = document.querySelector('#password-input-login');
-
-    const response = await fetch('/api/user/login', {
-        method: 'POST',
-        body: JSON.stringify({
-            username: usernameEl.value,
-            password: passwordEl.value, 
-        }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert('Cannot login');
+const loginForm = document.querySelector('#login')
+loginForm.addEventListener('submit',e => {
+    e.preventDefault();
+    console.log('prevented default')
+    const userObj = {
+        username:document.querySelector('#loginUser').value,
+        password:document.querySelector('#loginPassword').value
     }
-};
-
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+    fetch("/api/users/login",{
+        method:"POST",
+        body:JSON.stringify(userObj),
+        headers:{ 
+            'Content-Type': 'application/json' 
+        }
+    }).then(res=>{
+        if(res.ok){
+            location.reload()
+        } else {
+            alert('incorrect login')
+        }
+    })
+})

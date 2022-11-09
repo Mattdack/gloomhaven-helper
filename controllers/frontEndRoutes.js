@@ -64,30 +64,6 @@ router.get("/home", async (req, res) => {
   }
 });
 
-// only info for characters turn order
-// router.get('/home'), async (req, res) => {
-//     try {
-//         const dbPlayerData = await Campaign.findAll();
-
-//         const dbMonsterData = await Encounter.findAll()
-
-//         const newPlayerHbs = dbPlayerData.map((characters) =>
-//         characters.get({ plain: true }));
-
-//         const newMonsterHbs = dbMonsterData.map((monsters)=>
-//         monsters.get({ plain: true}));
-
-//         res.render('home', {
-//                 players:newPlayerHbs,
-//                 monsters:newMonsterHbs,
-//                 // logged_in:req.session.logged_in
-
-//         })
-//     } catch (err) {
-//     res.status(400).json(err);
-//   }
-// }
-
 //this allows for us to see the person's id with the session in use
 router.get("/sessions", (req, res) => {
   res.json(req.session);

@@ -1,14 +1,14 @@
-<h1>Home Page!</h1>
-<h2>All projects</h2>
+
 {{#each players}}
-    <div class="player-card">
-        <p>player name: {{playerName}}</p>
-        <p>level: {{playerLevel}}</p>
-        <p>health: {{playerHealth}}</p>
-        <p>experience: {{experience}}</p>
-        <p>effect: {{effect}}</p>
+    <div class="player-card player-title">
+        <p class="player-stats">player name: {{playerName}}</p>
+        <p class="player-stats">level: {{playerLevel}}</p>
+        <p class="player-stats">health: {{playerHealth}}</p>
+        <p class="player-stats">experience: {{experience}}</p>
+        <p class="player-stats">effect: {{effect}}</p>
     </div>
 {{/each}}
+
 
 {{!-- Turn Order --}}
 <aside>

@@ -20,7 +20,7 @@
   <form>
     <ul id="sortable1" class="connectedSortable">
     {{#each players as |player|}}
-      <li class="ui-state-default" id={{playerName}}> {{playerName}} 
+      <li class="ui-state-default {{playerName}}" > {{playerName}} 
         <input type="number" name="turnorder" min="1" max="100" />
       </li>
     {{else}}

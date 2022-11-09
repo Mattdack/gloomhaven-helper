@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const {Campaign, Player, Monster, Encounter } = require('../models');
+const {Campaign, Player, Monster, Encounter, Effect } = require('../models');
 
 // TODO: route is localhost:3001
 router.get("/",(req,res)=>{
@@ -15,11 +15,20 @@ router.get("/",(req,res)=>{
 
 router.get("/home",(req,res)=>{
     // TODO: findall gets all Players and then parses them into passable data
-    Player.findAll().then(players=>{
+    Player.findAll({
+        include: [{
+            model: Effect,
+            attributes: ['name'],
+            through:{
+                attributes:[],
+            }
+        }]
+    }).then(players=>{
         const playersHbsData = players.map(project=>project.get({plain:true}))
         console.log(players);
         console.log("==============")
         console.log(playersHbsData)
+        console.log("==============")
 
         res.render("home",{
             //this is passing projects however the value has been changed to the format that handlebars likes

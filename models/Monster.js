@@ -10,7 +10,6 @@ Monster.init(
       allowNull: false,
       validate: {
         len: [1, 30],
-        isAlpha: true,
       },
     },
     level: {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Monster } = require('../../models');
+const { Monster, Effect } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -30,7 +30,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Monster parameters
 router.post('/', async (req, res) => {
   try {
     const monsterData = await Monster.create({
@@ -88,6 +87,20 @@ router.post(`/:id/effect`, async (req, res) => {
   try{
     const targetMonster = await Monster.findByPk(req.params.id);
     await targetMonster.addEffect(req.body.effect);
+
+    const updatedTargetMonster = await Monster.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{
+        model: Effect,
+        attributes: ["name"],
+        through: {
+          attributes: []
+        }
+      }],
+    });
+    res.status(200).json(updatedTargetMonster);
   } catch (err) {
     res.status(400).json(err);
   }

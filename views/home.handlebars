@@ -1,5 +1,5 @@
 
-{{#each players}}
+    {{#each players}}
     <div class="player-card player-title">
         <p class="player-stats">player name: {{playerName}}</p>
         <p class="player-stats">level: {{playerLevel}}</p>
@@ -7,35 +7,36 @@
         <p class="player-stats">experience: {{experience}}</p>
         <p class="player-stats">effect: {{effect}}</p>
     </div>
-{{/each}}
+    {{/each}}
+
 
 
 {{!-- Turn Order --}}
 <aside>
-  <div class="card-header col-md-12 text-center">
-    <h3>
-      Turn Order
-    </h3>
-  </div>
-  <form>
-    <ul id="sortable1" class="connectedSortable">
-    {{#each playerss as |player|}}
-      <li class="ui-state-default {{playerName}}" > {{playerName}} 
-        <input type="number" name="turnorder" min="1" max="100" />
-      </li>
-    {{else}}
-      <p class="empty">No Players Added</p>
-    {{/each}}
-<ul id="sortable1" class="connectedSortable"></ul>
-    {{#each monsterss as |monster|}}
-      <li class="ui-state-default monsterturn"> {{name}} 
-      <input type="number" id={{name}} name="turnorder" min="1" max="100" />
-      </li>
-    {{else}}
-      <p class="empty">No Monsters Added</p>
-      {{/each}}
-  </form>
-  <button class="delBtn" id="delInput">Next Round</button>
+    <div class="card-header col-md-12 text-center">
+        <h3>
+            Turn Order
+        </h3>
+    </div>
+    <form>
+        <ul id="sortable1" class="connectedSortable">
+            {{#each playerss as |player|}}
+            <li class="ui-state-default {{playerName}}"> {{playerName}}
+                <input type="number" name="turnorder" min="1" max="100" />
+            </li>
+            {{else}}
+            <p class="empty">No Players Added</p>
+            {{/each}}
+            <ul id="sortable1" class="connectedSortable"></ul>
+            {{#each monsterss as |monster|}}
+            <li class="ui-state-default monsterturn"> {{name}}
+                <input type="number" id={{name}} name="turnorder" min="1" max="100" />
+            </li>
+            {{else}}
+            <p class="empty">No Monsters Added</p>
+            {{/each}}
+    </form>
+    <button class="delBtn" id="delInput">Next Round</button>
 </aside>
 
 {{!-- <h2>Monsters</h2>
@@ -45,6 +46,6 @@
 
 {{#each monsters |monster|}}
 <ol>
-<li>{{name}}{{>healthbar}}</li>
+    <li>{{name}}{{>healthbar}}</li>
 </ol>
 {{/each}} --}}

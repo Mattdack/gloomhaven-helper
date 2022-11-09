@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    {{!-- <div class="bg-[url('https://raw.githubusercontent.com/any2cards/gloomhaven/master/images/map-tiles/gloomhaven/gh-d1a.png')]"> --}}
     <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 mx-100 shadow-2xl w-12/12">
         <div class="text-2xl text-brown font-semibold inline-flex items-center">
             <img src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp" class="w-25 mr-7"
@@ -23,14 +24,18 @@
         <div>
             <ul class="flex text-brown">
                 {{#if logged_in}}
-                <a class="ml-5 px-2 py-1" href="/home">Home</a></li>
+                <a class="ml-5 px-2 py-1" href="/dashboard">Home</a></li>
+                <a class="ml-5 px-2 py-1" href="/encounter">New Game</a></li>
+                <a class="ml-5 px-2 py-1" href="/home">Load Game</a></li>
                 <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id='logoutBtn' href="/login">Logout</button></li>
                 {{else}}
                 <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/login">Login</a></li>
+                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/signup">Sign Up</a></li>
                 {{/if}}
             </ul>
         </div>
     </nav>
+    </div>
     <main class="flex justify-content-center flex-wrap align-items-center mh-100">
         {{{body}}}
     </main>

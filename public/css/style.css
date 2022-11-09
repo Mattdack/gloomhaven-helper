@@ -19,7 +19,7 @@ aside {
 }
 
 
-.card {
+.login-card {
     margin: 0 0 20px 0;
     flex: 0 0 50%;
     align-items: center;
@@ -29,7 +29,7 @@ aside {
     border-radius: var(--border-radius);
     border-style: double;
     border-width: thick;
-    background-color: rgb(111, 111, 152);
+    background-color: rgb(170, 118, 29);
     color: var(--light);
   }
 

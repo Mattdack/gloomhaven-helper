@@ -17,6 +17,16 @@ router.get("/signup",(req,res)=>{
     })
 })
 
+router.get("/dashboard",(req,res)=>{
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    res.render("dashboard",{
+        logged_in:req.session.logged_in
+    })
+})
+
+
 router.get("/home",(req,res)=>{
     if(!req.session.logged_in){
         return res.redirect("/login")

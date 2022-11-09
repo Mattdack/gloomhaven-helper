@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Campaign, Player, Monster, Encounter } = require('../models');
+const {Campaign, Player, Monster, Encounter, Effect } = require('../models');
 
 // TODO: route is localhost:3001
 router.get("/login",(req,res)=>{
@@ -18,11 +18,17 @@ router.get("/signup",(req,res)=>{
 })
 
 router.get("/home",(req,res)=>{
-    // if(!req.session.logged_in){
-    //     return res.redirect("/login")
-    // }
-    Player.findAll().then(players=>{
-        const playersHbsData = players.map(player=>player.get({plain:true}))
+    // TODO: findall gets all Players and then parses them into passable data
+    Player.findAll({
+        include: [{
+            model: Effect,
+            attributes: ['name'],
+            through:{
+                attributes:[],
+            }
+        }]
+    }).then(players=>{
+        const playersHbsData = players.map(project=>project.get({plain:true}))
         console.log(players);
         console.log("==============")
         console.log(playersHbsData)

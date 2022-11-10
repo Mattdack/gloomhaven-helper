@@ -1,8 +1,11 @@
-    <div class="monster-card">
-        <h3>{{name}}</h3>
-        <p class="monster-stats">level: {{level}}</p>
-        <p class="monster-stats">special: {{special}}</p>
-        <p class="monster-stats">health: {{health}}</p>
-        <p class="monster-stats">move: {{move}}</p>
-        <p class="monster-stats">attack: {{attack}}</p>
-    </div>
+<div class="monster-card">
+  <h3>{{name}}</h3>
+  <p class="monster-stats">level: {{level}}</p>
+  <p class="monster-stats">special: {{special}}</p>
+  <p class="monster-stats">health: {{health}}
+    <span class="HPchange">{{health}}</span></p>
+  <p class="monster-stats">move: {{move}}</p>
+  <p class="monster-stats">attack: {{attack}}</p>
+  <button type="button" class="plusHP">+ PLUS </button>
+  <button type="button" class="minusHP">- MINUS</button>
+</div>

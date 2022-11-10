@@ -1,16 +1,17 @@
 
-<<<<<<< HEAD
+
     {{#each players}}
     <div class="player-card player-title">
-        <p class="player-stats">player name: {{playerName}}</p>
+        <p class="player-stats">{{playerName}}</p>
         <p class="player-stats">level: {{playerLevel}}</p>
-        <p class="player-stats">health: {{playerHealth}}</p>
+        <p class="player-stats">health: {{playerHealth}} <span class="HPchange">{{playerHealth}}</span></p>
         <p class="player-stats">experience: {{experience}}</p>
         <p class="player-stats">effect: {{effect}}</p>
+        <button type="button" id="plusHP">+ PLUS </button>
+        <button type="button" id="minusHP">- MINUS</button>
     </div>
     {{/each}}
 
-=======
 {{#each players}}
   <div class="card">
     <p>player name: {{playerName}}</p>
@@ -107,7 +108,7 @@
 
   </div>
 {{/each}}
->>>>>>> dev
+
 
 
 {{!-- Turn Order --}}
@@ -138,19 +139,13 @@
     <button class="delBtn" id="delInput">Next Round</button>
 </aside>
 
-{{!-- <h2>Monsters</h2>
-{{#each monsters as |monster|}}
-{{>monsterstats}}
-<li>{{>healthbar}}</li>
-{{/each}} --}}
-
-<<<<<<< HEAD
-{{#each monsters |monster|}}
-<ol>
-    <li>{{name}}{{>healthbar}}</li>
-</ol>
-{{/each}} --}}
-=======
+<h2>Monsters</h2>
+<div>
+  {{#each monsters as |monster|}}
+    {{>monsterstats}}
+    <li data-mid="{{id}}"></li>
+{{/each}}
+</div>
 
 {{!-- Turn Order --}}
 <aside>
@@ -175,10 +170,10 @@
 </aside>
 
 <h2>Monsters</h2>
-{{#each monsters as |monster|}}
+{{!-- {{#each monsters as |monster|}}
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
-{{/each}}
+{{/each}} --}}
 
 {{!-- {{#each monsters}}
 <div class="card">
@@ -194,3 +189,6 @@
     {{/each}}
 </div>
 {{/each}} --}}
+
+<script src="/js/healthbar.js"></script>
+<script src="/js/index.js"></script>

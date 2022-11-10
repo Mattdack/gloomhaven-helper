@@ -4,46 +4,44 @@
 const clearBtn = document.getElementById("clearInput");
 clearBtn.addEventListener("click", event => {
   event.preventDefault();
-  let clear = document.getElementsByName('turnorder');
-  console.log(clear)
-  clear.value = '';
+  console.log("buttonclick")
+  document.getElementById("turnorders").reset();
 })
 
-// health bar------------------------------
-const plusHP = document.querySelector(".plusHP")
-const minusHP = document.querySelector(".minusHP")
 
-function buildmonsterHP() {
+
+// health bar------------------------------
+
+async function buildHP() {
+  const plusHP = document.querySelector(".plusHP")
+  const minusHP = document.querySelector(".minusHP")
+  const plusCHP = document.querySelector(".plusCHP")
+  const minusCHP = document.querySelector(".minusCHP")
 
   minusHP.addEventListener("click", (e) => {
-    const potato = e.target.parentElement.children[3].children[0]
-    console.log('id:' + potato);
-    potato.innerText = parseInt(potato.innerText) - 1;
+    const mhealthSpan = e.target.parentElement.children[3].children[0]
+    console.log('id:' + mhealthSpan);
+    mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
   })
 
   plusHP.addEventListener("click", (e) => {
-    const tomato = e.target.parentElement.children[3].children[0]
-    console.log('id:' + tomato);
-    tomato.innerText = parseInt(tomato.innerText) + 1;
+    const mhealthSpan = e.target.parentElement.children[3].children[0]
+    console.log('id:' + mhealthSpan);
+    mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
+  })
+
+  minusCHP.addEventListener("click", (e) => {
+    const chealthSpan = e.target.parentElement.children[2].children[0]
+    chealthSpan.innerText = parseInt(chealthSpan.innerText) - 1;
+
+  })
+
+  plusCHP.addEventListener("click", (e) => {
+    const chealthSpan = e.target.parentElement.children[2].children[0]
+    chealthSpan.innerText = parseInt(chealthSpan.innerText) + 1;
   })
 
 }
 
-buildmonsterHP()
 
-// function buildcharacterHP() {
-
-//   minusHP.addEventListener("click", (e) => {
-//     const tomato = e.target.parentElement.children[2].children[0]
-//     tomato.innerText = parseInt(tomato.innerText) - 1;
-
-//   })
-
-//   plusHP.addEventListener("click", (e) => {
-//     const tomato = e.target.parentElement.children[2].children[0]
-//     tomato.innerText = parseInt(tomato.innerText) + 1;
-//   })
-
-// }
-
-// buildcharacterHP()
+buildHP()

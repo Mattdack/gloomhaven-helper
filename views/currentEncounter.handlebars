@@ -9,9 +9,9 @@
   <p>{{name}}</p>
   {{/each}}
 
-{{>dropdownEffects}}
-  <button type="button" id="plusHP">+ PLUS </button>
-  <button type="button" id="minusHP">- MINUS</button>
+  {{>dropdownEffects}}
+  <button type="button" class="plusCHP">+ PLUS </button>
+  <button type="button" class="minusCHP">- MINUS</button>
 </div>
 {{/each}}
 
@@ -44,16 +44,16 @@
       Turn Order
     </h3>
   </div>
-  <form>
+  <form id="turnorders">
     <ul id="sortable1" class="connectedSortable">
       {{#each players as |player|}}
-      <li class="ui-state-default {{playerName}}"> {{playerName}} <input type="number" name="turnorder" min="1"
-          max="100" /></li>
+      <li class="ui-state-default {{playerName}}"> {{playerName}} <input type="number" id={{name}}
+          min="0" max="100"></li>
       {{/each}}
       <ul id="sortable2" class="connectedSortable"></ul>
       {{#each monsters as |monster|}}
       <li class="ui-state-default monsterturn"> {{name}}
-        <input type="number" id={{name}} name="turnorder" min="1" max="100" />
+        <input type="number" id={{name}} min="0" max="100" />
       </li>
       {{/each}}
   </form>

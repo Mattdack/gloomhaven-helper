@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rufasa85/sessions-sneakers.git"
+    "url": "git+https://github.com/MattDack/gloomhaven-helper.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rufasa85/sessions-sneakers/issues"
+    "url": "https://github.com/MattDack/gloomhaven-helper/issues"
   },
-  "homepage": "https://github.com/Rufasa85/sessions-sneakers#readme",
+  "homepage": "https://github.com/MattDack/gloomhaven-helper#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",

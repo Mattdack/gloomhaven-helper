@@ -1,113 +1,8 @@
 
-<<<<<<< HEAD
-    {{#each players}}
-    <div class="player-card player-title">
-        <p class="player-stats">player name: {{playerName}}</p>
-        <p class="player-stats">level: {{playerLevel}}</p>
-        <p class="player-stats">health: {{playerHealth}}</p>
-        <p class="player-stats">experience: {{experience}}</p>
-        <p class="player-stats">effect: {{effect}}</p>
-    </div>
-    {{/each}}
-
-=======
-{{#each players}}
-  <div class="card">
-    <p>player name: {{playerName}}</p>
-    <p>level: {{playerLevel}}</p>
-    <p>health: {{playerHealth}}</p>
-    <p>experience: {{experience}}</p>
-    <p>effects: </p>
-    {{#each Effects}}
-    <p>{{name}}</p>
-    {{/each}}
-
-    <button
-      id="dropdownDefault"
-      data-dropdown-toggle="dropdown"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      type="button"
-    >Add Effect
-      <svg
-        class="ml-2 w-4 h-4"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      ><path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        ></path></svg></button>
-    <!-- Dropdown menu -->
-    <div
-      id="dropdown"
-      class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-      data-popper-reference-hidden=""
-      data-popper-escaped=""
-      data-popper-placement="bottom"
-      style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);"
-    >
-      <ul
-        class="py-1 text-sm text-gray-700 dark:text-gray-200"
-        aria-labelledby="dropdownDefault"
-      >
-        <li>
-          <a
-            href="#" id = "{{playerName}} 1" data-effect
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Muddle</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 2"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Immobolize</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 3"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Stun</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 4"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Strengthen</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 5"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Disarm</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 6"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Poison</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 7"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Wound</a>
-        </li>
-        <li>
-          <a
-            href="#" id = "{{playerName}} 8"
-            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >Shield</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
+{{#each players as |player|}}
+{{>playerStats}}
 {{/each}}
->>>>>>> dev
+
 
 
 {{!-- Turn Order --}}
@@ -119,7 +14,7 @@
     </div>
     <form>
         <ul id="sortable1" class="connectedSortable">
-            {{#each playerss as |player|}}
+            {{#each players as |player|}}
             <li class="ui-state-default {{playerName}}"> {{playerName}}
                 <input type="number" name="turnorder" min="1" max="100" />
             </li>
@@ -138,19 +33,17 @@
     <button class="delBtn" id="delInput">Next Round</button>
 </aside>
 
-{{!-- <h2>Monsters</h2>
+<h2>Monsters</h2>
 {{#each monsters as |monster|}}
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
-{{/each}} --}}
+{{/each}}
 
-<<<<<<< HEAD
-{{#each monsters |monster|}}
+{{!-- {{#each monsters |monster|}}
 <ol>
     <li>{{name}}{{>healthbar}}</li>
 </ol>
 {{/each}} --}}
-=======
 
 {{!-- Turn Order --}}
 <aside>
@@ -173,24 +66,4 @@
   </form>
   <button class="delBtn" id="delInput">Next Round</button>
 </aside>
-
-<h2>Monsters</h2>
-{{#each monsters as |monster|}}
-{{>monsterstats}}
-<li>{{>healthbar}}</li>
-{{/each}}
-
-{{!-- {{#each monsters}}
-<div class="card">
-    <p>Monster name: {{name}}</p>
-    <p>Level: {{level}}</p>
-    <p>Special: {{special}}</p>
-    <p>Health: {{health}}</p>
-    <p>Move: {{move}}</p>
-    <p>Attack: {{attack}}</p>
-    <p>effects: </p>
-    {{#each Effects}}
-    <p>{{name}}</p>
-    {{/each}}
-</div>
-{{/each}} --}}
+<script src="/js/addEffect.js"></script>

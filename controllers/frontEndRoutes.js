@@ -35,7 +35,7 @@ router.get("/home", async (req, res) => {
     const campPlayers = campaignPlayers.map((player) =>
       player.get({ plain: true })
     );
-
+    console.log(campPlayers);
     const specificEncounter = await Encounter.findByPk(1);
     const encounterMonsters = await specificEncounter.getMonsters(
         {

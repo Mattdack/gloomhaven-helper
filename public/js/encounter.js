@@ -1,17 +1,3 @@
-// const config = {
-//     type: 'bar',
-//     data: data,
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     },
-//   };
-
-  
-// Add Character
 let addcharacterForm = document.querySelector("#addCharacter");
 addcharacterForm.addEventListener("submit", e=>{
     e.preventDefault();

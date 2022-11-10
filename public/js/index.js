@@ -1,5 +1,4 @@
 
-
 //   Turn Order: Clear Input
 const clearBtn = document.getElementById("clearInput");
 clearBtn.addEventListener("click", event => {
@@ -8,40 +7,45 @@ clearBtn.addEventListener("click", event => {
   document.getElementById("turnorders").reset();
 })
 
+// health bar monsters
+const plusHP = document.querySelectorAll('.plusHP');
+console.log("IncreaseHP");
+for (let i = 0; i < plusHP.length; i++) {
+    plusHP[i].addEventListener("click", event => {
+        event.preventDefault();
+        const mhealthSpan = event.target.parentElement.children[3].children[0]
 
+        mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
+    })
+}
+const minusHP = document.querySelectorAll('.minusHP');
+console.log("DecreaseHP");
+for (let i = 0; i < plusHP.length; i++) {
+    minusHP[i].addEventListener("click", event => {
+        event.preventDefault();
+        const mhealthSpan = event.target.parentElement.children[3].children[0];
 
-// health bar------------------------------
-
-async function buildHP() {
-  const plusHP = document.querySelector(".plusHP")
-  const minusHP = document.querySelector(".minusHP")
-  const plusCHP = document.querySelector(".plusCHP")
-  const minusCHP = document.querySelector(".minusCHP")
-
-  minusHP.addEventListener("click", (e) => {
-    const mhealthSpan = e.target.parentElement.children[3].children[0]
-    console.log('id:' + e.target);
-    mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
-  })
-
-  plusHP.addEventListener("click", (e) => {
-    const mhealthSpan = e.target.parentElement.children[3].children[0]
-    console.log('id:' + e);
-    mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
-  })
-
-  minusCHP.addEventListener("click", (e) => {
-    const chealthSpan = e.target.parentElement.children[2].children[0]
-    chealthSpan.innerText = parseInt(chealthSpan.innerText) - 1;
-
-  })
-
-  plusCHP.addEventListener("click", (e) => {
-    const chealthSpan = e.target.parentElement.children[2].children[0]
-    chealthSpan.innerText = parseInt(chealthSpan.innerText) + 1;
-  })
-
+        mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
+    })
 }
 
+// health bars players-----------
+const plusCHP = document.querySelectorAll('.plusCHP');
+for (let i = 0; i < plusCHP.length; i++) {
+    plusCHP[i].addEventListener("click", e => {
+        e.preventDefault();
+        const chealthSpan = e.target.parentElement.children[2].children[0]
 
-buildHP()
+        chealthSpan.innerText = parseInt(chealthSpan.innerText) + 1;
+    })
+}
+
+const minusCHP = document.querySelectorAll('.minusCHP');
+for (let i = 0; i < minusCHP.length; i++) {
+    minusCHP[i].addEventListener("click", e => {
+        e.preventDefault();
+        const chealthSpan = e.target.parentElement.children[2].children[0]
+
+        chealthSpan.innerText = parseInt(chealthSpan.innerText) - 1;
+    })
+}

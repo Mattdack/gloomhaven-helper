@@ -1,5 +1,5 @@
 let addcharacterForm = document.querySelector("#addCharacter");
-addcharacterForm.addEventListener("submit", e=>{
+addcharacterForm.addEventListener("click", e=>{
     e.preventDefault();
     
     let checkboxes = document.querySelectorAll('input[name="character"]:checked');
@@ -23,17 +23,17 @@ addcharacterForm.addEventListener("submit", e=>{
     })
 })
 
-const newMonsterForm = document.querySelector("#newMonsterForm");
-newMonsterForm.addEventListener("submit",e=>{
+const newMonsterBtn = document.querySelector("#newMonsterBtn");
+newMonsterBtn.addEventListener("click",e=>{
     e.preventDefault();
     const monsterObj = {
-        name:document.querySelector("#newmonstername").value,
-        level:document.querySelector("#newmonsterlevel").value,
-        special:document.querySelector("#newmonsteronhit").value,
-        health:document.querySelector("#newmonsterhp").value,
-        move:document.querySelector("#newmonstermove").value,
-        attack:document.querySelector("#newmonsterattack").value,
-        isElite:document.querySelector("#newmonsteriselite").value
+        name: document.querySelector("#newmonstername").value,
+        level: document.querySelector("#newmonsterlevel").value,
+        special: document.querySelector("#newmonsteronhit").value,
+        health: document.querySelector("#newmonsterhp").value,
+        move: document.querySelector("#newmonstermove").value,
+        attack: document.querySelector("#newmonsterattack").value,
+        isElite: document.querySelector("#newmonsteriselite").value
     }
     fetch("/api/monsters/",{
         method:"POST",

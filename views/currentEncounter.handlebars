@@ -1,56 +1,40 @@
-{{#each players}}
-<div class="player-card player-title">
-  <p class="player-stats">{{playerName}}</p>
-  <p class="player-stats">level: {{playerLevel}}</p>
-  <p class="player-stats">health: {{playerHealth}} <span class="HPchange">{{playerHealth}}</span></p>
-  <p class="player-stats">experience: {{experience}}</p>
-  <p class="player-stats">effect: {{effect}}</p>
-  {{#each Effects}}
-  <p>{{name}}</p>
-  {{/each}}
-
-  {{>dropdownEffects}}
-  <button type="button" class="plusCHP">+ PLUS </button>
-  <button type="button" class="minusCHP">- MINUS</button>
-</div>
-{{/each}}
-
-<h2>Monsters</h2>
-<div>
-  {{#each monsters as |monster|}}
- {{>monsterstats}}
-    {{!-- {{#each Effects}}
-    <p>{{name}}</p>
-    {{/each}}
-    {{>dropdownEffects}} --}}
-    <button type="button" class="plusHP">+ PLUS </button>
-    <button type="button" class="minusHP">- MINUS</button>
-  </div>
-  {{/each}}
-</div>
-
-{{!-- Turn Order --}}
-<aside>
-  <div class="card-header col-md-12 text-center">
-    <h3>
-      Turn Order
-    </h3>
-  </div>
-  <form id="turnorders">
-    <ul id="sortable1" class="connectedSortable">
+<main class="flex-auto grid grid-cols-1 p-8 justify-items-center md:grid-cols-2 xl:grid-cols-3">
+  <div class="flex-row">
+    <div class="m-2 p-2">
       {{#each players as |player|}}
-      <li class="ui-state-default {{playerName}}"> {{playerName}} <input type="number" id={{name}} min="0" max="100">
-      </li>
+      {{>playerStats}}
       {{/each}}
-      <ul id="sortable2" class="connectedSortable"></ul>
-      {{#each monsters as |monster|}}
-      <li class="ui-state-default monsterturn"> {{name}}
-        <input type="number" id={{name}} min="0" max="100" />
-      </li>
-      {{/each}}
-  </form>
-  <button class="delBtn" id="clearInput">Next Round</button>
-</aside>
+    </div>
+  </div>
+  
+  {{!-- Turn Order --}}
+  <div>
+    <div class="border-2 mt-8 border-blue-500 w-full">
+      <form id="turnorders">
+        <div id="sortable1" class="connectedSortable">
+          {{#each players as |player|}}
+            <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-2 border-2 border-black-500"> {{playerName}} 
+              <input class="relative left-0" type="number" name="turnorder" min="1" max="100"/>
+            </div>
+          {{/each}}
+          {{#each monsters as |monster|}}
+            <div class="text-black pl-2 pr-2 mt-2 mb-2 bg-red-600 border-2 border-black-500"> {{name}}
+              <input type="number" id={{name}} name="turnorder" min="1" max="100"/>
+            </div>
+          {{/each}}
+        </div> 
+      </form>
+    </div> 
+    <button class="delBtn" id="clearInput">Next Round</button>
+  </div>
 
+  <div>
+    <h2>Monsters</h2>
+    {{#each monsters as |monster|}}
+    {{>monsterstats}}
+    {{/each}}
+  </div>
+</main>
 
 <script src="/js/index.js"></script>
+<script src="/js/addEffect.js"></script>

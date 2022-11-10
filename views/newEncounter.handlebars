@@ -1,59 +1,9 @@
-<h2>Who is in your party?</h2>
-<div class="player-card">
-    <div class="form-check">
-        <input
-            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-            type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-            Voidwarden
-        </label>
-    </div>
-    <div class="form-check">
-        <input
-            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-            type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-            Hatchet
-        </label>
-    </div>
-    <div class="form-check">
-        <input
-            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-            type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-            Demolitionist
-        </label>
-    </div>
-    <div class="form-check">
-        <input
-            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-            type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-            RedGuard
-        </label>
-    </div>
-</div>
-
-
-<div class="card">
-    <h3>List of Monsters to Add</h3>
-    <ul>
-        {{#each monster}}
-        <input type="checkbox" name="monster" value="{{id}}" id="{{id}}"><label>{{name}}</label>
-        {{/each}}
-    </ul>
-</div>
-
-
 {{!-- add party to campaign --}}
-{{!-- <h2>Who is in your party?</h2>
-<form action="" id="addCharacter">
-    {{>addparty}}
-</form>
-
+<h2>Who is in your party?</h2>
+ {{>addParty}}
 {{>newmonster}}
 {{>monstersaddedlist}}
 
-<button>Do the thing!</button> --}}
+<button>Do the thing!</button>
 
 <script src="/js/encounter.js"></script>

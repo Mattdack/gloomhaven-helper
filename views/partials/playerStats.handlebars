@@ -1,17 +1,15 @@
-    <div class="monster-card">
-        <h3>{{name}}</h3>
-        <p class="monster-stats">level: {{level}}</p>
-        <p class="monster-stats">special: {{special}}</p>
-        <p class="monster-stats">health: {{health}}<span class="HPchange">{{health}}</span></p>
-        <p class="monster-stats">move: {{move}}</p>
-        <p class="monster-stats">attack: {{attack}}</p>
-        <p class="monster-stats">effect:</p>
-        {{#each Effects}}
-            <p>{{name}}</p>
-        {{/each}}
-            <button
-      id="dropdownDefault-{{id}}-{{id}}"
-      data-dropdown-toggle="dropdown-{{id}}-{{id}}"
+<div class="player-card player-title">
+  <p class="player-stats">{{playerName}}</p>
+  <p class="player-stats">level: {{playerLevel}}</p>
+  <p class="player-stats">health: {{playerHealth}} <span class="HPchange">{{playerHealth}}</span></p>
+  <p class="player-stats">experience: {{experience}}</p>
+  <p class="player-stats">effect: {{effect}}</p>
+  {{#each Effects}}
+  <p>{{name}}</p>
+  {{/each}}
+         <button
+      id="dropdownDefault-{{id}}"
+      data-dropdown-toggle="dropdown-{{id}}"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       type="button"
     >Add Effect
@@ -27,10 +25,10 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M19 9l-7 7-7-7"
-        ></path></svg></button>
-    <!-- Dropdown menu -->
+        ></path></svg>
+        </button>
     <div
-      id="dropdown-{{id}}-{{id}}"
+      id="dropdown-{{id}}"
       class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
       data-popper-reference-hidden=""
       data-popper-escaped=""
@@ -38,59 +36,59 @@
       style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);"
     >
       <ul
-        class="py-1 text-sm text-gray-700 dark:text-gray-200 addMonsterEffect"
+        class="py-1 text-sm text-gray-700 dark:text-gray-200 addPlayerEffect"
         aria-labelledby="dropdownDefault"
       >
         <li>
           <a
-            href="#" data-effect="1" data-monster="{{id}}"
+            href="#" data-effect="1" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Muddle</a>
         </li>
         <li>
           <a
-            href="#" data-effect="2" data-monster="{{id}}"
+            href="#" data-effect="2" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Immobolize</a>
         </li>
         <li>
           <a
-            href="#" data-effect="3" data-monster="{{id}}"
+            href="#" data-effect="3" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Stun</a>
         </li>
         <li>
           <a
-            href="#" data-effect="4" data-monster="{{id}}"
+            href="#" data-effect="4" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Strengthen</a>
         </li>
         <li>
           <a
-            href="#" data-effect="5" data-monster="{{id}}"
+            href="#" data-effect="5" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Disarm</a>
         </li>
         <li>
           <a
-            href="#" data-effect="6" data-monster="{{id}}"
+            href="#" data-effect="6" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Poison</a>
         </li>
         <li>
           <a
-            href="#" data-effect="7" data-monster="{{id}}"
+            href="#" data-effect="7" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Wound</a>
         </li>
         <li>
           <a
-            href="#" data-effect="8" data-monster="{{id}}"
+            href="#" data-effect="8" data-player={{id}}
             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >Shield</a>
         </li>
       </ul>
     </div>
-
-  </div>
-    </div>
+  <button type="button" class="plusCHP">+ PLUS </button>
+  <button type="button" class="minusCHP">- MINUS</button>
+</div>

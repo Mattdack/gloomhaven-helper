@@ -20,13 +20,13 @@ async function buildHP() {
 
   minusHP.addEventListener("click", (e) => {
     const mhealthSpan = e.target.parentElement.children[3].children[0]
-    console.log('id:' + mhealthSpan);
+    console.log('id:' + e.target);
     mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
   })
 
   plusHP.addEventListener("click", (e) => {
     const mhealthSpan = e.target.parentElement.children[3].children[0]
-    console.log('id:' + mhealthSpan);
+    console.log('id:' + e);
     mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
   })
 

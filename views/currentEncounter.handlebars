@@ -8,8 +8,6 @@
   {{#each Effects}}
   <p>{{name}}</p>
   {{/each}}
-
-  {{>dropdownEffects}}
   <button type="button" class="plusCHP">+ PLUS </button>
   <button type="button" class="minusCHP">- MINUS</button>
 </div>
@@ -19,12 +17,8 @@
 <div>
   {{#each monsters as |monster|}}
  {{>monsterstats}}
-    {{!-- {{#each Effects}}
-    <p>{{name}}</p>
-    {{/each}}
-    {{>dropdownEffects}} --}}
-    <button type="button" class="plusHP">+ PLUS </button>
-    <button type="button" class="minusHP">- MINUS</button>
+
+
   </div>
   {{/each}}
 </div>

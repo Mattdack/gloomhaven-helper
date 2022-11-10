@@ -1,24 +1,23 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Encounter extends Model {}
 
-Encounter.init({
-    // add properites here, ex:
-    name: {
-         type: DataTypes.STRING
+Encounter.init(
+  {
+    number: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: true,
+        min: 1,
+        max: 10,
+      },
     },
-    species: {
-         type: DataTypes.STRING
-    },
-    age: DataTypes.INTEGER,
-    isCute: {
-        type: DataTypes.BOOLEAN,
-        defaultValue:true
-   },
+  },
+  {
+    sequelize,
+  }
+);
 
-},{
-    sequelize
-});
-
-module.exports=Encounter
+module.exports = Encounter;

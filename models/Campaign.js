@@ -1,24 +1,23 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Campaign extends Model {}
+class Campaign extends Model { }
 
-Campaign.init({
-    // add properites here, ex:
+Campaign.init(
+  {
     name: {
-         type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        len: [8, 30],
+        isAlphaNumeric: true,
+      },
     },
-    species: {
-         type: DataTypes.STRING
-    },
-    age: DataTypes.INTEGER,
-    isCute: {
-        type: DataTypes.BOOLEAN,
-        defaultValue:true
-   },
+  },
+  {
+    sequelize,
+  }
+);
 
-},{
-    sequelize
-});
-
-module.exports=Campaign
+module.exports = Campaign;

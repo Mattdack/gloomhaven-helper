@@ -1,24 +1,47 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Player extends Model {}
 
-Player.init({
-    // add properites here, ex:
-    name: {
-         type: DataTypes.STRING
+Player.init(
+  {
+    playerName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 30],
+        isAlpha: true,
+      },
     },
-    species: {
-         type: DataTypes.STRING
+    playerLevel: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 1,
+      validate: {
+        isInt: true,
+      },
     },
-    age: DataTypes.INTEGER,
-    isCute: {
-        type: DataTypes.BOOLEAN,
-        defaultValue:true
-   },
+    playerHealth: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 10,
+      validate: {
+        isInt: true,
+        min: 0,
+      },
+    },
+    experience: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 1,
+      validate: {
+        isInt: true,
+      },
+    }
+  },
+  {
+    sequelize,
+  }
+);
 
-},{
-    sequelize
-});
-
-module.exports=Player
+module.exports = Player;

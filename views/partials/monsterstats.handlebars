@@ -1,0 +1,61 @@
+<div class="monster-card">
+  <h3>{{name}}</h3>
+  <p class="monster-stats">level: {{level}}</p>
+  <p class="monster-stats">special: {{special}}</p>
+  <p class="monster-stats">health: {{health}}<span class="HPchange">{{health}}</span></p>
+  <p class="monster-stats">move: {{move}}</p>
+  <p class="monster-stats">attack: {{attack}}</p>
+  <p class="monster-stats">effect:</p>
+  {{#each Effects}}
+  <p>{{name}}</p>
+  {{/each}}
+  <button id="dropdownDefault-{{id}}-{{id}}" data-dropdown-toggle="dropdown-{{id}}-{{id}}"
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    type="button">Add Effect
+    <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg></button>
+  <!-- Dropdown menu -->
+  <div id="dropdown-{{id}}-{{id}}"
+    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+    data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);">
+    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 addMonsterEffect" aria-labelledby="dropdownDefault">
+      <li>
+        <a href="#" data-effect="1" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Muddle</a>
+      </li>
+      <li>
+        <a href="#" data-effect="2" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Immobolize</a>
+      </li>
+      <li>
+        <a href="#" data-effect="3" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stun</a>
+      </li>
+      <li>
+        <a href="#" data-effect="4" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Strengthen</a>
+      </li>
+      <li>
+        <a href="#" data-effect="5" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Disarm</a>
+      </li>
+      <li>
+        <a href="#" data-effect="6" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Poison</a>
+      </li>
+      <li>
+        <a href="#" data-effect="7" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Wound</a>
+      </li>
+      <li>
+        <a href="#" data-effect="8" data-monster="{{id}}"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shield</a>
+      </li>
+    </ul>
+  </div>
+    <button type="button" class="plusHP">+ PLUS </button>
+  <button type="button" class="minusHP">- MINUS</button>
+</div>

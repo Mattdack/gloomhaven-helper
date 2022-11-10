@@ -1,4 +1,8 @@
-{{#each players}}
+{{#each players as |player|}}
+{{>playerStats}}
+{{/each}}
+
+{{!-- {{#each players}}
 <div class="player-card player-title">
   <p class="player-stats">{{playerName}}</p>
   <p class="player-stats">level: {{playerLevel}}</p>
@@ -11,7 +15,7 @@
   <button type="button" class="plusCHP">+ PLUS </button>
   <button type="button" class="minusCHP">- MINUS</button>
 </div>
-{{/each}}
+{{/each}} --}}
 
 <h2>Monsters</h2>
 <div>
@@ -48,3 +52,4 @@
 
 
 <script src="/js/index.js"></script>
+<script src="/js/addEffect.js"></script>

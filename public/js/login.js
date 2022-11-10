@@ -15,7 +15,8 @@ loginForm.addEventListener('submit',e => {
         }
     }).then(res=>{
         if(res.ok){
-            // location.assign('/currentEncounter')
+            console.log("youre logged in")
+            location.assign('/dashboard')
             location.reload()
         } else {
             alert('incorrect login')

@@ -34,9 +34,18 @@
     </div>
 </div>
 
+<div class="card">
+    <h3>List of Monsters to Add</h3>
+    <ul>
+        {{#each monster}}
+        <input type="checkbox" name="monster" value="{{id}}" id="{{id}}"><label>{{name}}</label>
+        {{/each}}
+    </ul>
+</div>
 
-{{!-- add party to campaign
-<h2>Who is in your party?</h2>
+
+{{!-- add party to campaign --}}
+{{!-- <h2>Who is in your party?</h2>
 <form action="" id="addCharacter">
     {{>addparty}}
 </form>
@@ -44,6 +53,6 @@
 {{>newmonster}}
 {{>monstersaddedlist}}
 
-<button>Do the thing!</button>
+<button>Do the thing!</button> --}}
 
-<script src="/js/encounter.js"></script> --}}
+<script src="/js/encounter.js"></script>

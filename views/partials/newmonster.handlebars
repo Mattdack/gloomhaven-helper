@@ -1,15 +1,24 @@
 <form class="card" id="newMonsterForm">
-    <label>Name:</label>
-    <input type:"text" name:"name" id:"newmonstername" placeholder:"Zealot" />
-    <label>Level:</label>
-    <input type:"number" name:"level" id:"newmontsterlvl" placeholder:"1" />
-    <label>HP:</label>
+    <label for:"name">Name:</label>
+    <input type:"text" name:"name" id:"newmonstername" placeholder:"Zealot"/>
+
+    <label for:"level">Level:</label>
+    <input type:"number" name:"level" id:"newmontsterlevel" placeholder:"1" />
+
+    <label for:"special">special:</label>
+    <input type:"text" name:"special" id:"newmonsterspecial" placeholder:"muddle" />
+
+    <label for:"hp">HP:</label>
     <input type:"number" name:"hp" id:"newmonsterhp" placeholder:"8" />
-    <label>Move:</label>
+
+    <label for:"move">Move:</label>
     <input type:"number" name:"move" id:"newmonstermove" placeholder: "2" />
-    <label>Atk:</label>
-    <input type:"number" name:"attack" id:"newmonsteratk" placeholder:"3" />
-    <label>onHit:</label>
-    <input type:"text" name:"onHit" id:"newmonsteronhit" placeholder:"muddle" />
-    <button>Save</button>
+
+    <label for:"attack">Atk:</label>
+    <input type:"number" name:"attack" id:"newmonsterattack" placeholder:"3" />
+
+    <label for:"isElite">IsElite:</label>
+    <input type:"date" name:"isElite" id:"newmonsteriselite"/>
+
+    <button id="newMonsterBtn">Save</button>
 </form>

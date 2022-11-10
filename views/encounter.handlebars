@@ -1,24 +1,49 @@
-<h1>Welcome back, {{username}}</h1>
-<h2>My Projects:</h2>
-{{#each campaign}}
-    <div class="card">
-        <a href="/campaign/{{id}}"><h3>{{name}}</h3></a>
-        <h4>Needs: ${{needed_funding}}</h4>
-        <p>{{description}}</p>
-        <button class="delBtn" data-projId="{{id}}">Delete Me</button>
-        <hr>
+<h2>Who is in your party?</h2>
+<div class="player-card">
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
+            Voidwarden
+        </label>
     </div>
-{{/each}}
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
+            Hatchet
+        </label>
+    </div>
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
+            Demolitionist
+        </label>
+    </div>
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
+            RedGuard
+        </label>
+    </div>
+</div>
 
-{{!-- add party to campaign --}}
-  <h2>Who is in your party?</h2>
-  <form action="" id="addCharacter">
-{{>addparty}}
-  </form>
+
+{{!-- add party to campaign
+<h2>Who is in your party?</h2>
+<form action="" id="addCharacter">
+    {{>addparty}}
+</form>
 
 {{>newmonster}}
 {{>monstersaddedlist}}
 
 <button>Do the thing!</button>
 
-<script src="/js/encounter.js"></script>
+<script src="/js/encounter.js"></script> --}}

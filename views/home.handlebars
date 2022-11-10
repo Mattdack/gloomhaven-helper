@@ -1,16 +1,4 @@
 
-<<<<<<< HEAD
-    {{#each players}}
-    <div class="player-card player-title">
-        <p class="player-stats">player name: {{playerName}}</p>
-        <p class="player-stats">level: {{playerLevel}}</p>
-        <p class="player-stats">health: {{playerHealth}}</p>
-        <p class="player-stats">experience: {{experience}}</p>
-        <p class="player-stats">effect: {{effect}}</p>
-    </div>
-    {{/each}}
-
-=======
 {{#each players}}
   <div class="card">
     <p>player name: {{playerName}}</p>
@@ -107,7 +95,6 @@
 
   </div>
 {{/each}}
->>>>>>> dev
 
 
 {{!-- Turn Order --}}
@@ -119,7 +106,7 @@
     </div>
     <form>
         <ul id="sortable1" class="connectedSortable">
-            {{#each playerss as |player|}}
+            {{#each players as |player|}}
             <li class="ui-state-default {{playerName}}"> {{playerName}}
                 <input type="number" name="turnorder" min="1" max="100" />
             </li>
@@ -127,7 +114,7 @@
             <p class="empty">No Players Added</p>
             {{/each}}
             <ul id="sortable1" class="connectedSortable"></ul>
-            {{#each monsterss as |monster|}}
+            {{#each monsters as |monster|}}
             <li class="ui-state-default monsterturn"> {{name}}
                 <input type="number" id={{name}} name="turnorder" min="1" max="100" />
             </li>
@@ -144,13 +131,6 @@
 <li>{{>healthbar}}</li>
 {{/each}}
 
-<<<<<<< HEAD
-{{#each monsters |monster|}}
-<ol>
-    <li>{{name}}{{>healthbar}}</li>
-</ol>
-{{/each}} --}}
-=======
 
 {{!-- Turn Order --}}
 <aside>
@@ -179,4 +159,3 @@
 {{>monsterstats}}
 <li>{{>healthbar}}</li>
 {{/each}}
->>>>>>> dev

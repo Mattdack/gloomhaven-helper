@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Monster, Effect } = require('../../models');
+const { Monster, Effect, Encounter } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -102,8 +102,31 @@ router.post(`/:id/effect`, async (req, res) => {
     });
     res.status(200).json(updatedTargetMonster);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
+
+router.post('/:id/encounter', async (req,res)=> {
+  try{
+    const encounterMonster = await Monster.findByPk(req.params.id);
+    // will need to change to 1 below to a specific encounter # based off of the logged in user/campaign
+    await encounterMonster.addEncounter(1);
+    const updatedEncounterMonster = await Monster.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{
+        model: Encounter,
+        attributes: ['number'],
+        through: {
+          attributes: []
+        }
+      }]
+    })
+    res.status(200).json(updatedEncounterMonster);
+  }catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;

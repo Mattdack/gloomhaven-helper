@@ -35,7 +35,7 @@ aside {
 
   .player-card {
         width: 300px;
-        height: 125px;
+        height: 140px;
         background-color: rgb(156, 48, 48);
         background: linear-gradient(#f8f8f8, rgb(136, 63, 63));
         box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
@@ -48,7 +48,6 @@ aside {
 
   .monster-card {
     width: 300px;
-    height: 125px;
     background-color: rgb(156, 48, 48);
     background: linear-gradient(#f8f8f8, rgb(136, 63, 63));
     box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
@@ -126,9 +125,7 @@ aside {
     background: #1e81b0;
 }
 
-canvas {
-    background: #EEE;
-    display: block;
-    margin: 0 auto;
-    border: solid 6px #444;
+.HPchange {
+    color:red;
+    text-size-adjust: larger;
 }

@@ -51,6 +51,33 @@ router.get("/currentEncounter", async (req, res) => {
     }
     );
 
+<<<<<<< HEAD
+router.get("/encounter",(req,res)=>{
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    res.render("encounter",{
+        logged_in:req.session.logged_in
+    })
+})
+
+
+router.get("/home",(req,res)=>{
+    // TODO: findall gets all Players and then parses them into passable data
+    Player.findAll({
+        include: [{
+            model: Effect,
+            attributes: ['name'],
+            through:{
+                attributes:[],
+            }
+        }]
+    }).then(players=>{
+        const playersHbsData = players.map(project=>project.get({plain:true}))
+        console.log(players);
+        console.log("==============")
+        console.log(playersHbsData)
+=======
     const encMonsters = encounterMonsters.map((monster) =>
       monster.get({ plain: true })
     );
@@ -68,5 +95,6 @@ router.get("/currentEncounter", async (req, res) => {
 router.get("/sessions", (req, res) => {
   res.json(req.session);
 });
+>>>>>>> dev
 
 module.exports = router;

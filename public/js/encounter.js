@@ -3,6 +3,7 @@ addcharacterForm.addEventListener("click", e=>{
     e.preventDefault();
     
     let checkboxes = document.querySelectorAll('input[name="character"]:checked');
+    console.log(checkboxes)
     let charArr = []
     checkboxes.forEach((checkbox) => {
       charArr.push(checkbox.value)

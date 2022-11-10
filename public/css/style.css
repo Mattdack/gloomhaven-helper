@@ -56,7 +56,7 @@ aside {
 }
 
 /* sortable turn order */
-#sortable1, #sortable2 {
+/* #sortable1, #sortable2 {
     border: 1px solid #eee;
     width: 142px;
     min-height: 20px;
@@ -72,7 +72,7 @@ aside {
     padding: 5px;
     font-size: 1.2em;
     width: 120px;
-}
+} */
 /* Colors for Characters */
 .Hatchet {
     border:2px, solid, blue;

@@ -1,4 +1,4 @@
-//TODO: this is grabbing the logout button in the main.handlebar nav bar
+// TODO: this is grabbing the logout button in the main.handlebar nav bar
 const logoutBtn = document.querySelector("#logoutBtn");
 logoutBtn.addEventListener("click",e=>{
     fetch("/api/users/logout",{

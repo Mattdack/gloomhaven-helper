@@ -15,7 +15,7 @@ loginForm.addEventListener('submit',e => {
         }
     }).then(res=>{
         if(res.ok){
-            // location.assign('/home')
+            // location.assign('/currentEncounter')
             location.reload()
         } else {
             alert('incorrect login')

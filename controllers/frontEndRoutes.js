@@ -5,7 +5,7 @@ const { Campaign, Player, Monster, Encounter, Effect } = require("../models");
 // TODO: route is localhost:3001
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect("/home");
+    return res.redirect("/currentEncounter");
   }
   res.render("login", {
     logged_in: req.session.logged_in,
@@ -16,7 +16,7 @@ router.get("/signup", (req, res) => {
   res.render("signup", {});
 });
 
-router.get("/home", async (req, res) => {
+router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
@@ -54,7 +54,7 @@ router.get("/home", async (req, res) => {
     const encMonsters = encounterMonsters.map((monster) =>
       monster.get({ plain: true })
     );
-    res.render("home", {
+    res.render("currentEncounter", {
       players: campPlayers,
       monsters: encMonsters,
       logged_in: req.session.logged_in,

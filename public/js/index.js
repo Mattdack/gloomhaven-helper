@@ -1,55 +1,17 @@
 
-// Turn Order: Sortable
-// $( function() {
-//     $( "#sortable1, #sortable2" ).sortable({
-//       connectWith: ".connectedSortable"
-//     }).disableSelection();
-//   } );
 
 //   Turn Order: Clear Input
-const clearBtn = document.getElementById("delInput");
+const clearBtn = document.getElementById("clearInput");
 clearBtn.addEventListener("click", event => {
   event.preventDefault();
-  let clear = document.getElementByName('turnorder');
+  let clear = document.getElementsByName('turnorder');
   console.log(clear)
   clear.value = '';
 })
 
-
-// public class Player : MonoBehaviour
-// {
-
-//   public int maxHealth = 100;
-//   public int currentHealth;
-
-//   public HealthBar healthBar;
-
-//   // start is called before the first frame update
-//   void Start()
-//   {
-//     currentHealth = maxHealth;
-//     healthBar.SetMaxHealth(maxHealth)
-//   }
-
-//   // update is called once per frame
-//   void update()
-//   {
-//     if(InputDeviceInfo.GetKeyDown(KeyCode.Space))
-//     {
-//       TakeDamage(20);
-//     }
-//   }
-
-//   void TakeDamage(int damage)
-//   {
-//     currentHealth -= damage;
-
-//     healthBar.SetHealth(currentHealth);
-//   }
-// }
 // health bar------------------------------
-const plusHP = document.querySelector("plusHP")
-const minusHP = document.querySelector("minusHP")
+const plusHP = document.querySelector(".plusHP")
+const minusHP = document.querySelector(".minusHP")
 
 function buildmonsterHP() {
 
@@ -60,9 +22,9 @@ function buildmonsterHP() {
   })
 
   plusHP.addEventListener("click", (e) => {
-    const potato = e.target.parentElement.children[3].children[0]
-    console.log('id:' + potato);
-    potato.innerText = parseInt(potato.innerText) + 1;
+    const tomato = e.target.parentElement.children[3].children[0]
+    console.log('id:' + tomato);
+    tomato.innerText = parseInt(tomato.innerText) + 1;
   })
 
 }

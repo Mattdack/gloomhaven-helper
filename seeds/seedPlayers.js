@@ -6,21 +6,18 @@ const players = [
     playerLevel: 1,
     playerHealth: 10,
     experience: 0,
-    CampaignId: 1,
   },
   {
     playerName: 'Demolitionist',
     playerLevel: 1,
     playerHealth: 8,
     experience: 0,
-    CampaignId: 1,
   },
   {
     playerName: 'Hatchet',
     playerLevel: 1,
     playerHealth: 8,
     experience: 0,
-    CampaignId: 1,
   },
   {
     playerName: 'Voidwarden',

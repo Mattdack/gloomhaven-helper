@@ -32,10 +32,21 @@ router.post('/', async (req, res) => {
   try {
     const campaignData = await Campaign.create({
       name: req.body.name,
-      UserId: req.body.UserId,
+      UserId: req.session.user_id,
     });
-    res.status(200).json(campaignData);
+
+    const newCampaign = await Campaign.findOne({
+      where: {
+        name: req.body.name,
+      }
+    });
+
+    req.session.save(() => {
+      req.session.campaign_id = newCampaign.id
+      res.status(200).json(campaignData);
+    })
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

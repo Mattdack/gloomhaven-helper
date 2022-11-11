@@ -54,7 +54,6 @@ router.get("/dashboard", async (req, res) => {
 router.get("/newEncounter", async (req, res) => {
   try {
 
-
     const monsters = await Monster.findAll()
       
     const availMonsters = monsters.map((monster) =>
@@ -78,7 +77,7 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignID: 1,
+        CampaignId: req.session.campaign_id,
       },
       include: [
         {

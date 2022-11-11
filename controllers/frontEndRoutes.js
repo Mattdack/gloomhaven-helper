@@ -16,47 +16,64 @@ router.get("/signup", (req, res) => {
   res.render("signup", {});
 });
 
-router.get("/dashboard", (req, res) => {
-  if (!req.session.logged_in) {
-    return res.redirect("/login");
-  }
-  res.render("dashboard", {
-    logged_in: req.session.logged_in,
-  });
-});
 
 router.get("/dashboard", async (req, res) => {
-  if (req.session.logged_in) {
-    return res.redirect("/login");
-  }
-  let currentUser = await Campaign.findAll({
-    include:[{
-      model: Encounter,
-      attribute: ["name"]
-  }]
-  });
+  try {
 
-  const thisCampaign = currentUser.map((user) =>
-    user.get({ plain: true })
-  );
-  console.log(thisUser);
-  res.render("dashboard", {
-    campaign: thisCampaign,
-    logged_in: req.session.logged_in,
-  });
+    const characters = await Player.findAll()
+      
+    const availPlayer = characters.map((player) =>
+      player.get({ plain: true })
+    );
+    if (!req.session.logged_in) {
+      return res.redirect("/login");
+    }
+    res.render("dashboard", {
+      players: availPlayer,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 
 
-router.get("/newEncounter", (req, res) => {
-  if (!req.session.logged_in) {
-    return res.redirect("/login");
+// =====================
+// router.get("/newEncounter", (req, res) => {
+//   if (!req.session.logged_in) {
+//     return res.redirect("/login");
+//   }
+//   res.render("newEncounter", {
+//     logged_in: req.session.logged_in,
+//   });
+// });
+
+
+// ========new encouter GET
+router.get("/newEncounter", async (req, res) => {
+  try {
+
+
+    const monsters = await Monster.findAll()
+      
+    const availMonsters = monsters.map((monster) =>
+      monster.get({ plain: true })
+    );
+    if (!req.session.logged_in) {
+      return res.redirect("/login");
+    }
+    res.render("newEncounter", {
+      monsters: availMonsters,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+
   }
-  res.render("newEncounter", {
-    logged_in: req.session.logged_in,
-  });
 });
 
+// ===========================current encounter GET
 router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({

@@ -39,9 +39,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const playerData = await Player.create({
-      name: req.body.name,
-      level: req.body.level,
-      health: req.body.health,
+      playerName: req.body.name,
+      playerLevel: req.body.level,
+      playerHealth: req.body.health,
       experience: req.body.experience,
     });
     res.status(200).json(playerData);
@@ -53,9 +53,9 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     Player.update(
       {
-        name: req.body.name,
-        level: req.body.level,
-        health: req.body.health,
+        playerName: req.body.name,
+        playerLevel: req.body.level,
+        playerHealth: req.body.health,
         experience: req.body.experience,
       },
       {

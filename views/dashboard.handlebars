@@ -10,8 +10,14 @@
       <p class="text-brown-700 text-base mb-4">
         What is your mission today?
       </p>
-      <a type="button" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2" href="/newEncounter">Begin Campaign</a>
-      <a type="button" class=" inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1" href="/currentEncounter">Resume Campaign</a>
+      <form>
+         <input type="text" name="newCampaign" id="createCampaign" placeholder="Jason and the Argonauts">
+         <button id="newForm">press me</button>
+      </form>
+      
+      <a type="button" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2" href="/newEncounter">New Encounter</a>
+      <a type="button" class=" inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1" href="/currentEncounter">Resume Encounter</a>
     </div>
   </div>
 </div>
+<script src="/js/dashboard.js"></script>

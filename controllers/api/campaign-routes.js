@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campaign } = require('../../models');
+const { Campaign, User } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -53,20 +53,20 @@ router.post('/', async (req, res) => {
 
 // TODO: need to fill out according to Campaign parameters
 router.put('/:id', (req, res) => {
-    Campaign.update(
-      {
-        name: req.body.name,
+  Campaign.update(
+    {
+      name: req.body.name,
+    },
+    {
+      where: {
+        id: req.params.id,
       },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    )
-      .then((updatedCampaign) => {
-        res.json(updatedCampaign);
-      })
-      .catch((err) => res.json(err));
+    }
+  )
+    .then((updatedCampaign) => {
+      res.json(updatedCampaign);
+    })
+    .catch((err) => res.json(err));
 });
 
 router.delete('/:id', (req, res) => {

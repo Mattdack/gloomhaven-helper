@@ -1,54 +1,38 @@
 <form id="addCharacterForm">
     <div class="form-check border-4 border-gray-200 border-x-gray-500 text-white">
-        <div class="form-check">
-            <input
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                type="checkbox" name="character" value="playerId:4" id="flexCheckDefault">
-            <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-                Voidwarden
-            </label>
-            <input type="number" name="playerlevel" id="addcharacteroflevel">
-            <label>
-                Level
-            </label>
-        </div>
-        <div class="form-check">
-            <input
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                type="checkbox" name="character" value="playerId:3" id="flexCheckDefault">
-            <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-                Hatchet
-            </label>
-            <input type="number" name="playerlevel" id="addcharacteroflevel">
-            <label>
-                Level
-            </label>
-        </div>
-        <div class="form-check">
-            <input
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                type="checkbox" name="character" value="playerId:2" id="flexCheckDefault">
-            <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-                Demolitionist
-            </label>
-            <input type="number" name="playerlevel" id="addcharacteroflevel">
-            <label>
-                Level
-            </label>
-        </div>
-        <div class="form-check">
-            <input
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                type="checkbox" name="character" value="playerId:1" id="flexCheckDefault">
-            <label class="form-check-label inline-block text-brown-800" for="flexCheckDefault">
-                RedGuard
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" name="character"  id="addVoidwarden">
+        <label class="form-check-label inline-block text-brown-800" for="addVoidwarden">
+            Voidwarden
+        </label>
 
-            </label>
-            <input type="number" name="playerlevel" id="addcharacteroflevel">
-            <label>
-                Level
-            </label><br>
+    </div>
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" name="character"  id="addHatchet">
+        <label class="form-check-label inline-block text-brown-800" for="addHatchet">
+            Hatchet
+        </label>
+    </div>
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" name="character" id="addDemo">
+        <label class="form-check-label inline-block text-brown-800" for="addDemo">
+            Demolitionist
+        </label>
+    </div>
+    <div class="form-check">
+        <input
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox" name="character"  id="addRedGuard">
+        <label class="form-check-label inline-block text-brown-800" for="addRedGuard">
+            RedGuard
 
-            <button id="addCharacter">Add</button>
-        </div>
+        </label><br>
+    <a type="button" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2" href="#" id="addCharacter">New Characters</a>
+    </div>
 </form>

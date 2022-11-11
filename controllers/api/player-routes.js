@@ -37,12 +37,16 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  console.log("Making a new player");
+  console.log(req.session.campaign_id)
+  console.log(req.body);
   try {
     const playerData = await Player.create({
       playerName: req.body.name,
       playerLevel: req.body.level,
       playerHealth: req.body.health,
       experience: req.body.experience,
+      CampaignId: req.session.campaign_id,
     });
     res.status(200).json(playerData);
   } catch (err) {

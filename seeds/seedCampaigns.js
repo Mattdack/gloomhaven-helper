@@ -3,8 +3,11 @@ const { Campaign } = require('../models');
 const campaigns = [
     {
         name: "LionHeartLove",
-        numPlayers: 4,
         UserId: 1,
+    },
+    {
+        name: "Jaws of The Lion",
+        UserId: 2,
     },
 ]
 

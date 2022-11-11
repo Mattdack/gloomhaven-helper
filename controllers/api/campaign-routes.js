@@ -1,16 +1,9 @@
 const router = require('express').Router();
 const { Campaign, User } = require('../../models');
 
-
-
 router.get('/', async (req, res) => {
   try {
-    const campaignData = await Campaign.findAll({
-      // add separate modals connected to Campaign if needed
-      include: [{
-        model: User
-      }],
-    });
+    const campaignData = await Campaign.findAll();
     res.status(200).json(campaignData);
   } catch (err) {
     res.status(500).json(err);
@@ -39,10 +32,21 @@ router.post('/', async (req, res) => {
   try {
     const campaignData = await Campaign.create({
       name: req.body.name,
-      userId: req.body.userId
+      UserId: req.session.user_id,
     });
-    res.status(200).json(campaignData);
+
+    const newCampaign = await Campaign.findOne({
+      where: {
+        name: req.body.name,
+      }
+    });
+
+    req.session.save(() => {
+      req.session.campaign_id = newCampaign.id
+      res.status(200).json(campaignData);
+    })
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

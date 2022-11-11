@@ -38,6 +38,34 @@ router.get("/newEncounter", async (req, res) => {
     const availPlayer = characters.map((player) =>
       player.get({ plain: true })
     );
+    if (!req.session.logged_in) {
+      return res.redirect("/login");
+    }
+    res.render("dashboard", {
+      players: availPlayer,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+// =====================
+// router.get("/newEncounter", (req, res) => {
+//   if (!req.session.logged_in) {
+//     return res.redirect("/login");
+//   }
+//   res.render("newEncounter", {
+//     logged_in: req.session.logged_in,
+//   });
+// });
+
+
+// ========new encouter GET
+router.get("/newEncounter", async (req, res) => {
+  try {
 
     const monsters = await Monster.findAll()
 
@@ -64,7 +92,7 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignID: 1,
+        CampaignId: req.session.campaign_id,
       },
       include: [
         {

@@ -7,7 +7,6 @@ const players = [
     playerHealth: 10,
     experience: 0,
     CampaignId: 1,
-    
   },
   {
     playerName: 'Demolitionist',

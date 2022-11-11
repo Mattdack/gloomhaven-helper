@@ -25,29 +25,29 @@ router.get("/dashboard", (req, res) => {
   });
 });
 
-// router.get("/dashboard", async (req, res) => {
-//   if (req.session.logged_in) {
-//     return res.redirect("/login");
-//   }
-//   let currentUser = await Campaign.findAll({
-//     include:[{
-//       model: Encounter,
-//       attribute: ["name"]
-//   }]
-//   });
+router.get("/dashboard", async (req, res) => {
+  if (req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  let currentUser = await Campaign.findAll({
+    include:[{
+      model: Encounter,
+      attribute: ["name"]
+  }]
+  });
 
-//   const thisCampaign = currentUser.map((user) =>
-//     user.get({ plain: true })
-//   );
-//   console.log(thisUser);
-//   res.render("dashboard", {
-//     campaign: thisCampaign,
-//     logged_in: req.session.logged_in,
-//   });
-// });
+  const thisCampaign = currentUser.map((user) =>
+    user.get({ plain: true })
+  );
+  console.log(thisUser);
+  res.render("dashboard", {
+    campaign: thisCampaign,
+    logged_in: req.session.logged_in,
+  });
+});
 
 
-// =====================
+
 router.get("/newEncounter", (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");

@@ -11,7 +11,7 @@ Campaign.init(
       unique: true,
       validate: {
         len: [8, 40]
-      },
+      }
     },
   },
   {

@@ -45,12 +45,14 @@ router.get("/newEncounter", async (req, res) => {
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
     );
+
     if (!req.session.logged_in) {
       return res.redirect("/login");
     }
+
     res.render("newEncounter", {
       monsters: availMonsters,
-      players: availPlayer, 7\
+      players: availPlayer,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

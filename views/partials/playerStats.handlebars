@@ -4,8 +4,10 @@
     <div>
       <p>{{playerName}}</p>
       <p>level: {{playerLevel}}</p>
-      <p>max health: {{playerHealth}} | <span class="HPchange">{{playerHealth}}</span></p>
-      <p>experience: {{experience}}</p>
+      <p>health: {{playerHealth}} <span class="HPchange">| {{playerHealth}}</span>      <button type="button" class="plusCHP">+</button>
+      <button type="button" class="minusCHP">-</button></p>
+      <p>experience: <span class="XPchange">0</span>    <button type="button" class="plusXP">+</button>
+      <button type="button" class="minusXP">-</button></p>
       <p>effect: {{effect}}</p>
       {{#each Effects}}
       <p>{{name}}</p>
@@ -92,10 +94,14 @@
             </li>
           </ul>
         </div>
+<<<<<<< HEAD
       <div>
       <button type="button" class="plusCHP">+ PLUS </button>
       <button type="button" class="minusCHP">- MINUS</button>
       </div>
+=======
+
+>>>>>>> 44df582d0abe546107432fe2ed1ddb403c717e04
     </div>
   </div>
 </div>

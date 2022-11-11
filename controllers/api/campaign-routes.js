@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Campaign } = require('../../models');
 
+
+
 router.get('/', async (req, res) => {
   try {
     const campaignData = await Campaign.findAll({
@@ -35,7 +37,6 @@ router.post('/', async (req, res) => {
   try {
     const campaignData = await Campaign.create({
       name: req.body.name,
-      numPlayers: req.body.numPlayers,
     });
     res.status(200).json(campaignData);
   } catch (err) {
@@ -48,7 +49,6 @@ router.put('/:id', (req, res) => {
     Campaign.update(
       {
         name: req.body.name,
-        numPlayers: req.body.numPlayers,
       },
       {
         where: {

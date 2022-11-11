@@ -10,8 +10,7 @@ Campaign.init(
       allowNull: false,
       unique: true,
       validate: {
-        len: [8, 30],
-        isAlphaNumeric: true,
+        len: [8, 40]
       },
     },
   },

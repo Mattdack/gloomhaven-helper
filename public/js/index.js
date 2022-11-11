@@ -34,7 +34,7 @@ const plusCHP = document.querySelectorAll('.plusCHP');
 for (let i = 0; i < plusCHP.length; i++) {
     plusCHP[i].addEventListener("click", e => {
         e.preventDefault();
-        const chealthSpan = e.target.parentElement.children[2].children[0]
+        const chealthSpan = e.target.parentElement.children[0]
 
         chealthSpan.innerText = parseInt(chealthSpan.innerText) + 1;
     })
@@ -44,8 +44,29 @@ const minusCHP = document.querySelectorAll('.minusCHP');
 for (let i = 0; i < minusCHP.length; i++) {
     minusCHP[i].addEventListener("click", e => {
         e.preventDefault();
-        const chealthSpan = e.target.parentElement.children[2].children[0]
+        const chealthSpan = e.target.parentElement.children[0]
 
         chealthSpan.innerText = parseInt(chealthSpan.innerText) - 1;
+    })
+}
+
+//  XP bar characters =====================
+const plusXP = document.querySelectorAll('.plusXP');
+for (let i = 0; i < plusXP.length; i++) {
+    plusXP[i].addEventListener("click", e => {
+        e.preventDefault();
+        const cxpspan = e.target.parentElement.children[0]
+
+        cxpspan.innerText = parseInt(cxpspan.innerText) + 1;
+    })
+}
+
+const minusXP = document.querySelectorAll('.minusXP');
+for (let i = 0; i < minusXP.length; i++) {
+    minusXP[i].addEventListener("click", e => {
+        e.preventDefault();
+        const cxpspan = e.target.parentElement.children[0]
+
+        cxpspan.innerText = parseInt(cxpspan.innerText) - 1;
     })
 }

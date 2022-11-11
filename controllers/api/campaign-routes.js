@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campaign, User } = require('../../models');
+const { Campaign } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -45,7 +45,6 @@ router.put('/:id', (req, res) => {
     Campaign.update(
       {
         name: req.body.name,
-        numPlayers: req.body.numPlayers,
       },
       {
         where: {

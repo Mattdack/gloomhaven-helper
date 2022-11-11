@@ -50,3 +50,4 @@ newMonsterBtn.addEventListener("click",e=>{
         console.log(data)
     })
 })
+

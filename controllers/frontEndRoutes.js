@@ -17,18 +17,17 @@ router.get("/signup", (req, res) => {
 });
 
 
-router.get("/dashboard", async (req, res) => {
-  try {
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
-    res.render("dashboard", {
-      players: availPlayer,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
+router.get("/dashboard", (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
   }
+  res.render("dashboard", {
+    logged_in: req.session.logged_in,
+  });
+});
+
+router.get("/signup", (req, res) => {
+  res.render("signup", {});
 });
 
 // ==================  New Encounter, Monsters and Players GET

@@ -3,12 +3,14 @@ addcharacterForm.addEventListener("click", e=>{
     e.preventDefault();
     
     let checkboxes = document.querySelectorAll('input[name="character"]:checked');
+    console.log(checkboxes)
     let charArr = []
     checkboxes.forEach((checkbox) => {
       charArr.push(checkbox.value)
     })
+    console.log(charArr)
 
-    fetch("/api/campaign",{
+    fetch("/api/players",{
         method:"POST",
         body:JSON.stringify(charArr),
         headers:{
@@ -47,7 +49,4 @@ newMonsterBtn.addEventListener("click",e=>{
 
         console.log(data)
     })
-    // (data=>{
-    //     location.href = `/monster/${data.id}`
-    // })
 })

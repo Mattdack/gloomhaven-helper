@@ -9,6 +9,17 @@ body {
     color: rgb(149, 133, 55);
 }
 
+.plusHP, .minusHP, .minusCHP, .plusCHP, .plusXP, .minusXP {
+    border:2px solid #76b5c5;
+    width: 10px;
+}
+
+.HPchange {
+    color: red;
+    padding:2px;
+    margin:2px;
+}
+
 aside {
     flex: 0;
     background-color: var(--tertiary);
@@ -16,7 +27,6 @@ aside {
     text-align: left;
     color: var(--light);
 }
-
 
 .login-card {
     margin: 300px;
@@ -65,25 +75,6 @@ aside {
     color: rgb(60, 55, 29)
 }
 
-/* sortable turn order */
-/* #sortable1, #sortable2 {
-    border: 1px solid #eee;
-    width: 142px;
-    min-height: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 5px 0 0 0;
-    float: left;
-    margin-right: 10px;
-}
-
-#sortable1 li, #sortable2 li {
-    margin: 0 5px 5px 5px;
-    padding: 5px;
-    font-size: 1.2em;
-    width: 120px;
-} */
-/* Colors for Characters */
 .Hatchet {
     border: 2px, solid, blue;
     background-color: rgb(99, 99, 250);
@@ -130,9 +121,4 @@ aside {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #1e81b0;
-}
-
-.HPchange {
-    color: red;
-    text-size-adjust: larger;
 }

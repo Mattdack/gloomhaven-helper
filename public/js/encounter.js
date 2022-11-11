@@ -1,7 +1,32 @@
+// let addcharacterForm = document.querySelector("#addCharacter");
+// addcharacterForm.addEventListener("click", e=>{
+//     e.preventDefault();
 
+//     let checkboxes = document.querySelectorAll('input[name="character"]:checked');
+//     console.log(checkboxes)
+//     let charArr = []
+//     checkboxes.forEach((checkbox) => {
+//       charArr.push(checkbox.value)
+//     })
+//     console.log(charArr)
+
+//     fetch("/api/players",{
+//         method:"POST",
+//         body:JSON.stringify(charArr),
+//         headers:{
+//             "Content-Type":"application/json"
+//         }
+//     }).then(res=>{
+//         if(res.ok){
+//            location.reload()
+//         } else {
+//             alert("danger")
+//         }
+//     })
+// })
 
 const newMonsterBtn = document.querySelector("#newMonsterBtn");
-newMonsterBtn.addEventListener("click",e=>{
+newMonsterBtn.addEventListener("click", e => {
     e.preventDefault();
 
 
@@ -14,13 +39,35 @@ newMonsterBtn.addEventListener("click",e=>{
         attack: document.querySelector("#newmonsterattack").value,
         isElite: document.querySelector("#newmonsteriselite").value === "on" ? true : false
     }
-    fetch("/api/monsters/",{
-        method:"POST",
-        body:JSON.stringify(monsterObj),
-        headers:{
-            "Content-Type":"application/json"
+    fetch("/api/monsters/", {
+        method: "POST",
+        body: JSON.stringify(monsterObj),
+        headers: {
+            "Content-Type": "application/json"
         }
-    }).then(res=>res.json()).then(data => {
+    }).then(res => res.json()).then(data => {
+
+        console.log(data)
+    })
+})
+
+const newCharacterBtn = document.querySelector("#newCharacterBtn");
+newCharacterBtn.addEventListener("click", e => {
+    e.preventDefault();
+
+    const charcterObj = {
+        playerName: document.querySelector("#newcharactername").value,
+        playerLevel: document.querySelector("#newcharacterlevel").value,
+        playerHealth: document.querySelector("#newcharacterhealth").value,
+        experience: 0
+    }
+    fetch("/api/players/", {
+        method: "POST",
+        body: JSON.stringify(charcterObj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json()).then(data => {
 
         console.log(data)
     })

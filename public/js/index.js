@@ -13,7 +13,7 @@ console.log("IncreaseHP");
 for (let i = 0; i < plusHP.length; i++) {
     plusHP[i].addEventListener("click", event => {
         event.preventDefault();
-        const mhealthSpan = event.target.parentElement.children[3].children[0]
+        const mhealthSpan = event.target.parentElement.children[0]
 
         mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
     })
@@ -23,7 +23,7 @@ console.log("DecreaseHP");
 for (let i = 0; i < plusHP.length; i++) {
     minusHP[i].addEventListener("click", event => {
         event.preventDefault();
-        const mhealthSpan = event.target.parentElement.children[3].children[0];
+        const mhealthSpan = event.target.parentElement.children[0];
 
         mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
     })

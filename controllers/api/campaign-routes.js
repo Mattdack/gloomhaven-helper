@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campaign } = require('../../models');
+const { Campaign, User } = require('../../models');
 
 
 
@@ -7,7 +7,9 @@ router.get('/', async (req, res) => {
   try {
     const campaignData = await Campaign.findAll({
       // add separate modals connected to Campaign if needed
-      // include: [{ model:  }],
+      include: [{
+        model: User
+      }],
     });
     res.status(200).json(campaignData);
   } catch (err) {
@@ -37,6 +39,7 @@ router.post('/', async (req, res) => {
   try {
     const campaignData = await Campaign.create({
       name: req.body.name,
+      userId: req.body.userId
     });
     res.status(200).json(campaignData);
   } catch (err) {
@@ -46,20 +49,20 @@ router.post('/', async (req, res) => {
 
 // TODO: need to fill out according to Campaign parameters
 router.put('/:id', (req, res) => {
-    Campaign.update(
-      {
-        name: req.body.name,
+  Campaign.update(
+    {
+      name: req.body.name,
+    },
+    {
+      where: {
+        id: req.params.id,
       },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    )
-      .then((updatedCampaign) => {
-        res.json(updatedCampaign);
-      })
-      .catch((err) => res.json(err));
+    }
+  )
+    .then((updatedCampaign) => {
+      res.json(updatedCampaign);
+    })
+    .catch((err) => res.json(err));
 });
 
 router.delete('/:id', (req, res) => {

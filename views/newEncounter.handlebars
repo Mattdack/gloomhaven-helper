@@ -1,9 +1,29 @@
 {{!-- add party to campaign --}}
-<h2>Who is in your party?</h2>
 
-{{>newmonster}}
-{{>monstersaddedlist}}
+<main class="flex grid grid-cols-1 p-8 justify-items-center md:grid-cols-2 xl:grid-cols-3">
+    
+        <div class="m-2 p-2">
+            <h2>Who is in your party?</h2>
+            {{>addParty}}
+        </div>
+    </div>
 
-<button>Do the thing!</button>
 
+    <div class="flex-row">
+        <div class="m-3 p-3">
+            {{>newmonster}}
+        </div>
+    </div>
+
+    <div class="flex-row">
+        <div class="m-2 p-2">
+            {{>monstersaddedlist}}
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="m-2 p-2">
+    <button>Do the thing!</button>
+        </div>
+    </div>
+</main>
 <script src="/js/encounter.js"></script>

@@ -38,6 +38,7 @@ router.get("/dashboard", async (req, res) => {
 });
 
 
+
 // =====================
 // router.get("/newEncounter", (req, res) => {
 //   if (!req.session.logged_in) {
@@ -48,9 +49,11 @@ router.get("/dashboard", async (req, res) => {
 //   });
 // });
 
+
 // ========new encouter GET
 router.get("/newEncounter", async (req, res) => {
   try {
+
 
     const monsters = await Monster.findAll()
       
@@ -66,6 +69,7 @@ router.get("/newEncounter", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+
   }
 });
 

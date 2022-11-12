@@ -1,14 +1,16 @@
-<div class="max-w-fit flex flex-row border-2 m-4 shadow-[0_0px_10px_5px_rgba(200,200,0,0.3)] transition ease-in-out delay-150 hover:scale-110 duration-300 place-items-center">
+<div class="flex flex-row w-fit border-2 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-300 place-items-center text-lg">
   <img class="flex-initial m-1 p-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
   <div class="m-1 p-1 w-full">
-    <div>
-      <p>{{playerName}}</p>
-      <p>level: {{playerLevel}}</p>
-      <p>health: {{playerHealth}} <span class="HPchange">{{playerHealth}}</span><button type="button" class="plusCHP">+</button>
-      <button type="button" class="minusCHP">-</button></p>
-      <p>experience: <span class="XPchange">0</span>    <button type="button" class="plusXP">+</button>
-      <button type="button" class="minusXP">-</button></p>
-      <p>effect: {{effect}}</p>
+    <div class="-space-y-.5">
+      <p class="font-bold underline underline-offset-4">{{playerName}}</p>
+      <p class="font-semibold">level: <span class="font-light">{{playerLevel}}</span></p>
+      <p class="font-semibold">health: <span class="font-light">{{playerHealth}}</span> | <span class="HPchange font-light">{{playerHealth}} </span>
+      <button type="button" class="plusHP font-sans bg-green-400 rounded-l-lg w-4">+</button>
+      <button type="button" class="minusHP -ml-2 font-sans bg-red-400 rounded-r-lg w-4">-</button>
+      <p class="font-semibold">experience: <span class="font-light"><span class="XPchange">0</span>
+      <button type="button" class="plusXP font-sans bg-blue-400 rounded-l-lg w-4">+</button>
+      <button type="button" class="minusXP -ml-2 font-sans bg-yellow-400 rounded-r-lg w-4">-</button></p>
+      <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
       {{#each Effects}}
       <p>{{name}}</p>
       {{/each}}

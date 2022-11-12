@@ -1,6 +1,6 @@
-<main class="flex-auto grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
-  <div class="col-span-1">
-    <div class="m-2 p-2">
+<main class="md:h-screen grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6">
+  <div class="flex justify-center border-2  md:col-span-2 md:h-[100%] md:overflow-y-auto xl:col-span-2">
+    <div>
       {{#each players as |player|}}
       {{>playerStats}}
       {{/each}}
@@ -8,8 +8,8 @@
   </div>
   
   {{!-- Turn Order --}}
-  <div>
-    <div class="pl-8 pr-8 border-2 mt-8 border-blue-500 w-full">
+  <div class="pl-16 pr-16 border-2 border-green-500 md:col-span-2 md:h-[100%] md:overflow-y-auto">
+    <div class="border-2 mt-8 border-blue-500">
       <form id="turnorders">
         <div id="sortable1" class="connectedSortable">
           {{#each players as |player|}}
@@ -28,7 +28,7 @@
     <button class="delBtn" id="clearInput">Next Round</button>
   </div>
 
-  <div class="place-items-center border-2 p-1 m-2 border-green-500 grid grid-cols-3 gap-1">
+  <div class="flex justify-center overflow-auto border-2 border-green-500 grid grid-cols-3 gap-1 md:h-[100%] md:overflow-y-auto md:col-span-4 xl:col-span-2">
     {{#each monsters as |monster|}}
     {{>monsterstats}}
     {{/each}}

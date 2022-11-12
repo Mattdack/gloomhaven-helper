@@ -37,20 +37,6 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-
-
-// =====================
-// router.get("/newEncounter", (req, res) => {
-//   if (!req.session.logged_in) {
-//     return res.redirect("/login");
-//   }
-//   res.render("newEncounter", {
-//     logged_in: req.session.logged_in,
-//   });
-// });
-
-
-// ========new encouter GET
 router.get("/newEncounter", async (req, res) => {
   try {
 
@@ -72,7 +58,6 @@ router.get("/newEncounter", async (req, res) => {
   }
 });
 
-// ===========================current encounter GET
 router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({

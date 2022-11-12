@@ -54,9 +54,9 @@ router.get("/newEncounter", async (req, res) => {
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
     );
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
+
+ console.log(availMonsters)
+
     res.render("newEncounter", {
       monsters: availMonsters,
       logged_in: req.session.logged_in,
@@ -66,6 +66,9 @@ router.get("/newEncounter", async (req, res) => {
   }
 });
 
+
+
+
 router.get("/currentEncounter", async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");
@@ -74,7 +77,8 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignId: 1,
+        CampaignId:1
+         
       },
       include: [
         {

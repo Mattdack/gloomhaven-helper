@@ -8,10 +8,6 @@ const addRedGuardBtn = document.querySelector(`#addRedGuard`);
 addPlayerBtn.addEventListener("click", addParty);
 
 function addParty() {
-    console.log(addVoidBtn);
-    console.log(addVoidBtn.checked);
-    console.log(addHatchetBtn.checked);
-
     if (addVoidBtn.checked) {
         addVoidwarden();
     }
@@ -23,6 +19,9 @@ function addParty() {
     }
     if(addRedGuardBtn.checked) {
         addRedGuard();
+    }
+    if((!addVoidVtn.checked) && (!addHatchetBtn.checked) && (!addDemoBtn.checked) && (!addRedGuardBtn.checked)) {
+        alert("You did not select a character to add!")
     }
 }
 
@@ -64,7 +63,7 @@ async function addHatchet() {
         method: `POST`,
         body: JSON.stringify(hatchetObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){
@@ -89,7 +88,7 @@ async function addDemo() {
         method: `POST`,
         body: JSON.stringify(demoObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){
@@ -114,7 +113,7 @@ async function addRedGuard() {
         method: `POST`,
         body: JSON.stringify(rgObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){

@@ -1,5 +1,8 @@
 {{!-- add party to campaign --}}
 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 <main class="flex-auto grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
 
     <div class="flex justify-center place-items-center border-2 border-gray-500 ">
@@ -14,7 +17,6 @@
             {{>newplayer}}
         </div>
     </div>
-    </div>
 
     <div class="flex justify-center place-items-center border-2 border-gray-500">
         <div class="col-2">
@@ -23,7 +25,19 @@
             <div>
                 {{>monstersaddedlist}}
             </div>
+            <div class="card">
+                {{!-- <label for="chooseyourmonster">Monsters: </label>
+                  <input id="{chooseyourmonster}">
+                  <label>lvl:</label>
+                  <input type="number" id="chooseyourmonsterlvl" /> --}}
 
+                <ul> {{#each monsters }}
+                    <li data-mid="{{id}}">{{name}},lvl:{{level}}<button class="chooseyourmonster">+</button></li>
+                    {{/each}}
+                </ul>
+
+
+            </div>
             <div class="col-2">
                 <h2 class="flex justify-center">Select Stats</h2>
                 {{>newmonster}}

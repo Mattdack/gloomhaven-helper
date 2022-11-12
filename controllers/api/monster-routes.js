@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Monster, Effect, Encounter } = require('../../models');
+const { Monster, Effect, Encounter, Campaign} = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -48,8 +48,21 @@ router.post('/', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Monster parameters
-router.put('/:id', (req, res) => {
+// ============will this work? we'll see
+router.post("/EncounterMonster/:monsterId", (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.status(401).json({ msg: "login first" })
+  }
+  Campaign.findByPk(req.session.campaignId).then(foundCamp => {
+    foundCamp.addEncounterMonster(req.params.monsterId).then(usr => {
+      console.log(usr);
+      console.log("association added!")
+    })
+  })
+});
+
+  // TODO: need to fill out according to Monster parameters
+  router.put('/:id', (req, res) => {
     Monster.update(
       {
         name: req.body.name,
@@ -70,64 +83,64 @@ router.put('/:id', (req, res) => {
         res.json(updatedMonster);
       })
       .catch((err) => res.json(err));
-});
+  });
 
-router.delete('/:id', (req, res) => {
-  Monster.destroy({
-    where: {
-      id: req.params.id,
-    },
+  router.delete('/:id', (req, res) => {
+    Monster.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((deletedMonster) => {
+        res.json(deletedMonster);
+      })
+      .catch((err) => res.json(err));
+  });
+
+  router.post(`/:id/effect`, async (req, res) => {
+    try {
+      const targetMonster = await Monster.findByPk(req.params.id);
+      await targetMonster.addEffect(req.body.effect);
+
+      const updatedTargetMonster = await Monster.findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [{
+          model: Effect,
+          attributes: ["name"],
+          through: {
+            attributes: []
+          }
+        }],
+      });
+      res.status(200).json(updatedTargetMonster);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.post('/:id/encounter', async (req, res) => {
+    try {
+      const encounterMonster = await Monster.findByPk(req.params.id);
+      // will need to change to 1 below to a specific encounter # based off of the logged in user/campaign
+      await encounterMonster.addEncounter(1);
+      const updatedEncounterMonster = await Monster.findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [{
+          model: Encounter,
+          attributes: ['number'],
+          through: {
+            attributes: []
+          }
+        }]
+      })
+      res.status(200).json(updatedEncounterMonster);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   })
-    .then((deletedMonster) => {
-      res.json(deletedMonster);
-    })
-    .catch((err) => res.json(err));
-});
 
-router.post(`/:id/effect`, async (req, res) => {
-  try{
-    const targetMonster = await Monster.findByPk(req.params.id);
-    await targetMonster.addEffect(req.body.effect);
-
-    const updatedTargetMonster = await Monster.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [{
-        model: Effect,
-        attributes: ["name"],
-        through: {
-          attributes: []
-        }
-      }],
-    });
-    res.status(200).json(updatedTargetMonster);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post('/:id/encounter', async (req,res)=> {
-  try{
-    const encounterMonster = await Monster.findByPk(req.params.id);
-    // will need to change to 1 below to a specific encounter # based off of the logged in user/campaign
-    await encounterMonster.addEncounter(1);
-    const updatedEncounterMonster = await Monster.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [{
-        model: Encounter,
-        attributes: ['number'],
-        through: {
-          attributes: []
-        }
-      }]
-    })
-    res.status(200).json(updatedEncounterMonster);
-  }catch (err) {
-    res.status(500).json(err);
-  }
-})
-
-module.exports = router;
+  module.exports = router;

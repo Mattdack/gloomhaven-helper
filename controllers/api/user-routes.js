@@ -82,7 +82,7 @@ router.post('/login', async (req, res) => {
       res
         .status(400)
         // TODO: add in username AND password
-        .json({ message: 'Incorrect username, please try again' });
+        .json({ message: 'Incorrect, please try again' });
       return;
     }
 
@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
       res
         .status(400)
         // TODO: add in username AND password
-        .json({ message: 'Incorrect password, please try again' });
+        .json({ message: 'Incorrect, please try again' });
       return;
     }
 

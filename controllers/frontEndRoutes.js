@@ -26,6 +26,15 @@ router.get("/dashboard", (req, res) => {
   });
 });
 
+// router.get("/currentEncounter", (req, res) => {
+//   if (!req.session.logged_in) {
+//     return res.redirect("/login");
+//   }
+//   res.render("currentEncounter", {
+//     logged_in: req.session.logged_in,
+//   });
+// });
+
 router.get("/signup", (req, res) => {
   res.render("signup", {});
 });
@@ -41,7 +50,7 @@ router.get("/newEncounter", async (req, res) => {
     if (!req.session.logged_in) {
       return res.redirect("/login");
     }
-    res.render("dashboard", {
+    res.render("newEncounter", {
       players: availPlayer,
       logged_in: req.session.logged_in,
     });
@@ -66,20 +75,19 @@ router.get("/newEncounter", async (req, res) => {
 // ========new encouter GET
 router.get("/newEncounter", async (req, res) => {
   try {
-
+   if (!req.session.logged_in) {
+      return res.redirect("/login");
+    }
     const monsters = await Monster.findAll()
 
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
     );
 
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
+ 
 
     res.render("newEncounter", {
       monsters: availMonsters,
-      players: availPlayer,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -92,7 +100,8 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignId: req.session.campaign_id,
+        CampaignId:1
+        //  req.session.campaign_id,
       },
       include: [
         {

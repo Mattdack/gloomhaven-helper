@@ -7,13 +7,14 @@ clearBtn.addEventListener("click", event => {
   document.getElementById("turnorders").reset();
 })
 
-// health bar monsters
+// health bar monsters --------
 const plusHP = document.querySelectorAll('.plusHP');
 console.log("IncreaseHP");
 for (let i = 0; i < plusHP.length; i++) {
     plusHP[i].addEventListener("click", event => {
         event.preventDefault();
-        const mhealthSpan = event.target.parentElement.children[1]
+        const mhealthSpan = event.target.parentElement.children[3].children[1]
+        console.log(mhealthSpan)
         console.log(parseInt(mhealthSpan))
         mhealthSpan.innerText = parseInt(mhealthSpan.innerText) + 1;
     })
@@ -23,7 +24,7 @@ console.log("DecreaseHP");
 for (let i = 0; i < plusHP.length; i++) {
     minusHP[i].addEventListener("click", event => {
         event.preventDefault();
-        const mhealthSpan = event.target.parentElement.children[1];
+        const mhealthSpan = event.target.parentElement.children[3].children[1]
 
         mhealthSpan.innerText = parseInt(mhealthSpan.innerText) - 1;
     })

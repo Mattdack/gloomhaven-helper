@@ -1,20 +1,49 @@
 body {
     margin: 0;
-    background-color: rgb(32, 32, 81);
+    background-color: rgb(0, 0, 0);
     /* background-image: url(./images/GloomhavenBackground.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: fixed; */
-    font-family: 'Shadows Into Light';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:100;
     color: rgb(149, 133, 55);
 }
 
+.fog{
+    background-image: url("../images/fog.png");
+    /* background-size: cover; */
+}
+
 .bordering { 
-    border: 15px solid transparent;
-    padding: 15px;
-    border-image-source: url(../images/div-border.png);
+    border: solid transparent;
+    border-width: 20px;
+    padding-top: 25px;
+    border-image-source: url(../images/border.png);
     border-image-repeat: round;
-    border-image-slice: 30;
+    border-image-slice: 33;
+  }
+
+.player-img {
+    border-color:#cab7ac;
+    border-width: 2px;
+}
+
+.player-ridge {
+    border-style: ridge;
+    border-color: #d34621;
+}
+
+.card-background{
+    background-image: url("../images/texture-background.jpg");
+    background-size: cover;
+}
+
+.card-details{
+    border-color:#cab7ac;
+    border-width: 2px;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 8px;
 }
 
 .HPchange {
@@ -23,14 +52,23 @@ body {
     margin:2px;
 }
 
-aside {
-    flex: 0;
-    background-color: var(--tertiary);
-    padding: 80px;
-    text-align: left;
-    color: var(--light);
+/* === PLAYER SETTINGS === */
+
+/* TURN TABLE FORMATTING */ 
+.turn-ridge {
+    border-style: ridge;
+    border-color:#3c3c3c;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 24px;
 }
 
+/* MONSTER TABLE */
+.monster-ridge {
+    border-style: ridge;
+    border-color:#dc2626
+}
+
+/* CARD FORMATTING */
 .login-card {
     margin: 300px;
     flex: 0 0 50%;
@@ -78,7 +116,6 @@ aside {
     color: rgb(60, 55, 29)
 }
 
-
 .Hatchet {
     border: 2px, solid, blue;
     background-color: rgb(99, 99, 250);
@@ -99,15 +136,10 @@ aside {
     background-color: rgb(207, 101, 40)
 }
 
-.monsterturn {
-    border: 2px, solid, darkred;
-    background-color: rgb(158, 32, 32);
-}
-
 /* scrollbar shenanigans */
 /* width */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 10px;
 }
 
 /* Track */
@@ -118,11 +150,11 @@ aside {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #76b5c5;
+    background: #cab7ac;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #1e81b0;
+    background: #916d59;
 }

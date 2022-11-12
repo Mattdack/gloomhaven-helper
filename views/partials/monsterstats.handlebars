@@ -1,17 +1,18 @@
-<div class="grid grid-cols-1 border-2 w-fit h-fit shadow-[0_0px_10px_5px_rgba(200,200,0,0.3)] place-items-center">
+<div class="monster-ridge card-background grid grid-cols-1 border-4 w-fit h-fit shadow-[0_0px_10px_5px_rgba(220,38,38,0.3)] place-items-center text-sm">
   {{!-- <div class=""> --}}
-    <img class="h-36" src="/images/monsters/{{name}}.jpg" alt="">
-      <div class="m-1">
-        <h3>{{name}}</h3>
-        <p class="monster-stats">level: {{level}}</p>
-        <p class="monster-stats">special: {{special}}</p>
-        <p class="monster-stats">health: {{health}} | <span class="HPchange">{{health}}</span>      <button type="button" class="plusHP">+</button>
-        <button type="button" class="minusHP">-</button></p>
-        <p class="monster-stats">move: {{move}}</p>
-        <p class="monster-stats">attack: {{attack}}</p>
-        <p class="monster-stats">effect:</p>
+    <img class="h-36 player-img" src="/images/monsters/{{name}}.jpg" alt="">
+      <div class="m-1 card-details">
+        <h3 class="font-bold underline underline-offset-4">{{name}}</h3>
+        <p class="monster-stats font-bold">level: <span class="font-light">{{level}}</span></p>
+        <p class="monster-stats font-bold">special: <span class="font-light">{{special}}</span></p>
+        <p class="monster-stats font-bold">health: <span class="font-light">{{health}}</span> | <span class="HPchange font-light">{{health}}</span></p>
+        <button type="button" class="plusHP font-sans text-black font-bold bg-green-400 rounded-l-lg w-4 text-lg">+</button>
+        <button type="button" class="minusHP -ml-1 font-sans text-black font-bold bg-red-400 rounded-r-lg w-4 text-lg">-</button>
+        <p class="monster-stats font-bold">move: <span class="font-light">{{move}}</span></p>
+        <p class="monster-stats font-bold">attack: <span class="font-light">{{attack}}</span></p>
+        <p class="monster-stats font-bold">effect:</p>
         {{#each Effects}}
-        <p>{{name}}</p>
+        <p class="font-light text-red-500">{{name}}</p>
         {{/each}}
         <button id="dropdownDefault-{{id}}-{{id}}" data-dropdown-toggle="dropdown-{{id}}-{{id}}"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

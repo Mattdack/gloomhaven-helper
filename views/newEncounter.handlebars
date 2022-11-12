@@ -1,44 +1,47 @@
 {{!-- add party to campaign --}}
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<main class="flex grid grid-cols-1 p-8 justify-items-center md:grid-cols-2 xl:grid-cols-3">
 
-    <div class="m-2 p-2">
-        <h2>Who is in your party?</h2>
-        {{>addParty}}
+<main class="flex-auto grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
+
+    <div class="flex justify-center place-items-center border-2 border-gray-500 ">
+        <div class="col-1">
+            <h2 class="flex justify-center">Choose Characters</h2>
+            <div>
+                {{>addParty}}
+            </div>
+        </div>
+        <div class="col-1">
+            <h2 class="flex justify-center">Select Stats</h2>
+            {{>newplayer}}
+        </div>
     </div>
     </div>
 
-<div class="ui-widget">
-  {{!-- <label for="chooseyourmonster">Monsters: </label>
-  <input id="{chooseyourmonster}">
-  <label>lvl:</label>
-  <input type="number" id="chooseyourmonsterlvl"/> --}}
- 
-  <ul> {{#each monsters}}
-    <li data-mid="{{id}}">{{name}},lvl:{{level}}<button class="chooseyourmonster">+</button></li>
-  {{/each}}
-  </ul>
-  
-  
-</div>
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
+        <div class="col-2">
 
-    <div class="flex-row">
-        <div class="m-3 p-3">
-            {{>newmonster}}
+            <h2 class="flex justify-center">Choose Monsters</h2>
+            <div>
+                {{>monstersaddedlist}}
+            </div>
+
+            <div class="col-2">
+                <h2 class="flex justify-center">Select Stats</h2>
+                {{>newmonster}}
+            </div>
         </div>
     </div>
 
-    <div class="flex-row">
-        <div class="m-2 p-2">
-            {{>monstersaddedlist}}
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
+        <div class="col-3">
+            <div class="m-2 p-2">
+                {{>monstersaddedlist}}
+            </div>
+
+            <div class="col-3">
+
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800">Do the thing!</button>
+            </div>
         </div>
-    </div>
-    <div class="flex-row">
-        <div class="m-2 p-2">
-            <button>Do the thing!</button>
-        </div>
-    </div>
 </main>
 <script src="/js/addMonsters.js"></script>
 <script src="/js/encounter.js"></script>

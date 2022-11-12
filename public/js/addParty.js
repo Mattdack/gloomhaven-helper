@@ -8,10 +8,6 @@ const addRedGuardBtn = document.querySelector(`#addRedGuard`);
 addPlayerBtn.addEventListener("click", addParty);
 
 function addParty() {
-    console.log(addVoidBtn);
-    console.log(addVoidBtn.checked);
-    console.log(addHatchetBtn.checked);
-
     if (addVoidBtn.checked) {
         addVoidwarden();
     }
@@ -23,6 +19,12 @@ function addParty() {
     }
     if(addRedGuardBtn.checked) {
         addRedGuard();
+    }
+    if((!addVoidBtn.checked) && (!addHatchetBtn.checked) && (!addDemoBtn.checked) && (!addRedGuardBtn.checked)) {
+        alert("You did not select a character to add!")
+    } else {
+        location.reload();
+        alert("Your characters have been added.");
     }
 }
 
@@ -44,12 +46,10 @@ async function addVoidwarden() {
     }).then(res=> {
         if(res.ok){
             console.log("Voidwarden added.")
-            location.reload();
         }else {
             console.log("Voidwarden not added.")
         }
     })
-    console.log(added);
 }
 
 async function addHatchet() {
@@ -64,17 +64,15 @@ async function addHatchet() {
         method: `POST`,
         body: JSON.stringify(hatchetObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){
             console.log("Hatchet added.")
-            location.reload();
         }else {
             console.log("Hatchet not added.");
         }
     })
-    console.log(added);
 }
 
 async function addDemo() {
@@ -89,17 +87,15 @@ async function addDemo() {
         method: `POST`,
         body: JSON.stringify(demoObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){
             console.log("Demo added.");
-            location.reload();
         }else {
             console.log("Demo not added.")
         }
     })
-    console.log(added);
 }
 
 async function addRedGuard() {
@@ -114,16 +110,13 @@ async function addRedGuard() {
         method: `POST`,
         body: JSON.stringify(rgObj),
         headers:{
-            "Content-Type":"application/kson"
+            "Content-Type":"application/json"
         }
     }).then(res=> {
         if(res.ok){
             console.log("RG Added");
-            location.reload();
         }else {
             console.log("RG not added")
-            console.log("Issue with adding a character")
         }
     })
-    console.log(added);
 }

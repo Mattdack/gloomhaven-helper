@@ -13,7 +13,7 @@
       <button type="button" class="minusXP -ml-1 font-sans text-black bg-yellow-400 rounded-r-lg w-4 text-lg">-</button></p>
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
       {{#each Effects}}
-      <p class="text-red-500">{{name}}</p>
+      <p class="text-red-500" id={{id}}>{{name}}</p>
       {{/each}}
             <button
           id="dropdownDefault-{{id}}"

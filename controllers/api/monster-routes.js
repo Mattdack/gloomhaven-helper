@@ -108,24 +108,18 @@ router.post(`/:id/effect`, async (req, res) => {
 });
 
 router.post('/:id/encounter', async (req,res)=> {
-  try{
-    const encounterMonster = await Monster.findByPk(req.params.id);
-    // will need to change to 1 below to a specific encounter # based off of the logged in user/campaign
-    await encounterMonster.addEncounter(1);
-    const updatedEncounterMonster = await Monster.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [{
-        model: Encounter,
-        attributes: ['number'],
-        through: {
-          attributes: []
-        }
-      }]
-    })
-    res.status(200).json(updatedEncounterMonster);
-  }catch (err) {
+  try {
+    const numAdding = req.body.numToAdd;
+    console.log(numAdding + "====================================")
+    console.log(req.session.encounter_id)
+    for (let i = 0; i < numAdding; i++) {
+      const encounterMonster = await Monster.findByPk(req.params.id);
+      await encounterMonster.addEncounter(req.session.encounter_id);
+      console.log(encounterMonster);
+    }
+    res.status(200);
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 })

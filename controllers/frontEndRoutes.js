@@ -48,15 +48,15 @@ router.get("/dashboard", async (req, res) => {
 });
 
 router.get("/newEncounter", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
   try {
     const monsters = await Monster.findAll();
 
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
     );
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
     res.render("newEncounter", {
       monsters: availMonsters,
       logged_in: req.session.logged_in,
@@ -90,7 +90,7 @@ router.get("/currentEncounter", async (req, res) => {
       player.get({ plain: true })
     );
     console.log(campPlayers);
-    const specificEncounter = await Encounter.findByPk(1);
+    const specificEncounter = await Encounter.findByPk(req.session.encounter_id);
     const encounterMonsters = await specificEncounter.getMonsters({
       include: [
         {
@@ -116,7 +116,7 @@ router.get("/currentEncounter", async (req, res) => {
   }
 });
 
-//this allows for us to see the person's id with the session in use
+//this allows for us to see the person's id with the session in use. This isnt really a front end route because it doesnt deliver any viewable data and should live elsewhere. -MD
 router.get("/sessions", (req, res) => {
   res.json(req.session);
 });

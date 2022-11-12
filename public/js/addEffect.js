@@ -36,9 +36,9 @@ for (let i = 0; i < addMonsterEffectList.length; i++) {
 
         fetch(`/api/monsters/${targetId}/effect`,{
             method:"POST",
-            body: {
+            body: JSON.stringify({
                 effect: effectId,
-            },
+            }),
             headers:{
                 "Content-Type":"application/json"
             }

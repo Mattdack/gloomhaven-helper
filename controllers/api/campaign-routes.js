@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campaign, User } = require('../../models');
+const { Campaign, User, Encounter } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -41,9 +41,21 @@ router.post('/', async (req, res) => {
       }
     });
 
+    const newEncounter = await Encounter.create({
+      number: 1,
+      CampaignId: newCampaign.id,
+    });
+
+    const madeEncounter = await Encounter.findOne({
+      where: {
+        CampaignId: newCampaign.id,
+      }
+    });
+
     req.session.save(() => {
       req.session.campaign_id = newCampaign.id;
-      res.status(200).json(campaignData);
+      req.session.encounter_id = madeEncounter.id;
+      res.status(200).json({campaignData, newEncounter});
     })
   } catch (err) {
     console.log(err);

@@ -36,7 +36,6 @@ async function addVoidwarden() {
         health: 6,
         experience: 0,
     }
-    console.log("THIS IS THE VOIDWARDEN OBJECT" + JSON.stringify(voidObj));
     const added = await fetch(`/api/players`, {
         method: "POST",
         body: JSON.stringify(voidObj),

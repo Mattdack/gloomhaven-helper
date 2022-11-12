@@ -1,66 +1,69 @@
-<div class="grid grid-cols-1 flex flex-row border-2 m-4 w-full shadow-[0_0px_10px_5px_rgba(200,200,0,0.3)] place-items-center" >
-  <img class="h-36" src="/images/monsters/{{name}}.jpg" alt="">
-    <div class="m-1">
-      <h3>{{name}}</h3>
-      <p class="monster-stats">level: {{level}}</p>
-      <p class="monster-stats">special: {{special}}</p>
-      <p class="monster-stats">health: {{health}} | <span class="HPchange">{{health}}</span>      <button type="button" class="plusHP">+ PLUS </button>
-      <button type="button" class="minusHP">- MINUS</button></p>
-      <p class="monster-stats">move: {{move}}</p>
-      <p class="monster-stats">attack: {{attack}}</p>
-      <p class="monster-stats">effect:</p>
-      {{#each Effects}}
-      <p>{{name}}</p>
-      {{/each}}
-      <button id="dropdownDefault-{{id}}-{{id}}" data-dropdown-toggle="dropdown-{{id}}-{{id}}"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button">Add Effect
-        <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg></button>
-      <!-- Dropdown menu -->
-      <div id="dropdown-{{id}}-{{id}}"
-        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-        data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
-        style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);">
-        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 addMonsterEffect" aria-labelledby="dropdownDefault">
-          <li>
-            <a href="#" data-effect="1" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Muddle</a>
-          </li>
-          <li>
-            <a href="#" data-effect="2" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Immobolize</a>
-          </li>
-          <li>
-            <a href="#" data-effect="3" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stun</a>
-          </li>
-          <li>
-            <a href="#" data-effect="4" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Strengthen</a>
-          </li>
-          <li>
-            <a href="#" data-effect="5" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Disarm</a>
-          </li>
-          <li>
-            <a href="#" data-effect="6" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Poison</a>
-          </li>
-          <li>
-            <a href="#" data-effect="7" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Wound</a>
-          </li>
-          <li>
-            <a href="#" data-effect="8" data-monster="{{id}}"
-              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shield</a>
-          </li>
-        </ul>
-      </div>
-      <div>
+<div class="monster-ridge card-background grid grid-cols-1 border-4 w-fit h-fit shadow-[0_0px_10px_5px_rgba(220,38,38,0.3)] place-items-center text-sm">
+  {{!-- <div class=""> --}}
+    <img class="h-36 player-img" src="/images/monsters/{{name}}.jpg" alt="">
+      <div class="m-1 card-details">
+        <h3 class="font-bold underline underline-offset-4">{{name}}</h3>
+        <p class="monster-stats font-bold">level: <span class="font-light">{{level}}</span></p>
+        <p class="monster-stats font-bold">special: <span class="font-light">{{special}}</span></p>
+        <p class="monster-stats font-bold">health: <span class="font-light">{{health}}</span> | <span class="HPchange font-light">{{health}}</span></p>
+        <button type="button" class="plusHP font-sans text-black font-bold bg-green-400 rounded-l-lg w-4 text-lg">+</button>
+        <button type="button" class="minusHP -ml-1 font-sans text-black font-bold bg-red-400 rounded-r-lg w-4 text-lg">-</button>
+        <p class="monster-stats font-bold">move: <span class="font-light">{{move}}</span></p>
+        <p class="monster-stats font-bold">attack: <span class="font-light">{{attack}}</span></p>
+        <p class="monster-stats font-bold">effect:</p>
+        {{#each Effects}}
+        <p class="font-light text-red-500">{{name}}</p>
+        {{/each}}
+        <button id="dropdownDefault-{{id}}-{{id}}" data-dropdown-toggle="dropdown-{{id}}-{{id}}"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">Add Effect
+          <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg></button>
+        <!-- Dropdown menu -->
+        <div id="dropdown-{{id}}-{{id}}"
+          class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+          data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+          style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);">
+          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 addMonsterEffect" aria-labelledby="dropdownDefault">
+            <li>
+              <a href="#" data-effect="1" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Muddle</a>
+            </li>
+            <li>
+              <a href="#" data-effect="2" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Immobolize</a>
+            </li>
+            <li>
+              <a href="#" data-effect="3" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stun</a>
+            </li>
+            <li>
+              <a href="#" data-effect="4" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Strengthen</a>
+            </li>
+            <li>
+              <a href="#" data-effect="5" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Disarm</a>
+            </li>
+            <li>
+              <a href="#" data-effect="6" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Poison</a>
+            </li>
+            <li>
+              <a href="#" data-effect="7" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Wound</a>
+            </li>
+            <li>
+              <a href="#" data-effect="8" data-monster="{{id}}"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shield</a>
+            </li>
+          </ul>
+        </div>
+        <div>
 
+        </div>
       </div>
-    </div>
+  {{!-- </div> --}}
 </div>

@@ -9,6 +9,10 @@ const campaigns = [
         name: "Jaws of The Lion",
         UserId: 2,
     },
+    {
+        name: "Matt is the best",
+        UserId: 1,
+    },
 ]
 
 const seedCampaigns = () => Campaign.bulkCreate(campaigns);

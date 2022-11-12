@@ -15,7 +15,6 @@ newForm.addEventListener("click", e => {
     }).then(res => {
         if(res.ok){
             location.assign('/newEncounter');
-            location.reload()
         } else {
             alert('Something Wrong Happened with Making New Campaign.')
         }

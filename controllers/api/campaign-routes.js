@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.campaign_id = newCampaign.id
+      req.session.campaign_id = newCampaign.id;
       res.status(200).json(campaignData);
     })
   } catch (err) {
@@ -50,6 +50,23 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// New route to update the campaign_id
+router.post(`/:id`, async (req, res) => {
+  console.log("storing campaign Id")
+  try{
+    req.session.save(() => {
+      req.session.campaign_id = req.params.id;
+      console.log("Campaign ID has been stored as" + req.params.id);
+      console.log(req.session.campaign_id);
+      res.status(200).json({msg: "Campaign Id has been updated"});
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+})
+
 
 // TODO: need to fill out according to Campaign parameters
 router.put('/:id', (req, res) => {

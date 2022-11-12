@@ -25,11 +25,14 @@ const sess = {
 
 app.use(express.static("public"))
 
-
-// TODO: needed for handlebars
 const hbs = exphbs.create({});
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+
+
+
 
 app.use(session(sess));
 

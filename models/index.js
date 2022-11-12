@@ -14,7 +14,7 @@ Encounter.belongsTo(Campaign);
 Campaign.hasMany(Player);
 Player.belongsTo(Campaign);
 
-Monster.belongsToMany(Encounter,{through: `EncounterMonster`});
+Monster.belongsToMany(Encounter,{through: `EncounterMonster`})
 Encounter.belongsToMany(Monster,{through: `EncounterMonster`});
 
 Player.belongsToMany(Effect,{through: `PlayerEffect`});

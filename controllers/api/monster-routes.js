@@ -48,29 +48,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/encountermonster', async (req, res) => {
-  try {
-    const monsterData = await EncounterMonster.findAll({
-      // add separate modals connected to Monster if needed
-      // include: [{ model:  }],
-    });
-    res.status(200).json(monsterData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-// ============will this work? we'll see
-router.post("/EncounterMonster/:monsterId", (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.status(401).json({ msg: "login first" })
-  }
-  Campaign.findByPk(req.session.campaignId).then(foundCamp => {
-    foundCamp.addEncounterMonster(req.params.monsterId).then(usr => {
-      console.log(usr);
-      console.log("association added!")
-    })
-  })
-});
+
 
   // TODO: need to fill out according to Monster parameters
   router.put('/:id', (req, res) => {

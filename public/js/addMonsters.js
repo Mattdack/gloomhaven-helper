@@ -1,27 +1,27 @@
-const addMon = document.querySelectorAll('.chooseyourmonster');
+const monsterchoice = document.getElementById('selectmonsterforencounter')
+function selectmonster() {
 
-for (let i = 0; i < addMon.length; i++) {
-    addMon[i].addEventListener("click", event => {
-        event.preventDefault();
+    console.log(monsterchoice.value, "here")
 
-        const monId = event.target.parentElement.getAttribute("data-mid").value
-        
-        console.log(monId, "before fetch")
-        fetch(`/api/campaigns/encountermonster/${monId}`, {
-            method: "POST",
-            body: JSON.stringify(monId),
+    const monsterId = monsterchoice.value
+
+    console.log(monsterId, "before fetch")
+    fetch(`/api/monsters/${monsterId}/encounter`,{
+        method:"POST",
+        body: {
+            monster: monsterId,
+        },
         headers:{
             "Content-Type":"application/json"
         }
-        }).then(res => {
-            if (res.ok) {
-                location.reload()
-            } else {
-                alert("trumpet sound")
-            }
-        })
-
+    }).then(res=>{
+        if(res.ok){
+           location.reload()
+        } else {
+            alert("trumpet sound")
+        }
     })
-
 }
 
+
+addEventListener("change", selectmonster)

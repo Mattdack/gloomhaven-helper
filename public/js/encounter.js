@@ -1,13 +1,4 @@
 
-const monstdataArr = document.querySelectorAll('.data-set')
-console.log(monstdataArr)
-$(function () {
-var availableTags = ["hi","hello"]
-console.log(availableTags)
-    $("#chooseyourmonster").autocomplete({
-        source: availableTags
-    });
-});
 
 const newMonsterBtn = document.querySelector("#newMonsterBtn");
 newMonsterBtn.addEventListener("click", e => {

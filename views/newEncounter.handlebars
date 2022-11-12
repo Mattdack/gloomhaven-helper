@@ -24,10 +24,12 @@
 
             <h2 class="flex justify-center">Choose Monsters</h2>
             <div>
-                 <ul> {{#each monsters}}
-<li data-mid="{{id}}">{{name}},lvl:{{level}}<button class="chooseyourmonster">+</button></li>
-{{/each}}
- </ul>
+                <select id="selectmonsterforencounter"> 
+                    <option>select</option>
+                    {{#each monsters}}
+                    <option value={{id}}>{{name}},lvl:{{level}}</option>
+                    {{/each}}
+                </select>
             </div>
 
             <div class="col-2">

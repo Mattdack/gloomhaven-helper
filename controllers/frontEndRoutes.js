@@ -49,20 +49,13 @@ router.get("/dashboard", async (req, res) => {
 
 router.get("/newEncounter", async (req, res) => {
   try {
-<<<<<<< HEAD
-   if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
-    const monsters = await Monster.findAll()
-=======
     const monsters = await Monster.findAll();
->>>>>>> dev
 
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
     );
 
- 
+ console.log(availMonsters)
 
     res.render("newEncounter", {
       monsters: availMonsters,
@@ -72,6 +65,9 @@ router.get("/newEncounter", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
 
 router.get("/currentEncounter", async (req, res) => {
   if (!req.session.logged_in) {

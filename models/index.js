@@ -5,8 +5,8 @@ const Player = require("./Player");
 const Monster = require("./Monster");
 const Effect = require("./Effect");
 
-// User.hasMany(Campaign);
-// Campaign.belongsTo(User);
+User.hasMany(Campaign);
+Campaign.belongsTo(User);
 
 Campaign.hasMany(Encounter);
 Encounter.belongsTo(Campaign);

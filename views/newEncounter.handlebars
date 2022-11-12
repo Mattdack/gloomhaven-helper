@@ -1,29 +1,47 @@
 {{!-- add party to campaign --}}
 
-<main class="flex grid grid-cols-1 p-8 justify-items-center md:grid-cols-2 xl:grid-cols-3">
-    
-        <div class="m-2 p-2">
-            <h2>Who is in your party?</h2>
-            {{>addParty}}
+<main class="flex-auto grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
+
+    <div class="flex justify-center place-items-center border-2 border-gray-500 ">
+        <div class="col-1">
+            <h2 class="flex justify-center">Choose Characters</h2>
+            <div>
+                {{>addParty}}
+            </div>
+        </div>
+        <div class="col-1">
+            <h2 class="flex justify-center">Select Stats</h2>
+            {{>newplayer}}
+        </div>
+    </div>
+    </div>
+
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
+        <div class="col-2">
+
+            <h2 class="flex justify-center">Choose Monsters</h2>
+            <div>
+                {{>monstersaddedlist}}
+            </div>
+
+            <div class="col-2">
+                <h2 class="flex justify-center">Select Stats</h2>
+                {{>newmonster}}
+            </div>
         </div>
     </div>
 
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
+        <div class="col-3">
+            <div class="m-2 p-2">
+                {{>monstersaddedlist}}
+            </div>
 
-    <div class="flex-row">
-        <div class="m-3 p-3">
-            {{>newmonster}}
-        </div>
-    </div>
+            <div class="col-3">
 
-    <div class="flex-row">
-        <div class="m-2 p-2">
-            {{>monstersaddedlist}}
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800">Do the thing!</button>
+            </div>
         </div>
-    </div>
-    <div class="flex-row">
-        <div class="m-2 p-2">
-    <button>Do the thing!</button>
-        </div>
-    </div>
 </main>
 <script src="/js/encounter.js"></script>
+<script src="/js/addParty.js"></script>

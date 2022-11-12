@@ -47,6 +47,19 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
+router.get("/newCampaign", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  try {
+    res.render("newCampaign", {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err, "Don't give up, you can do it!");
+  }
+});
+
 router.get("/newEncounter", async (req, res) => {
   try {
     const monsters = await Monster.findAll();
@@ -83,7 +96,7 @@ router.get("/currentEncounter", async (req, res) => {
       include: [
         {
           model: Effect,
-          attributes: ["name"],
+          attributes: ["name","image"],
           through: {
             attributes: [],
           },
@@ -110,9 +123,11 @@ router.get("/currentEncounter", async (req, res) => {
     const encMonsters = encounterMonsters.map((monster) =>
       monster.get({ plain: true })
     );
+
     res.render("currentEncounter", {
       players: campPlayers,
       monsters: encMonsters,
+
       logged_in: req.session.logged_in,
     });
   } catch (err) {

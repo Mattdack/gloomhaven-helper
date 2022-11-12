@@ -3,7 +3,7 @@ const { Effect } = require('../models');
 const effectIcons = [
   {
     name: 'Muddle',
-    image: '/images/muddle.png'
+    image: '../../public/images/muddle'
   },
   {
     name: 'Immobilize',
@@ -11,7 +11,7 @@ const effectIcons = [
   },
   {
     name: 'Stun',
-    image: '/images/stun.png'
+    image: "<img src='/images/stun.png'></img>"
   },
   {
     name: 'Strengthen',

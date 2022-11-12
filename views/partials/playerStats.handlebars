@@ -1,16 +1,19 @@
-<div class="flex flex-row border-2 m-4 shadow-[0_0px_10px_5px_rgba(200,200,0,0.3)] transition ease-in-out delay-150 hover:scale-110 duration-300 place-items-center">
-  <img class="flex-initial m-1 p-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
+<div class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
+  <img class="player-img // flex-initial m-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
   <div class="m-1 p-1 w-full">
-    <div>
-      <p>{{playerName}}</p>
-      <p>level: {{playerLevel}}</p>
-      <p>health: {{playerHealth}} <span class="HPchange">{{playerHealth}}</span><button type="button" class="plusCHP">+</button>
-      <button type="button" class="minusCHP">-</button></p>
-      <p>experience: <span class="XPchange">0</span>    <button type="button" class="plusXP">+</button>
-      <button type="button" class="minusXP">-</button></p>
-      <p>effect: {{effect}}</p>
+    <div class="-space-y-.5 card-details">
+      <p class="font-bold underline underline-offset-4">{{playerName}}</p>
+      <p class="font-semibold">level: <span class="font-light"><span>{{playerLevel}}</span></p>
+
+      <p class="font-semibold">health: <span class="font-light">{{playerHealth}}</span> | <span class="HPchange font-light">{{playerHealth}} </span>
+      <button type="button" class="plusHP font-sans text-black bg-green-400 rounded-l-lg w-4 text-lg">+</button>
+      <button type="button" class="minusHP -ml-1 font-sans text-black bg-red-400 rounded-r-lg w-4 text-lg">-</button> </p>
+      <p class="font-semibold">experience: <span class="font-light XPchange">0</span>
+      <button type="button" class="plusXP font-sans text-black bg-blue-400 rounded-l-lg w-4 text-lg">+</button>
+      <button type="button" class="minusXP -ml-1 font-sans text-black bg-yellow-400 rounded-r-lg w-4 text-lg">-</button></p>
+      <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
       {{#each Effects}}
-      <p>{{name}}</p>
+      <p class="text-red-500">{{name}}</p>
       {{/each}}
             <button
           id="dropdownDefault-{{id}}"
@@ -47,49 +50,49 @@
             <li>
               <a
                 href="#" data-effect="1" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-brown block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Muddle</a>
             </li>
             <li>
               <a
                 href="#" data-effect="2" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-orange block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Immobolize</a>
             </li>
             <li>
               <a
                 href="#" data-effect="3" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-yellow block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Stun</a>
             </li>
             <li>
               <a
                 href="#" data-effect="4" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-purple block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Strengthen</a>
             </li>
             <li>
               <a
                 href="#" data-effect="5" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-pink block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Disarm</a>
             </li>
             <li>
               <a
                 href="#" data-effect="6" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-green block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Poison</a>
             </li>
             <li>
               <a
                 href="#" data-effect="7" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-red block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Wound</a>
             </li>
             <li>
               <a
                 href="#" data-effect="8" data-player={{id}}
-                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-blue block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >Shield</a>
             </li>
           </ul>

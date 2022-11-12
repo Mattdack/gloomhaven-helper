@@ -20,8 +20,11 @@ function addParty() {
     if(addRedGuardBtn.checked) {
         addRedGuard();
     }
-    if((!addVoidVtn.checked) && (!addHatchetBtn.checked) && (!addDemoBtn.checked) && (!addRedGuardBtn.checked)) {
+    if((!addVoidBtn.checked) && (!addHatchetBtn.checked) && (!addDemoBtn.checked) && (!addRedGuardBtn.checked)) {
         alert("You did not select a character to add!")
+    } else {
+        location.reload();
+        alert("Your characters have been added.");
     }
 }
 
@@ -43,12 +46,10 @@ async function addVoidwarden() {
     }).then(res=> {
         if(res.ok){
             console.log("Voidwarden added.")
-            location.reload();
         }else {
             console.log("Voidwarden not added.")
         }
     })
-    console.log(added);
 }
 
 async function addHatchet() {
@@ -68,12 +69,10 @@ async function addHatchet() {
     }).then(res=> {
         if(res.ok){
             console.log("Hatchet added.")
-            location.reload();
         }else {
             console.log("Hatchet not added.");
         }
     })
-    console.log(added);
 }
 
 async function addDemo() {
@@ -93,12 +92,10 @@ async function addDemo() {
     }).then(res=> {
         if(res.ok){
             console.log("Demo added.");
-            location.reload();
         }else {
             console.log("Demo not added.")
         }
     })
-    console.log(added);
 }
 
 async function addRedGuard() {
@@ -118,11 +115,8 @@ async function addRedGuard() {
     }).then(res=> {
         if(res.ok){
             console.log("RG Added");
-            location.reload();
         }else {
             console.log("RG not added")
-            console.log("Issue with adding a character")
         }
     })
-    console.log(added);
 }

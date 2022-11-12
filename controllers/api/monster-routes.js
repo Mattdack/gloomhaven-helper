@@ -48,6 +48,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/encountermonster', async (req, res) => {
+  try {
+    const monsterData = await EncounterMonster.findAll({
+      // add separate modals connected to Monster if needed
+      // include: [{ model:  }],
+    });
+    res.status(200).json(monsterData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 // ============will this work? we'll see
 router.post("/EncounterMonster/:monsterId", (req, res) => {
   if (!req.session.loggedIn) {

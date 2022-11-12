@@ -17,18 +17,24 @@
             {{>newplayer}}
         </div>
     </div>
-
-        {{!-- <label for="chooseyourmonster">Monsters: </label>
-          <input id="{chooseyourmonster}">
-          <label>lvl:</label>
-          <input type="number" id="chooseyourmonsterlvl" /> --}}
-
-
-    <div class="col-2">
-        <h2 class="flex justify-center">Select Stats</h2>
-        {{>newmonster}}
     </div>
-    </div>
+
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
+        <div class="col-2">
+
+            <h2 class="flex justify-center">Choose Monsters</h2>
+            <div>
+                 <ul> {{#each monsters}}
+<li data-mid="{{id}}">{{name}},lvl:{{level}}<button class="chooseyourmonster">+</button></li>
+{{/each}}
+ </ul>
+            </div>
+
+            <div class="col-2">
+                <h2 class="flex justify-center">Select Stats</h2>
+                {{>newmonster}}
+            </div>
+        </div>
     </div>
 
     <div class="flex justify-center place-items-center border-2 border-gray-500">
@@ -43,6 +49,6 @@
             </div>
         </div>
 </main>
-<script src="/js/addMonsters.js"></script>
 <script src="/js/encounter.js"></script>
 <script src="/js/addParty.js"></script>
+<script src="/js/addMonsters.js"></script>

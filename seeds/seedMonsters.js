@@ -2,7 +2,7 @@ const { Monster } = require('../models');
 
 const monsters = [
   {
-    name: 'Living Corpse',
+    name: 'Living-Corpse',
     level: 0,
     special: null,
     health: 5,
@@ -11,7 +11,7 @@ const monsters = [
     isElite: false
   },
   {
-    name: 'Stone Golem',
+    name: 'Stone-Golem',
     level: 0,
     special: null,
     health: 10,
@@ -20,7 +20,7 @@ const monsters = [
     isElite: false
   },
   {
-    name: 'Vermling Raider',
+    name: 'Vermling-Raider',
     level: 0,
     special: null,
     health: 4,
@@ -29,7 +29,7 @@ const monsters = [
     isElite: false
   },
   {
-    name: 'Giant Viper',
+    name: 'Giant-Viper',
     level: 0,
     special: 'poison',
     health: 2,
@@ -38,7 +38,7 @@ const monsters = [
     isElite: false
   },
   {
-    name: 'Black Sludge',
+    name: 'Black-Sludge',
     level: 1,
     special: 'Shield',
     health: 9,

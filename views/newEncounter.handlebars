@@ -21,17 +21,6 @@
 
     <div class="bordering // flex justify-center place-items-center border-2 border-gray-500">
         <div class="col-2">
-
-            <h2 class="flex justify-center">Choose Monsters</h2>
-            <div>
-                <select id="selectmonsterforencounter"> 
-                    <option>select</option>
-                    {{#each monsters}}
-                    <option value={{id}}>{{name}},lvl:{{level}}</option>
-                    {{/each}}
-                </select>
-            </div>
-
             <div class="col-2">
                 <h2 class="flex justify-center">Select Stats</h2>
                 {{>newmonster}}
@@ -47,7 +36,7 @@
 
             <div class="col-3">
 
-                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800">Do the thing!</button>
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id="addMonsters">Add Monsters!</button>
             </div>
         </div>
 </main>

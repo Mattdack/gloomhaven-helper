@@ -2,6 +2,70 @@ const { Monster } = require('../models');
 
 const monsters = [
   {
+    name: 'Chaos-Demon',
+    level: 0,
+    special: 'Muddle',
+    health: 7,
+    move: 3,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Chaos-Demon',
+    level: 0,
+    special: 'Muddle',
+    health: 10,
+    move: 4,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Chaos-Demon',
+    level: 1,
+    special: 'Muddle',
+    health: 8,
+    move: 3,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Chaos-Demon',
+    level: 1,
+    special: 'Muddle',
+    health: 12,
+    move: 4,
+    attack: 4,
+    isElite: true
+  },{
+    name: 'Chaos-Demon',
+    level: 2,
+    special: 'Muddle',
+    health: 11,
+    move: 3,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Chaos-Demon',
+    level: 2,
+    special: 'Muddle',
+    health: 14,
+    move: 4,
+    attack: 5,
+    isElite: true
+  },{
+    name: 'Chaos-Demon',
+    level: 3,
+    special: 'Muddle',
+    health: 12,
+    move: 3,
+    attack: 4,
+    isElite: false
+  },{
+    name: 'Chaos-Demon',
+    level: 3,
+    special: 'Muddle',
+    health: 18,
+    move: 5,
+    attack: 5,
+    isElite: true
+  },{
     name: 'Living-Corpse',
     level: 0,
     special: null,
@@ -722,6 +786,70 @@ const monsters = [
     level: 3,
     special: 'On Death, all adjacdent figures suffer 4 damage. Shield',
     health: 18,
+    move: 3,
+    attack: 4,
+    isElite: true
+  },{
+    name: 'Zealot',
+    level: 0,
+    special: null,
+    health: 4,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Zealot',
+    level: 0,
+    special: null,
+    health: 7,
+    move: 2,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Zealot',
+    level: 1,
+    special: null,
+    health: 6,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Zealot',
+    level: 1,
+    special: 'Wound',
+    health: 8,
+    move: 2,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Zealot',
+    level: 2,
+    special: null,
+    health: 7,
+    move: 3,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Zealot',
+    level: 2,
+    special: 'Wound',
+    health: 11,
+    move: 3,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Zealot',
+    level: 3,
+    special: 'Wound',
+    health: 8,
+    move: 3,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Zealot',
+    level: 3,
+    special: 'Wound',
+    health: 13,
     move: 3,
     attack: 4,
     isElite: true

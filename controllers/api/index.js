@@ -4,9 +4,10 @@ const router = require('express').Router();
 const campaignRoutes = require('./campaign-routes');
 const effectRoutes = require('./effect-routes');
 const encounterRoutes = require('./encounter-routes');
-const monsterRoutes = require('./monster-routes');
+const monsterRoutes = require('./addedmonster-routes');
 const playerRoutes = require('./player-routes');
 const userRoutes = require('./user-routes');
+const addedmonsterRoutes = require('./addedmonster-routes')
 
 // path used on routes made
 router.use('/campaigns', campaignRoutes);

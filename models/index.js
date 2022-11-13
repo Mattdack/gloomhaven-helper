@@ -2,7 +2,8 @@ const User = require("./User");
 const Campaign = require("./Campaign");
 const Encounter = require("./Encounter");
 const Player = require("./Player");
-const Monster = require("./Monster");
+const AddedMonster = require("./AddedMonsters");
+const Monster = require('./Monster');
 const Effect = require("./Effect");
 
 User.hasMany(Campaign);
@@ -14,20 +15,21 @@ Encounter.belongsTo(Campaign);
 Campaign.hasMany(Player);
 Player.belongsTo(Campaign);
 
-Monster.belongsToMany(Encounter,{through: `EncounterMonster`})
-Encounter.belongsToMany(Monster,{through: `EncounterMonster`});
+AddedMonster.belongsToMany(Encounter,{through: `EncounterAddedMonster`})
+Encounter.belongsToMany(AddedMonster,{through: `EncounterAddedMonster`});
 
 Player.belongsToMany(Effect,{through: `PlayerEffect`});
 Effect.belongsToMany(Player,{through: `PlayerEffect`});
 
-Monster.belongsToMany(Effect,{through: `MonsterEffect`});
-Effect.belongsToMany(Monster,{through: `MonsterEffect`});
+AddedMonster.belongsToMany(Effect,{through: `AddedMonsterEffect`});
+Effect.belongsToMany(AddedMonster,{through: `AddedMonsterEffect`});
 
 module.exports = {
     Campaign,
     Player,
     Encounter,
     Effect,
+    AddedMonster,
     Monster,
     User,
 }

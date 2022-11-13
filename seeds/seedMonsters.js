@@ -202,14 +202,150 @@ const monsters = [
     move: 1,
     attack: 2,
     isElite: false
+  },{
+    name: 'Vermling-Raider',
+    level: 0,
+    special: null,
+    health: 8,
+    move: 1,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Vermling-Raider',
+    level: 1,
+    special: null,
+    health: 5,
+    move: 1,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Vermling-Raider',
+    level: 1,
+    special: null,
+    health: 10,
+    move: 1,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Vermling-Raider',
+    level: 2,
+    special: null,
+    health: 9,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Vermling-Raider',
+    level: 2,
+    special: null,
+    health: 14,
+    move: 3,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Vermling-Raider',
+    level: 3,
+    special: null,
+    health: 11,
+    move: 3,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Vermling-Raider',
+    level: 3,
+    special: null,
+    health: 16,
+    move: 3,
+    attack: 4,
+    isElite: true
   },
   {
     name: 'Giant-Viper',
     level: 0,
-    special: 'poison',
+    special: 'Poison',
     health: 2,
     move: 2,
     attack: 1,
+    isElite: false
+  },{
+    name: 'Giant-Viper',
+    level: 0,
+    special: 'Poison',
+    health: 3,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Giant-Viper',
+    level: 1,
+    special: 'Poison',
+    health: 3,
+    move: 2,
+    attack: 1,
+    isElite: false
+  },{
+    name: 'Giant-Viper',
+    level: 1,
+    special: 'Poison',
+    health: 5,
+    move: 2,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Giant-Viper',
+    level: 2,
+    special: 'Poison',
+    health: 4,
+    move: 3,
+    attack: 1,
+    isElite: false
+  },{
+    name: 'Giant-Viper',
+    level: 2,
+    special: 'Poison',
+    health: 7,
+    move: 3,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Giant-Viper',
+    level: 3,
+    special: 'Poison',
+    health: 4,
+    move: 3,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Giant-Viper',
+    level: 3,
+    special: 'Poison',
+    health: 8,
+    move: 3,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Black-Sludge',
+    level: 0,
+    special: null,
+    health: 4,
+    move: 1,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Black-Sludge',
+    level: 0,
+    special: null,
+    health: 8,
+    move: 1,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Black-Sludge',
+    level: 1,
+    special: 'Shield',
+    health: 5,
+    move: 1,
+    attack: 2,
     isElite: false
   },
   {
@@ -219,6 +355,38 @@ const monsters = [
     health: 9,
     move: 1,
     attack: 2,
+    isElite: true
+  },{
+    name: 'Black-Sludge',
+    level: 2,
+    special: 'Shield',
+    health: 7,
+    move: 1,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Black-Sludge',
+    level: 2,
+    special: 'Shield',
+    health: 11,
+    move: 1,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Black-Sludge',
+    level: 3,
+    special: 'Shield',
+    health: 8,
+    move: 1,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Black-Sludge',
+    level: 3,
+    special: 'Poison, Shield',
+    health: 11,
+    move: 2,
+    attack: 3,
     isElite: true
   },
   {
@@ -239,12 +407,28 @@ const monsters = [
     isElite: false
   },{
     name: 'Blood-Imp',
+    level: 3,
+    special: 'Muddle',
+    health: 10,
+    move: 3,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Blood-Imp',
     level: 1,
     special: 'Muddle',
     health: 4,
     move: 2,
     attack: 1,
     isElite: false
+  },{
+    name: 'Blood-Imp',
+    level: 1,
+    special: 'Muddle',
+    health: 6,
+    move: 2,
+    attack: 2,
+    isElite: true
   },{
     name: 'Blood-Imp',
     level: 2,
@@ -255,6 +439,14 @@ const monsters = [
     isElite: false
   },{
     name: 'Blood-Imp',
+    level: 2,
+    special: 'Muddle',
+    health: 7,
+    move: 3,
+    attack: 2,
+    isElite: true
+  },{
+    name: 'Blood-Imp',
     level: 0,
     special: null,
     health: 3,
@@ -280,7 +472,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 0,
-    special: 'poison',
+    special: 'Poison',
     health: 4,
     move: 1,
     attack: 2,
@@ -288,7 +480,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 1,
-    special: 'poison',
+    special: 'Poison',
     health: 4,
     move: 1,
     attack: 1,
@@ -296,7 +488,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 1,
-    special: 'poison',
+    special: 'Poison',
     health: 6,
     move: 1,
     attack: 2,
@@ -304,7 +496,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 2,
-    special: 'poison',
+    special: 'Poison',
     health: 5,
     move: 1,
     attack: 2,
@@ -312,7 +504,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 2,
-    special: 'poison',
+    special: 'Poison',
     health: 8,
     move: 1,
     attack: 2,
@@ -320,7 +512,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 3,
-    special: 'poison',
+    special: 'Poison',
     health: 5,
     move: 1,
     attack: 2,
@@ -336,7 +528,7 @@ const monsters = [
   },{
     name: 'Black-Imp',
     level: 4,
-    special: 'poison',
+    special: 'Poison',
     health: 7,
     move: 1,
     attack: 2,
@@ -468,6 +660,70 @@ const monsters = [
     health: 10,
     move: 2,
     attack: 3,
+    isElite: true
+  },{
+    name: 'Blood-Monstrosity',
+    level: 0,
+    special: 'On Death, all adjacdent figures suffer 1 damage.',
+    health: 7,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Blood-Monstrosity',
+    level: 0,
+    special: 'On Death, all adjacdent figures suffer 1 damage.',
+    health: 12,
+    move: 2,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Blood-Monstrosity',
+    level: 1,
+    special: 'On Death, all adjacdent figures suffer 2 damage.',
+    health: 9,
+    move: 2,
+    attack: 2,
+    isElite: false
+  },{
+    name: 'Blood-Monstrosity',
+    level: 1,
+    special: 'On Death, all adjacdent figures suffer 3 damage. Shield',
+    health: 12,
+    move: 2,
+    attack: 3,
+    isElite: true
+  },{
+    name: 'Blood-Monstrosity',
+    level: 2,
+    special: 'On Death, all adjacdent figures suffer 2 damage.',
+    health: 10,
+    move: 2,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Blood-Monstrosity',
+    level: 2,
+    special: 'On Death, all adjacdent figures suffer 3 damage. Shield',
+    health: 15,
+    move: 2,
+    attack: 4,
+    isElite: true
+  },{
+    name: 'Blood-Monstrosity',
+    level: 3,
+    special: 'On Death, all adjacdent figures suffer 3 damage.',
+    health: 12,
+    move: 3,
+    attack: 3,
+    isElite: false
+  },{
+    name: 'Blood-Monstrosity',
+    level: 3,
+    special: 'On Death, all adjacdent figures suffer 4 damage. Shield',
+    health: 18,
+    move: 3,
+    attack: 4,
     isElite: true
   }
 ];

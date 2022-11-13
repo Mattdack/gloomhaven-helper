@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Monster, Effect, Encounter, Campaign} = require('../../models');
+const { Monster} = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -85,45 +85,5 @@ router.post('/', async (req, res) => {
       })
       .catch((err) => res.json(err));
   });
-
-  router.post(`/:id/effect`, async (req, res) => {
-    try {
-      const targetMonster = await Monster.findByPk(req.params.id);
-      await targetMonster.addEffect(req.body.effect);
-
-      const updatedTargetMonster = await Monster.findOne({
-        where: {
-          id: req.params.id,
-        },
-        include: [{
-          model: Effect,
-          attributes: ["name"],
-          through: {
-            attributes: []
-          }
-        }],
-      });
-      res.status(200).json(updatedTargetMonster);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-router.post('/:id/encounter', async (req,res)=> {
-  try {
-    const numAdding = req.body.numToAdd;
-    console.log(numAdding + "====================================")
-    console.log(req.session.encounter_id)
-    for (let i = 0; i < numAdding; i++) {
-      const encounterMonster = await Monster.findByPk(req.params.id);
-      await encounterMonster.addEncounter(req.session.encounter_id);
-      console.log(encounterMonster);
-    }
-    res.status(200);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-})
 
   module.exports = router;

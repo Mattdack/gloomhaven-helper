@@ -1,16 +1,16 @@
 <div class="monster-ridge card-background grid grid-cols-1 border-4 w-fit h-fit shadow-[0_0px_10px_5px_rgba(220,38,38,0.3)] place-items-center text-sm">
   {{!-- <div class=""> --}}
-    <img class="h-36 player-img" src="/images/monsters/{{name}}.jpg" alt="">
+    <img class="monster-img // h-36 bg-black/75" src="/images/monsters/{{name}}.jpg" alt="">
       <div class="m-1 card-details">
-        <h3 class="font-bold underline underline-offset-4">{{name}}</h3>
-        <p class="monster-stats font-bold">level: <span class="font-light">{{level}}</span></p>
-        <p class="monster-stats font-bold">special: <span class="font-light">{{special}}</span></p>
-        <p class="monster-stats font-bold">health: <span class="font-light">{{health}}</span> | <span class="HPchange font-light">{{health}}</span></p>
-        <button type="button" class="plusHP font-sans text-black font-bold bg-green-400 rounded-l-lg w-4 text-lg">+</button>
-        <button type="button" class="minusHP -ml-1 font-sans text-black font-bold bg-red-400 rounded-r-lg w-4 text-lg">-</button>
-        <p class="monster-stats font-bold">move: <span class="font-light">{{move}}</span></p>
-        <p class="monster-stats font-bold">attack: <span class="font-light">{{attack}}</span></p>
-        <p class="monster-stats font-bold">effect:</p>
+        <h3 class="mName // font-bold underline underline-offset-4">{{name}}</h3>
+        <p class="font-bold">level: <span class="font-light">{{level}}</span></p>
+        <p class="font-bold">special: <span class="font-light">{{special}}</span></p>
+        <p class="font-bold">health: <span class="mMaxHP // font-light">{{health}}</span> | <span class="mSpanHP // font-light text-red-500">{{health}}</span></p>
+        <button type="button" class="plusMHP // w-[40%] font-sans font-bold text-black border-2 border-emerald-900 bg-emerald-500 rounded-l-lg text-lg hover:bg-emerald-700">+</button>
+        <button type="button" class="minusMHP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-red-900 bg-red-500 rounded-r-lg text-lg hover:bg-red-700">-</button>
+        <p class="font-bold">move: <span class="font-light">{{move}}</span></p>
+        <p class="font-bold">attack: <span class="font-light">{{attack}}</span></p>
+        <p class="font-bold">effect:</p>
         {{#each Effects}}
         <p class="font-light text-red-500">{{name}}</p>
         {{/each}}

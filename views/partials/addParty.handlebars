@@ -1,9 +1,9 @@
 <form
-    class="card-background flex flex-row w-fit border-5 mb-4 place-items-center text-md sm: md:grid-cols-5 xl:grid-cols-6"
+    class="flex flex-row flex-wrap w-fit border-5 place-items-center text-md"
     id="addCharacterForm">
    
     <div class="form-check p-3">
-        <img class="border-2 flex-initial m-1 p-1 h-48" src="/images/characters/Voidwarden.jpg"
+        <img class="border-2 player-ridge flex-initial m-1 p-1 h-96 transition ease-in-out delay-150 hover:scale-105 duration-150" src="/images/characters/VoidwardenFull.png"
             alt="Voidwarden Character">
         <div>
             <input
@@ -15,44 +15,42 @@
         </div>
     </div>
     <div class="form-check p-3">
-        <img class="border-2 flex-initial m-1 p-1 h-48" src="/images/characters/Hatchet.jpg" alt="Hatchet Character">
+        <img class="border-2 player-ridge flex-initial m-1 p-1 h-96 transition ease-in-out delay-150 hover:scale-105 duration-150" src="/images/characters/HatchetFull.png" alt="Hatchet Character">
         <input
             class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="checkbox" name="character" id="addHatchet">
-        <label class="form-check-label inline-block text-blue-500" for="flexCheckDefault">
+        <label class="form-check-label inline-block text-blue-300" for="flexCheckDefault">
             Hatchet
         </label>
     </div>
     <div class="form-check p-3">
-        <img class="border-2 flex-initial m-1 p-1 h-48" src="/images/characters/Demolitionist.jpg"
+        <img class="border-2 player-ridge flex-initial m-1 p-1 h-96 transition ease-in-out delay-150 hover:scale-105 duration-150" src="/images/characters/DemolitionistFull.png"
             alt="Demolitionist Character">
         <input
             class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="checkbox" name="character" id="addDemo">
-        <label class="form-check-label inline-block text-orange-800" for="flexCheckDefault">
+        <label class="form-check-label inline-block text-orange-500" for="flexCheckDefault">
             Demolitionist
         </label>
     </div>
     <div class="form-check p-3">
-        <img class="border-2 flex-initial m-1 p-1 h-48" src="/images/characters/RedGuard.jpg" alt="RedGuard Character">
+        <img class="border-2 player-ridge flex-initial m-1 p-1 h-96 transition ease-in-out delay-150 hover:scale-105 duration-150" src="/images/characters/RedGuardFull.png" alt="RedGuard Character">
         <input
             class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="checkbox" name="character" id="addRedGuard">
-        <label class="form-check-label inline-block bg-pink text-red-800" for="flexCheckDefault">
+        <label class="form-check-label inline-block bg-pink text-red-600" for="flexCheckDefault">
             RedGuard
         </label>
     </div>
-    <div>
-    </div>
+</form>
     </br>
-    <div>
-        <div class="relative h-32 w-32">
+    <div class="flex justify-center ">
+        <div class="relative h-24 w-48">
             <div class="absolute inset-x-0 h-16">
                 <a type="button"
-                    class="px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2"
-                    href="#" id="addCharacter">Add</a>
+                    class="px-6 py-4 bg-yellow-600 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2"
+                    href="#" id="addCharacter">ADD SELECTED</a>
             </div>
         </div>
     </div>
-</form>
-</div>
+

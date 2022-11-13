@@ -77,7 +77,7 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignId:1
+        CampaignId: req.session.campaign_id,
          
       },
       include: [

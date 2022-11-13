@@ -108,4 +108,34 @@ router.post(`/:id/effect`, async (req, res) => {
   }
 });
 
+router.delete(`/:id/effect`, async (req, res) => {
+  try{
+    const targetPlayer = await Player.findByPk(req.params.id);
+    const effectToRemove = await Effect.findOne({
+      where: {
+        name: req.body.effectName
+      }
+    });
+    console.log(effectToRemove);
+    console.log(effectToRemove.id);
+    await targetPlayer.removeEffect(effectToRemove.id);
+
+    const updatedTargetPlayer = await Player.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{
+        model: Effect,
+        attributes: ["name"],
+        through: {
+          attributes: []
+        }
+      }],
+    });
+    res.status(200).json(updatedTargetPlayer);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

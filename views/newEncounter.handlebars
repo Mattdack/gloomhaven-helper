@@ -3,23 +3,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-<main class="fog">
-    <div class="bordering // flex grid grid-rows-2">    
-        <div class="flex justify-center">   
-            <div>
-                <h2 class="flex justify-center">Select Your Characters</h2>
-                {{>addParty}}
-            </div>
-        
-        <div class="flex justify-center">   
-           
-                {{>newplayer}}
-            
-        </div>
-    </div>
-  
-</main>
-    {{!-- <div class="bordering">
+<main class="flex-auto grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
+
+ 
+
+    <div class="flex justify-center place-items-center border-2 border-gray-500">
         <div class="col-2">
             <div class="col-2">
                 <h2 class="flex justify-center">Select Stats</h2>
@@ -38,7 +26,7 @@
 
                 <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id="addMonsters">Add Monsters!</button>
             </div>
-        </div> --}}
+        </div>
 </main>
 <script src="/js/encounter.js"></script>
 <script src="/js/addParty.js"></script>

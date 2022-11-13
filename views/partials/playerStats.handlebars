@@ -2,15 +2,14 @@
   <img class="player-img // flex-initial m-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
   <div class="m-1 p-1 w-full">
     <div class="-space-y-.5 card-details">
-      <p class="font-bold underline underline-offset-4">{{playerName}}</p>
+      <p class="pName // font-bold underline underline-offset-4">{{playerName}}</p>
       <p class="font-semibold">level: <span class="font-light"><span>{{playerLevel}}</span></p>
-
-      <p class="font-semibold">health: <span class="font-light">{{playerHealth}}</span> | <span class="HPchange font-light">{{playerHealth}} </span>
-      <button type="button" class="plusHP font-sans text-black bg-green-400 rounded-l-lg w-4 text-lg">+</button>
-      <button type="button" class="minusHP -ml-1 font-sans text-black bg-red-400 rounded-r-lg w-4 text-lg">-</button> </p>
-      <p class="font-semibold">experience: <span class="font-light XPchange">0</span>
-      <button type="button" class="plusXP font-sans text-black bg-blue-400 rounded-l-lg w-4 text-lg">+</button>
-      <button type="button" class="minusXP -ml-1 font-sans text-black bg-yellow-400 rounded-r-lg w-4 text-lg">-</button></p>
+      <p class="font-semibold">health: <span class="pMaxHP // font-light">{{playerHealth}}</span> | <span class="pSpanHP // font-light text-red-500">{{playerHealth}} </span> </p>
+      <button type="button" class="plusPHP w-[40%] font-sans font-bold text-black border-2 border-emerald-900 bg-emerald-500 rounded-l-lg text-lg hover:bg-emerald-700">+</button>
+      <button type="button" class="minusPHP -ml-1 w-[40%] font-sans font-bold text-black border-2 border-red-900 bg-red-500 rounded-r-lg text-lg hover:bg-red-700">-</button>
+      <p class="font-semibold">experience: <span class="pXP // font-light text-blue-500">0</span></p>
+      <button type="button" class="plusXP // w-[40%] font-sans font-bold text-black border-2 border-blue-900 bg-blue-600 rounded-l-lg text-lg hover:bg-blue-800">+</button>
+      <button type="button" class="minusXP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-yellow-900 bg-yellow-500 rounded-r-lg text-lg hover:bg-yellow-700">-</button>
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
       {{#each Effects}}
       <p class="text-red-500">{{name}}</p>
@@ -18,7 +17,7 @@
             <button
           id="dropdownDefault-{{id}}"
           data-dropdown-toggle="dropdown-{{id}}"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           type="button"
         >Add Effect
           <svg

@@ -21,15 +21,15 @@
 <body>
     <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 mx-100 shadow-2xl w-12/12">
         <div class="text-2xl text-brown font-semibold inline-flex items-center">
-            <img src="https://gloomhaven-storyline.com/img/gloomhaven-logo.webp" class="w-25 mr-7"
-                alt="Gloomhaven"><span>helper</span>
+            <img src="/images/GloomhavenLogo.png" class="h-20 mr-7" alt="Gloomhaven">
+            <img src="/images/HelperLogoResize.png" class="h-20 mr-7" alt="Helper">
         </div>
         <div>
             <ul class="flex text-brown">
                 {{#if logged_in}}
                 <a class="ml-5 px-2 py-1" href="/dashboard">Home</a>
-                <a class="ml-5 px-2 py-1" href="/newEncounter">New Game</a>
-                <a class="ml-5 px-2 py-1" href="/currentEncounter">Load Game</a>
+                {{!-- <a class="ml-5 px-2 py-1" href="/newEncounter">New Game</a> --}}
+                {{!-- <a class="ml-5 px-2 py-1" href="/currentEncounter">Load Game</a> --}}
                 <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id='logoutBtn'
                     href="/login">Logout</button>
                 {{else}}

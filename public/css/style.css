@@ -10,6 +10,10 @@ body {
     color: rgb(149, 133, 55);
 }
 
+/* .hide-picture{
+
+} */
+
 .fog{
     background-image: url("../images/fog.png");
     /* background-size: cover; */
@@ -29,6 +33,11 @@ body {
     border-width: 2px;
 }
 
+.monster-img {
+    border-color:#cab7ac;
+    border-width: 2px;
+}
+
 .player-ridge {
     border-style: ridge;
     border-color: #d34621;
@@ -44,12 +53,6 @@ body {
     border-width: 2px;
     background-color: rgba(0, 0, 0, 1);
     padding: 8px;
-}
-
-.HPchange {
-    color: red;
-    padding:2px;
-    margin:2px;
 }
 
 /* === PLAYER SETTINGS === */

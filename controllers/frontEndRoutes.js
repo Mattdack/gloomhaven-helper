@@ -4,7 +4,7 @@ const {
   User,
   Campaign,
   Player,
-  Monster,
+  AddedMonster,
   Encounter,
   Effect,
 } = require("../models");
@@ -23,6 +23,7 @@ router.get("/signup", (req, res) => {
   res.render("signup", {});
 });
 
+// dashboard page
 router.get("/dashboard", async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");
@@ -47,6 +48,7 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
+// new Campaign page
 router.get("/newCampaign", async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");
@@ -60,12 +62,13 @@ router.get("/newCampaign", async (req, res) => {
   }
 });
 
+// new encounter page
 router.get("/newEncounter", async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");
   }
   try {
-    const monsters = await Monster.findAll();
+    const monsters = await AddedMonster.findAll();
 
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
@@ -79,9 +82,7 @@ router.get("/newEncounter", async (req, res) => {
   }
 });
 
-
-
-
+// current encounter page
 router.get("/currentEncounter", async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect("/login");

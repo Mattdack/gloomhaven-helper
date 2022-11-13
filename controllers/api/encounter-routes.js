@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Encounter parameters
+
 router.post('/', async (req, res) => {
   try {
     const encounterData = await Encounter.create({
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// TODO: need to fill out according to Encounter parameters
+
 router.put('/:id', (req, res) => {
     Encounter.update(
       {

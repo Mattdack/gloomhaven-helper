@@ -98,7 +98,6 @@ router.get("/currentEncounter", async (req, res) => {
     const campaignPlayers = await Player.findAll({
       where: {
         CampaignId: req.session.campaign_id,
-         
       },
       include: [
         {
@@ -115,7 +114,7 @@ router.get("/currentEncounter", async (req, res) => {
     );
     console.log(campPlayers);
     const specificEncounter = await Encounter.findByPk(req.session.encounter_id);
-    const encounterMonsters = await specificEncounter.getMonsters({
+    const encounterMonsters = await specificEncounter.getAddedMonsters({
       include: [
         {
           model: Effect,
@@ -134,11 +133,10 @@ router.get("/currentEncounter", async (req, res) => {
     res.render("currentEncounter", {
       players: campPlayers,
       monsters: encMonsters,
-
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({msg: `The current encounter front end route is not working appropriately.`});
   }
 });
 

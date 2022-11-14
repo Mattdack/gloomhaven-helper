@@ -26,15 +26,15 @@ function addMonsters() {
     }
     if((!addCorpseBtn.checked) && (!addGolemBtn.checked) && (!addRaiderBtn.checked) && (addViperBtn.checked) && (!addSludgeBtn.checked)) {
         alert("You did not select any monsters to add!");
+        location.assign(`currentEncounter`);
     } else {
         alert("Your monsters have been added.");
     }
 }
 
 async function addCorpse() {
-    const numCorpses = {numToAdd: parseInt(document.querySelector(`#numLiving-Corpse`).value)}
-    console.log(numCorpses);
-    const added = await fetch(`/api/monsters/1/encounter`, {
+    const numCorpses = {numToAdd: parseInt(document.querySelector(`#numLiving-Corpse`).value), monsterId: parseInt(addCorpseBtn.getAttribute("data-monsterId"))}
+    await fetch(`/api/addedMonsters/`, {
         method: "POST",
         body: JSON.stringify(numCorpses),
         headers:{

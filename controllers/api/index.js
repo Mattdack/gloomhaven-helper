@@ -13,6 +13,7 @@ const addedmonsterRoutes = require('./addedmonster-routes')
 router.use('/campaigns', campaignRoutes);
 router.use('/effects', effectRoutes);
 router.use('/encounters', encounterRoutes);
+router.use(`/addedMonsters`, addedmonsterRoutes)
 router.use('/monsters', monsterRoutes);
 router.use('/players', playerRoutes);
 router.use('/users', userRoutes);

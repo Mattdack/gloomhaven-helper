@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { AddedMonster, Effect, Encounter, Campaign} = require('../../models');
+const { AddedMonster, Effect, Encounter, Campaign, Monster} = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -32,17 +32,30 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
-    const AddedMonsterData = await AddedMonster.create({
-      name: req.body.name,
-      level: req.body.level,
-      special: req.body.special,
-      health: req.body.health,
-      move: req.body.move,
-      attack: req.body.attack,
-      isElite: req.body.isElite,
+    console.log(req.body);
+    const MonsterToAdd = await Monster.findOne({
+      where: {
+        id: req.body.monsterId
+      }
     });
-    res.status(200).json(AddedMonsterData);
+    console.log("==============" + MonsterToAdd);
+    const numToAdd = req.body.numToAdd;
+    for (let i = 0; i < numToAdd; i++) {
+      const AddedMonsterData = await AddedMonster.create({
+        name: MonsterToAdd.name,
+        level: MonsterToAdd.level,
+        special: MonsterToAdd.special,
+        health: MonsterToAdd.health,
+        move: MonsterToAdd.move,
+        attack: MonsterToAdd.attack,
+        isElite: MonsterToAdd.isElite,
+      });
+      AddedMonsterData.addEncounter(req.session.encounter_id);
+      console.log(AddedMonsterData);
+      console.log(req.session.encounter_id + " " + req.session.campaign_id)
+    }
+
+    res.status(200);
   } catch (err) {
     res.status(400).json(err);
   }

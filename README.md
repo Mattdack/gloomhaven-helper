@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# gloomhaven-helper
+# Gloomhaven Helper
 
 ## Description
 A way to reduce gloomhaven board clutter.
@@ -15,8 +15,7 @@ A way to reduce gloomhaven board clutter.
 * [Questions](#questions)
       
 ## Installation
-Once we have our Github, terminal, and vscode ready to go, we need to:
-npm i
+Git clone the repository.  Once cloned, the user must run `npm i` for package installation.  Then sign into Mysql and `SOURCE db/schema.sql;` 
       
 ## Usage
 

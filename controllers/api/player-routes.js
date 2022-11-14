@@ -37,12 +37,15 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  console.log("Making a new player");
+
   try {
     const playerData = await Player.create({
-      name: req.body.name,
-      level: req.body.level,
-      health: req.body.health,
+      playerName: req.body.name,
+      playerLevel: req.body.level,
+      playerHealth: req.body.health,
       experience: req.body.experience,
+      CampaignId: req.session.campaign_id,
     });
     res.status(200).json(playerData);
   } catch (err) {
@@ -53,9 +56,9 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     Player.update(
       {
-        name: req.body.name,
-        level: req.body.level,
-        health: req.body.health,
+        playerName: req.body.name,
+        playerLevel: req.body.level,
+        playerHealth: req.body.health,
         experience: req.body.experience,
       },
       {
@@ -86,6 +89,34 @@ router.post(`/:id/effect`, async (req, res) => {
   try{
     const targetPlayer = await Player.findByPk(req.params.id);
     await targetPlayer.addEffect(req.body.effect);
+
+    const updatedTargetPlayer = await Player.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{
+        model: Effect,
+        attributes: ["name"],
+        through: {
+          attributes: []
+        }
+      }],
+    });
+    res.status(200).json(updatedTargetPlayer);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.delete(`/:id/effect`, async (req, res) => {
+  try{
+    const targetPlayer = await Player.findByPk(req.params.id);
+    const effectToRemove = await Effect.findOne({
+      where: {
+        name: req.body.effectName
+      }
+    });
+    await targetPlayer.removeEffect(effectToRemove.id);
 
     const updatedTargetPlayer = await Player.findOne({
       where: {

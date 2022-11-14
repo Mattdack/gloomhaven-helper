@@ -1,6 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { Campaign, Player, Monster, Encounter, Effect } = require("../models");
+const {
+  User,
+  Campaign,
+  Player,
+  AddedMonster,
+  Monster,
+  Encounter,
+  Effect,
+} = require("../models");
 
 // TODO: route is localhost:3001
 router.get("/login", (req, res) => {
@@ -16,34 +24,85 @@ router.get("/signup", (req, res) => {
   res.render("signup", {});
 });
 
-router.get("/dashboard", (req, res) => {
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
+// dashboard page
+router.get("/dashboard", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  try {
+    const usersCampaign = await Campaign.findAll({
+      where: {
+        UserId: req.session.user_id,
+      },
+    });
+
+    const frontCampaign = usersCampaign.map((campaign) =>
+      campaign.get({ plain: true })
+    );
+
     res.render("dashboard", {
-        logged_in: req.session.logged_in,
+      campaigns: frontCampaign,
+      logged_in: req.session.logged_in,
     });
-  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-router.get("/newEncounter", (req, res) => {
-    if (!req.session.logged_in) {
-      return res.redirect("/login");
-    }
+// new Campaign page
+router.get("/newCampaign", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  try {
+    res.render("newCampaign", {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err, "Don't give up, you can do it!");
+  }
+});
+
+// new encounter page
+router.get("/newEncounter", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  try {
+    const monsters = await Monster.findAll({
+      where: {
+        level: 0,
+        isElite: false,
+      },
+    });
+
+    const availMonsters = monsters.map((monster) =>
+      monster.get({ plain: true })
+    );
     res.render("newEncounter", {
-        logged_in: req.session.logged_in,
+      monsters: availMonsters,
+      logged_in: req.session.logged_in,
     });
-  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
+// current encounter page
 router.get("/currentEncounter", async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect("/login");
+  }
+  console.log(req.session);
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignID: 1,
+        CampaignId: req.session.campaign_id,
       },
       include: [
         {
           model: Effect,
-          attributes: ["name"],
+          attributes: ["name","image"],
           through: {
             attributes: [],
           },
@@ -53,10 +112,8 @@ router.get("/currentEncounter", async (req, res) => {
     const campPlayers = campaignPlayers.map((player) =>
       player.get({ plain: true })
     );
-    console.log(campPlayers);
-    const specificEncounter = await Encounter.findByPk(1);
-    const encounterMonsters = await specificEncounter.getMonsters(
-        {
+    const specificEncounter = await Encounter.findByPk(req.session.encounter_id);
+    const encounterMonsters = await specificEncounter.getAddedMonsters({
       include: [
         {
           model: Effect,
@@ -66,26 +123,23 @@ router.get("/currentEncounter", async (req, res) => {
           },
         },
       ],
-    }
-    );
+    });
 
     const encMonsters = encounterMonsters.map((monster) =>
       monster.get({ plain: true })
     );
-    if (!req.session.logged_in) {
-        return res.redirect("/login");
-    }
+
     res.render("currentEncounter", {
       players: campPlayers,
       monsters: encMonsters,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({msg: `The current encounter front end route is not working appropriately.`});
   }
 });
 
-//this allows for us to see the person's id with the session in use
+//this allows for us to see the person's id with the session in use. This isnt really a front end route because it doesnt deliver any viewable data and should live elsewhere. -MD
 router.get("/sessions", (req, res) => {
   res.json(req.session);
 });

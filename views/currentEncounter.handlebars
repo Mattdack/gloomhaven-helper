@@ -1,35 +1,39 @@
-<main class="flex-auto grid grid-cols-1 p-8 justify-items-center md:grid-cols-2 xl:grid-cols-3">
-  <div class="flex-row">
-    <div class="m-2 p-2">
+<main class="fog md:h-screen grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6">
+  <div class="bordering // flex justify-center md:col-span-2 md:h-[100%] md:overflow-y-auto xl:col-span-2">
+    <div class="mb-6">
       {{#each players as |player|}}
       {{>playerStats}}
       {{/each}}
     </div>
+    {{#each effectz}}
+    {{image}}
+    {{/each}}
   </div>
   
   {{!-- Turn Order --}}
-  <div>
-    <div class="border-2 mt-8 border-blue-500 w-full">
+  <div class="bordering // flex flex-col pl-8 pr-8 md:col-span-2 md:h-[100%] md:overflow-y-auto">
+    <div class="turn-ridge border-8">
       <form id="turnorders">
         <div id="sortable1" class="connectedSortable">
           {{#each players as |player|}}
-            <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-2 border-2 border-black-500"> {{playerName}} 
+            <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-6 border-2"> {{playerName}} 
               <input class="relative left-0" type="number" name="turnorder" min="1" max="100"/>
             </div>
           {{/each}}
+          {{!-- <script type="text/x-handlebars-template"> --}}
           {{#each monsters as |monster|}}
-            <div class="text-black pl-2 pr-2 mt-2 mb-2 bg-red-600 border-2 border-black-500"> {{name}}
-              <input type="number" id={{name}} name="turnorder" min="1" max="100"/>
+            <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
+              <input type="number" name="turnorder" min="1" max="100"/>
             </div>
           {{/each}}
+          {{!-- </script> --}}
         </div> 
       </form>
     </div> 
-    <button class="delBtn" id="clearInput">Next Round</button>
+    <button class="delBtn //  border-double border-4 mb-6 bg-black/50 text-lg font-bold " id="clearInput">Next Round</button>
   </div>
 
-  <div>
-    <h2>Monsters</h2>
+  <div class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
     {{#each monsters as |monster|}}
     {{>monsterstats}}
     {{/each}}
@@ -38,3 +42,4 @@
 
 <script src="/js/index.js"></script>
 <script src="/js/addEffect.js"></script>
+<script src="/js/removeEffect.js"></script>

@@ -5,35 +5,47 @@
       {{>playerStats}}
       {{/each}}
     </div>
-    {{#each effectz}}
-    {{image}}
-    {{/each}}
+    <div>
+      <button id="updateCharacter" data-modal-toggle="popup-modal" type="button"
+        class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 transition">
+        <div class="flex leading-5">Update Character
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-chevron-right w-5 h-5 ml-1">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </button>
+      {{>updateForm}}
+    </div>
   </div>
-  
+
+
   {{!-- Turn Order --}}
   <div class="bordering // flex flex-col pl-8 pr-8 md:col-span-2 md:h-[100%] md:overflow-y-auto">
     <div class="turn-ridge border-8">
       <form id="turnorders">
         <div id="sortable1" class="connectedSortable">
           {{#each players as |player|}}
-            <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-6 border-2"> {{playerName}} 
-              <input class="relative left-0" type="number" name="turnorder" min="1" max="100"/>
-            </div>
+          <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-6 border-2"> {{playerName}}
+            <input class="relative left-0" type="number" name="turnorder" min="1" max="100" />
+          </div>
           {{/each}}
-          {{!-- <script type="text/x-handlebars-template"> --}}
+
           {{#eachUnique monsters as |monster|}}
             <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
               <input type="number" name="turnorder" min="1" max="100"/>
             </div>
           {{/eachUnique}}
-          {{!-- </script> --}}
-        </div> 
+  
+        </div>
       </form>
-    </div> 
-    <button class="delBtn //  border-double border-4 mb-6 bg-black/50 text-lg font-bold " id="clearInput">Next Round</button>
+    </div>
+    <button class="delBtn //  border-double border-4 mb-6 bg-black/50 text-lg font-bold " id="clearInput">Next
+      Round</button>
   </div>
 
-  <div class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
+  <div
+    class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
     {{#each monsters as |monster|}}
     {{>monsterstats}}
     {{/each}}

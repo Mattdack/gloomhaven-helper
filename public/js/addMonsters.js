@@ -245,7 +245,7 @@ async function addBlackImp() {
 }
 
 async function addScout() {
-    const numScout = {numToAdd: parseInt(document.querySelector(`#numBlack-Sludge`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId"))}
+    const numScout = {numToAdd: parseInt(document.querySelector(`#numVermling-Scout`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId"))}
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numScout),

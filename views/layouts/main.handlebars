@@ -19,20 +19,20 @@
 </head>
 
 <body>
-    <nav class="flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 mx-100 shadow-2xl w-12/12">
+    <nav class="flex flex-column items-center flex bg-gray-800 bg-opacity-90 px-12 py-4 mx-100 shadow-2xl w-12/12">
         <div class="text-2xl text-brown font-semibold inline-flex items-center">
-            <img src="/images/final-logo.png" class="w-[100%] mr-7" alt="Gloomhaven Helper">
+            <img src="/images/final-logo.png" class="flex w-[100%] mr-7" alt="Gloomhaven Helper">
         </div>
         <div>
             <ul class="flex text-brown">
                 {{#if logged_in}}
-                <a class="ml-5 px-2 py-1" href="/dashboard">Home</a>
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/dashboard">Home</button>
                 {{!-- <a class="ml-5 px-2 py-1" href="/newEncounter">New Game</a> --}}
                 {{!-- <a class="ml-5 px-2 py-1" href="/currentEncounter">Load Game</a> --}}
                 <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id='logoutBtn'
-                    href="/login">Logout</button>
+                    href="/">Logout</button>
                 {{else}}
-                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/login">Login</a>
+                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/">Login</a>
                 <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/signup">Sign Up</a>
                 {{/if}}
             </ul>
@@ -42,7 +42,7 @@
     <main>
         {{{body}}}
     </main>
-    <footer class="bg-gray-800 text-center lg:text-left bg-opacity-90">
+    <footer class="bg-gray-800 h-[100%] text-center lg:text-left bg-opacity-90">
         <div class="text-brown-700 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
             &copy;Gloomhaven Helper
         </div>

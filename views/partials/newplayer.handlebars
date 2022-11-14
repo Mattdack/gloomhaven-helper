@@ -1,20 +1,27 @@
-<form class="card card border-4 border-gray-200 border-x-gray-500 text-blue w-80" id="newCharacterForm">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="newcharactername" placeholder="Voidwarden" />
-    </br>
-    <label for="level">Level:</label>
-     <input type="number" name="level" id="newcharacterlevel" placeholder="1" />
-    
-    <label for="special">Health:</label>
-    <input type="text" name="special" id="newcharacterhealth" placeholder="10" />
-
-    <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id="newCharacterBtn">Save</button>
-</form>
-{{!-- for page --}}
-        <section class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
-            <div class="col-1">
-                <h2 class="flex justify-center">Need to create a new Character?</h2>
-                {{>newplayer}}
-        
+<form class="card-background flex flex-row w-fit border-7 mb-4 place-items-center text-md" id="newCharacterForm">
+    <div class="m-1 px-8 py-8 w-full">
+        <div class="-space-y-.5">
+            <div class="flex justify-center">
+                <h2>Provide Character Stats</h2>
             </div>
-        </section>
+            </br>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="newcharactername" placeholder="Voidwarden" />
+            </div>
+            </br>
+            <div>
+                <label for="level">Level:</label>
+                <input type="number" name="level" id="newcharacterlevel" placeholder="1" />
+            </div>
+            </br>
+            <div>
+                <label for="special">Health:</label>
+                <input type="text" name="special" id="newcharacterhealth" placeholder="10" />
+            </div>
+            </br>
+            <div class="flex justify-center">
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800"
+                    id="newCharacterBtn">Save</button>
+            </div>
+</form>

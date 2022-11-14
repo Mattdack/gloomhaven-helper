@@ -10,6 +10,10 @@ body {
     color: rgb(149, 133, 55);
 }
 
+/* .hide-picture{
+
+} */
+
 .fog{
     background-image: url("../images/fog.png");
     /* background-size: cover; */
@@ -29,6 +33,11 @@ body {
     border-width: 2px;
 }
 
+.monster-img {
+    border-color:#cab7ac;
+    border-width: 2px;
+}
+
 .player-ridge {
     border-style: ridge;
     border-color: #d34621;
@@ -44,12 +53,6 @@ body {
     border-width: 2px;
     background-color: rgba(0, 0, 0, 1);
     padding: 8px;
-}
-
-.HPchange {
-    color: red;
-    padding:2px;
-    margin:2px;
 }
 
 /* === PLAYER SETTINGS === */
@@ -105,16 +108,16 @@ body {
     color: rgb(60, 55, 29)
 }
 
-#addCharacterForm {
+/* #addCharacterForm {
     width: 300px;
-    /* background-color: rgb(156, 48, 48);
+    background-color: rgb(156, 48, 48);
     background: linear-gradient(#f8f8f8, rgb(136, 63, 63));
-    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); */
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
     position: relative;
     margin: 1.5rem;
     color: rgb(60, 55, 29)
-}
+} */
 
 .Hatchet {
     border: 2px, solid, blue;

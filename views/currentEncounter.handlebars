@@ -21,11 +21,11 @@
             </div>
           {{/each}}
           {{!-- <script type="text/x-handlebars-template"> --}}
-          {{#each monsters as |monster|}}
+          {{#eachUnique monsters as |monster|}}
             <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
               <input type="number" name="turnorder" min="1" max="100"/>
             </div>
-          {{/each}}
+          {{/eachUnique}}
           {{!-- </script> --}}
         </div> 
       </form>

@@ -26,13 +26,13 @@
         <div>
             <ul class="flex text-brown">
                 {{#if logged_in}}
-                <a class="ml-5 px-2 py-1" href="/dashboard">Home</a>
+                <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/dashboard">Home</button>
                 {{!-- <a class="ml-5 px-2 py-1" href="/newEncounter">New Game</a> --}}
                 {{!-- <a class="ml-5 px-2 py-1" href="/currentEncounter">Load Game</a> --}}
                 <button class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" id='logoutBtn'
-                    href="/login">Logout</button>
+                    href="/">Logout</button>
                 {{else}}
-                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/login">Login</a>
+                <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/">Login</a>
                 <a class="ml-5 px-3 py-1 rounded font-semibold bg-gray-100 text-gray-800" href="/signup">Sign Up</a>
                 {{/if}}
             </ul>

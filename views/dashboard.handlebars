@@ -9,20 +9,22 @@
                             src="https://raw.githubusercontent.com/any2cards/gloomhaven/master/images/map-tiles/gloomhaven/gh-d1a.png">
                     </a>
                     <div class="p-6">
-                        <h3 class="flex justify-center text-brown-900 text-xl font-medium mb-2">Welcome,{{username}}
+                        <h3 class="flex justify-center text-brown-700 text-xl font-medium mb-2">Welcome,{{username}}
                         </h3>
-                        <p class="flex justify-center text-brown-700 text-base mb-4">
+                        <p class="flex justify-center text-brown-700 text-base mb-2">
                             What is your mission today?
                         </p>
-                        <form class="flex justify-center my-5">
-                            <input type="text" name="newCampaign" id="createCampaign" placeholder="New Campaign Name Here!">
+                        <form class="flex w-[100%] justify-center">
+                            <input class="flex w-[100%] text-center" type="text" name="newCampaign" id="createCampaign" placeholder="New Campaign Name Here!">
                         </form>
-                        <a type="button"
-                            class=" inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1"
-                            href="#" id = "newCampaignForm">New Campaign</a>
+                        <div class="grid grid-col w-[100%] p-2 border-double border-b-8">
+                        <a type="button" class="place-self-center px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1" href="#" id = "newCampaignForm">New Campaign</a>
+                        </div>
+                        <div class="grid grid-col w-[100%] p-2 border-double border-b-8">
                         {{#each campaigns as |campaign|}}
-                            <a type="button" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2 currentCampaign" href="" id={{id}}>Load {{name}}</a>
+                            <a type="button" class="place-self-center inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2 currentCampaign" href="" id={{id}}>Load Campaign: {{name}}</a>
                         {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>

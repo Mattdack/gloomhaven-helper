@@ -1,20 +1,24 @@
-<div class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md"
+<form class="flex flex-row flex-wrap w-fit border-5 place-items-center text-md"
     id="newCharacterForm">
-    <h3>Choose Monsters</h3>
-    <ul>
+
+        {{!-- <div class="form-check p-3"> --}}
         {{#each monsters}}
         <div class="form-check p-3">
+            <div class="flex justify-center">
+                <img class="flex-initial border-2 card-background monster-ridge m-1 p-1 h-80 transition ease-in-out delay-150 hover:scale-105 duration-150" src="/images/monsters/{{name}}.jpg"
+                    alt="Voidwarden Character">
+            </div>        
             <input
                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                 type="checkbox" name="character" id="add{{name}}">
-            <label class="form-check-label inline-block text-gray-400" for="flexCheckDefault">
-                <img class="flex-initial m-1 p-1 h-48" src="/images/monsters/{{name}}.jpg"
-                    alt="Voidwarden Character">
-                {{Name}}
+            <label class="form-check-label inline-block text-yellow-600" for="flexCheckDefault">
+                {{name}}
             </label>
-
-        <input type="number" name="monster" id="num{{name}}">
-        <label>{{name}}</label></br>
+            <br/>
+            <input type="number" name="monster" id="num{{name}}" placeholder="Quantity">
+            
+            {{!-- <label>{{name}}</label>             --}}
+            </div>
         {{/each}}
-    </ul>
-</div>
+    </div>
+</form>

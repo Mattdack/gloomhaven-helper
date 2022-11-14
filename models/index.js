@@ -2,7 +2,8 @@ const User = require("./User");
 const Campaign = require("./Campaign");
 const Encounter = require("./Encounter");
 const Player = require("./Player");
-const AddedMonster = require("./Monster");
+const AddedMonster = require("./AddedMonsters");
+const Monster = require('./Monster');
 const Effect = require("./Effect");
 
 User.hasMany(Campaign);
@@ -29,5 +30,6 @@ module.exports = {
     Encounter,
     Effect,
     AddedMonster,
+    Monster,
     User,
 }

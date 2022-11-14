@@ -5,6 +5,7 @@ const {
   Campaign,
   Player,
   AddedMonster,
+  Monster,
   Encounter,
   Effect,
 } = require("../models");
@@ -68,7 +69,12 @@ router.get("/newEncounter", async (req, res) => {
     return res.redirect("/login");
   }
   try {
-    const monsters = await AddedMonster.findAll();
+    const monsters = await Monster.findAll({
+      where: {
+        level: 0,
+        isElite: false,
+      },
+    });
 
     const availMonsters = monsters.map((monster) =>
       monster.get({ plain: true })
@@ -91,8 +97,7 @@ router.get("/currentEncounter", async (req, res) => {
   try {
     const campaignPlayers = await Player.findAll({
       where: {
-        CampaignId:1,
-         
+        CampaignId: req.session.campaign_id,
       },
       include: [
         {
@@ -107,9 +112,8 @@ router.get("/currentEncounter", async (req, res) => {
     const campPlayers = campaignPlayers.map((player) =>
       player.get({ plain: true })
     );
-    console.log(campPlayers);
     const specificEncounter = await Encounter.findByPk(req.session.encounter_id);
-    const encounterMonsters = await specificEncounter.getMonsters({
+    const encounterMonsters = await specificEncounter.getAddedMonsters({
       include: [
         {
           model: Effect,
@@ -128,11 +132,10 @@ router.get("/currentEncounter", async (req, res) => {
     res.render("currentEncounter", {
       players: campPlayers,
       monsters: encMonsters,
-
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({msg: `The current encounter front end route is not working appropriately.`});
   }
 });
 

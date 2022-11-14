@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Monster extends Model {}
+class AddedMonster extends Model {}
 
-AddedMonsters.init(
+AddedMonster.init(
   {
     name: {
       type: DataTypes.STRING,

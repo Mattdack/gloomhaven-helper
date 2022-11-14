@@ -1,859 +1,951 @@
-const { Monster } = require('../models');
+const { Monster } = require("../models");
 
 const monsters = [
   {
-    name: 'Chaos-Demon',
+    name: "Chaos-Demon",
     level: 0,
-    special: 'Muddle',
+    special: "Muddle",
     health: 7,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Chaos-Demon',
+    isElite: false,
+  },
+  {
+    name: "Chaos-Demon",
     level: 0,
-    special: 'Muddle',
+    special: "Muddle",
     health: 10,
     move: 4,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Chaos-Demon',
+    isElite: true,
+  },
+  {
+    name: "Chaos-Demon",
     level: 1,
-    special: 'Muddle',
+    special: "Muddle",
     health: 8,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Chaos-Demon',
+    isElite: false,
+  },
+  {
+    name: "Chaos-Demon",
     level: 1,
-    special: 'Muddle',
+    special: "Muddle",
     health: 12,
     move: 4,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Chaos-Demon',
+    isElite: true,
+  },
+  {
+    name: "Chaos-Demon",
     level: 2,
-    special: 'Muddle',
+    special: "Muddle",
     health: 11,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Chaos-Demon',
+    isElite: false,
+  },
+  {
+    name: "Chaos-Demon",
     level: 2,
-    special: 'Muddle',
+    special: "Muddle",
     health: 14,
     move: 4,
     attack: 5,
-    isElite: true
-  },{
-    name: 'Chaos-Demon',
+    isElite: true,
+  },
+  {
+    name: "Chaos-Demon",
     level: 3,
-    special: 'Muddle',
+    special: "Muddle",
     health: 12,
     move: 3,
     attack: 4,
-    isElite: false
-  },{
-    name: 'Chaos-Demon',
+    isElite: false,
+  },
+  {
+    name: "Chaos-Demon",
     level: 3,
-    special: 'Muddle',
+    special: "Muddle",
     health: 18,
     move: 5,
     attack: 5,
-    isElite: true
-  },{
-    name: 'Living-Corpse',
+    isElite: true,
+  },
+  {
+    name: "Living-Corpse",
     level: 0,
     special: null,
     health: 5,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Living-Corpse',
+    isElite: false,
+  },
+  {
+    name: "Living-Corpse",
     level: 0,
     special: null,
     health: 10,
     move: 1,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Living-Corpse',
+    isElite: true,
+  },
+  {
+    name: "Living-Corpse",
     level: 1,
     special: null,
     health: 7,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Living-Corpse',
+    isElite: false,
+  },
+  {
+    name: "Living-Corpse",
     level: 1,
     special: null,
     health: 11,
     move: 1,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Living-Corpse',
+    isElite: true,
+  },
+  {
+    name: "Living-Corpse",
     level: 2,
     special: null,
     health: 9,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Living-Corpse',
+    isElite: false,
+  },
+  {
+    name: "Living-Corpse",
     level: 2,
     special: null,
     health: 14,
     move: 1,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Living-Corpse',
+    isElite: true,
+  },
+  {
+    name: "Living-Corpse",
     level: 3,
     special: null,
     health: 10,
     move: 1,
     attack: 4,
-    isElite: false
-  },{
-    name: 'Living-Corpse',
+    isElite: false,
+  },
+  {
+    name: "Living-Corpse",
     level: 3,
     special: null,
     health: 14,
     move: 2,
     attack: 5,
-    isElite: true
-  },{
-    name: 'Living-Spirit',
+    isElite: true,
+  },
+  {
+    name: "Living-Spirit",
     level: 0,
-    special: 'shield',
+    special: "shield",
     health: 3,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Living-Spirit',
+    isElite: false,
+  },
+  {
+    name: "Living-Spirit",
     level: 0,
-    special: 'shield',
+    special: "shield",
     health: 5,
     move: 3,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Living-Spirit',
+    isElite: true,
+  },
+  {
+    name: "Living-Spirit",
     level: 1,
-    special: 'shield',
+    special: "shield",
     health: 4,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Living-Spirit',
+    isElite: false,
+  },
+  {
+    name: "Living-Spirit",
     level: 1,
-    special: 'shield2',
+    special: "shield2",
     health: 5,
     move: 3,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Living-Spirit',
+    isElite: true,
+  },
+  {
+    name: "Living-Spirit",
     level: 2,
-    special: 'shield',
+    special: "shield",
     health: 5,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Living-Spirit',
+    isElite: false,
+  },
+  {
+    name: "Living-Spirit",
     level: 2,
-    special: 'shield2',
+    special: "shield2",
     health: 7,
     move: 4,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Living-Spirit',
+    isElite: true,
+  },
+  {
+    name: "Living-Spirit",
     level: 3,
-    special: 'shield',
+    special: "shield",
     health: 6,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Living-Spirit',
+    isElite: false,
+  },
+  {
+    name: "Living-Spirit",
     level: 3,
-    special: 'shield2',
+    special: "shield2",
     health: 8,
     move: 4,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Stone-Golem',
+    isElite: true,
+  },
+  {
+    name: "Stone-Golem",
     level: 0,
     special: null,
     health: 10,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Stone-Golem',
+    isElite: false,
+  },
+  {
+    name: "Stone-Golem",
     level: 0,
-    special: 'shield',
+    special: "shield",
     health: 10,
     move: 2,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Stone-Golem',
+    isElite: true,
+  },
+  {
+    name: "Stone-Golem",
     level: 1,
-    special: 'shield',
+    special: "shield",
     health: 10,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Stone-Golem',
+    isElite: false,
+  },
+  {
+    name: "Stone-Golem",
     level: 1,
-    special: 'shield',
+    special: "shield",
     health: 11,
     move: 2,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Stone-Golem',
+    isElite: true,
+  },
+  {
+    name: "Stone-Golem",
     level: 2,
-    special: 'shield',
+    special: "shield",
     health: 11,
     move: 1,
     attack: 4,
-    isElite: false
-  },{
-    name: 'Stone-Golem',
+    isElite: false,
+  },
+  {
+    name: "Stone-Golem",
     level: 2,
-    special: 'shield2',
+    special: "shield2",
     health: 13,
     move: 2,
     attack: 5,
-    isElite: true
-  },{
-    name: 'Stone-Golem',
+    isElite: true,
+  },
+  {
+    name: "Stone-Golem",
     level: 3,
-    special: 'shield2',
+    special: "shield2",
     health: 11,
     move: 1,
     attack: 4,
-    isElite: false
-  },{
-    name: 'Stone-Golem',
+    isElite: false,
+  },
+  {
+    name: "Stone-Golem",
     level: 3,
-    special: 'shield3',
+    special: "shield3",
     health: 14,
     move: 2,
     attack: 5,
-    isElite: true
+    isElite: true,
   },
   {
-    name: 'Vermling-Raider',
+    name: "Vermling-Raider",
     level: 0,
     special: null,
     health: 4,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Raider',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Raider",
     level: 0,
     special: null,
     health: 8,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Vermling-Raider',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Raider",
     level: 1,
     special: null,
     health: 5,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Raider',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Raider",
     level: 1,
     special: null,
     health: 10,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Vermling-Raider',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Raider",
     level: 2,
     special: null,
     health: 9,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Raider',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Raider",
     level: 2,
     special: null,
     health: 14,
     move: 3,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Vermling-Raider',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Raider",
     level: 3,
     special: null,
     health: 11,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Raider',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Raider",
     level: 3,
     special: null,
     health: 16,
     move: 3,
     attack: 4,
-    isElite: true
+    isElite: true,
   },
   {
-    name: 'Giant-Viper',
+    name: "Giant-Viper",
     level: 0,
-    special: 'Poison',
+    special: "Poison",
     health: 2,
     move: 2,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Giant-Viper',
-    level: 0,
-    special: 'Poison',
-    health: 3,
-    move: 2,
-    attack: 2,
-    isElite: false
-  },{
-    name: 'Giant-Viper',
+    isElite: false,
+  },
+  {
+    name: "Giant-Viper",
     level: 1,
-    special: 'Poison',
+    special: "Poison",
     health: 3,
     move: 2,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Giant-Viper',
+    isElite: false,
+  },
+  {
+    name: "Giant-Viper",
     level: 1,
-    special: 'Poison',
+    special: "Poison",
     health: 5,
     move: 2,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Giant-Viper',
+    isElite: true,
+  },
+  {
+    name: "Giant-Viper",
     level: 2,
-    special: 'Poison',
+    special: "Poison",
     health: 4,
     move: 3,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Giant-Viper',
+    isElite: false,
+  },
+  {
+    name: "Giant-Viper",
     level: 2,
-    special: 'Poison',
+    special: "Poison",
     health: 7,
     move: 3,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Giant-Viper',
+    isElite: true,
+  },
+  {
+    name: "Giant-Viper",
     level: 3,
-    special: 'Poison',
+    special: "Poison",
     health: 4,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Giant-Viper',
+    isElite: false,
+  },
+  {
+    name: "Giant-Viper",
     level: 3,
-    special: 'Poison',
+    special: "Poison",
     health: 8,
     move: 3,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Black-Sludge',
+    isElite: true,
+  },
+  {
+    name: "Black-Sludge",
     level: 0,
     special: null,
     health: 4,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Black-Sludge',
+    isElite: false,
+  },
+  {
+    name: "Black-Sludge",
     level: 0,
     special: null,
     health: 8,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Sludge',
+    isElite: true,
+  },
+  {
+    name: "Black-Sludge",
     level: 1,
-    special: 'Shield',
+    special: "Shield",
     health: 5,
     move: 1,
     attack: 2,
-    isElite: false
+    isElite: false,
   },
   {
-    name: 'Black-Sludge',
+    name: "Black-Sludge",
     level: 1,
-    special: 'Shield',
+    special: "Shield",
     health: 9,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Sludge',
+    isElite: true,
+  },
+  {
+    name: "Black-Sludge",
     level: 2,
-    special: 'Shield',
+    special: "Shield",
     health: 7,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Black-Sludge',
+    isElite: false,
+  },
+  {
+    name: "Black-Sludge",
     level: 2,
-    special: 'Shield',
+    special: "Shield",
     health: 11,
     move: 1,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Black-Sludge',
+    isElite: true,
+  },
+  {
+    name: "Black-Sludge",
     level: 3,
-    special: 'Shield',
+    special: "Shield",
     health: 8,
     move: 1,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Black-Sludge',
+    isElite: false,
+  },
+  {
+    name: "Black-Sludge",
     level: 3,
-    special: 'Poison, Shield',
+    special: "Poison, Shield",
     health: 11,
     move: 2,
     attack: 3,
-    isElite: true
+    isElite: true,
   },
   {
-    name: 'Blood-Imp',
+    name: "Blood-Imp",
     level: 4,
-    special: 'Muddle',
+    special: "Muddle",
     health: 7,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Blood-Imp',
+    isElite: false,
+  },
+  {
+    name: "Blood-Imp",
     level: 3,
-    special: 'Muddle',
+    special: "Muddle",
     health: 5,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Blood-Imp',
+    isElite: false,
+  },
+  {
+    name: "Blood-Imp",
     level: 3,
-    special: 'Muddle',
+    special: "Muddle",
     health: 10,
     move: 3,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Blood-Imp',
+    isElite: true,
+  },
+  {
+    name: "Blood-Imp",
     level: 1,
-    special: 'Muddle',
+    special: "Muddle",
     health: 4,
     move: 2,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Blood-Imp',
+    isElite: false,
+  },
+  {
+    name: "Blood-Imp",
     level: 1,
-    special: 'Muddle',
+    special: "Muddle",
     health: 6,
     move: 2,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Blood-Imp',
+    isElite: true,
+  },
+  {
+    name: "Blood-Imp",
     level: 2,
-    special: 'Muddle',
+    special: "Muddle",
     health: 5,
     move: 3,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Blood-Imp',
+    isElite: false,
+  },
+  {
+    name: "Blood-Imp",
     level: 2,
-    special: 'Muddle',
+    special: "Muddle",
     health: 7,
     move: 3,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Blood-Imp',
+    isElite: true,
+  },
+  {
+    name: "Blood-Imp",
     level: 0,
     special: null,
     health: 3,
     move: 2,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Blood-Imp',
+    isElite: false,
+  },
+  {
+    name: "Blood-Imp",
     level: 0,
-    special: 'Muddle',
+    special: "Muddle",
     health: 4,
     move: 2,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Imp',
+    isElite: true,
+  },
+  {
+    name: "Black-Imp",
     level: 0,
     special: null,
     health: 3,
     move: 1,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Black-Imp',
+    isElite: false,
+  },
+  {
+    name: "Black-Imp",
     level: 0,
-    special: 'Poison',
+    special: "Poison",
     health: 4,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Imp',
+    isElite: true,
+  },
+  {
+    name: "Black-Imp",
     level: 1,
-    special: 'Poison',
+    special: "Poison",
     health: 4,
     move: 1,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Black-Imp',
+    isElite: false,
+  },
+  {
+    name: "Black-Imp",
     level: 1,
-    special: 'Poison',
+    special: "Poison",
     health: 6,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Imp',
+    isElite: true,
+  },
+  {
+    name: "Black-Imp",
     level: 2,
-    special: 'Poison',
+    special: "Poison",
     health: 5,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Black-Imp',
+    isElite: false,
+  },
+  {
+    name: "Black-Imp",
     level: 2,
-    special: 'Poison',
+    special: "Poison",
     health: 8,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Black-Imp',
+    isElite: true,
+  },
+  {
+    name: "Black-Imp",
     level: 3,
-    special: 'Poison',
+    special: "Poison",
     health: 5,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Black-Imp',
+    isElite: false,
+  },
+  {
+    name: "Black-Imp",
     level: 3,
-    special: 'Poison, Attackers gain Disadvantage',
+    special: "Poison, Attackers gain Disadvantage",
     health: 8,
     move: 1,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Black-Imp',
+    isElite: true,
+  },
+  {
+    name: "Black-Imp",
     level: 4,
-    special: 'Poison',
+    special: "Poison",
     health: 7,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Scout',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Scout",
     level: 0,
     special: null,
     health: 2,
     move: 3,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Vermling-Scout',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Scout",
     level: 0,
     special: null,
     health: 4,
     move: 3,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Vermling-Scout',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Scout",
     level: 1,
     special: null,
     health: 3,
     move: 3,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Vermling-Scout',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Scout",
     level: 1,
     special: null,
     health: 5,
     move: 3,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Vermling-Scout',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Scout",
     level: 2,
     special: null,
     health: 3,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Scout',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Scout",
     level: 2,
     special: null,
     health: 5,
     move: 4,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Vermling-Scout',
+    isElite: true,
+  },
+  {
+    name: "Vermling-Scout",
     level: 3,
     special: null,
     health: 5,
     move: 3,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Vermling-Scout',
+    isElite: false,
+  },
+  {
+    name: "Vermling-Scout",
     level: 3,
     special: null,
     health: 7,
     move: 4,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 0,
-    special: 'On Death, all adjacdent figures suffer 1 damage',
+    special: "On Death, all adjacdent figures suffer 1 damage",
     health: 4,
     move: 1,
     attack: 1,
-    isElite: false
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 0,
-    special: 'On Death, all adjacdent figures suffer 1 damage',
+    special: "On Death, all adjacdent figures suffer 1 damage",
     health: 6,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 1,
-    special: 'On Death, all adjacdent figures suffer 1 damage',
+    special: "On Death, all adjacdent figures suffer 1 damage",
     health: 4,
     move: 1,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 1,
-    special: 'On Death, all adjacdent figures suffer 2 damage. Advantage',
+    special: "On Death, all adjacdent figures suffer 2 damage. Advantage",
     health: 7,
     move: 1,
     attack: 2,
-    isElite: true
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 2,
-    special: 'On Death, all adjacdent figures suffer 1 damage',
+    special: "On Death, all adjacdent figures suffer 1 damage",
     health: 5,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 2,
-    special: 'On Death, all adjacdent figures suffer 2 damage. Advantage',
+    special: "On Death, all adjacdent figures suffer 2 damage. Advantage",
     health: 8,
     move: 1,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 3,
-    special: 'On Death, all adjacdent figures suffer 2 damage',
+    special: "On Death, all adjacdent figures suffer 2 damage",
     health: 6,
     move: 2,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Rat-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Rat-Monstrosity",
     level: 2,
-    special: 'On Death, all adjacdent figures suffer 2 damage. Advantage',
+    special: "On Death, all adjacdent figures suffer 2 damage. Advantage",
     health: 10,
     move: 2,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 0,
-    special: 'On Death, all adjacdent figures suffer 1 damage.',
+    special: "On Death, all adjacdent figures suffer 1 damage.",
     health: 7,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 0,
-    special: 'On Death, all adjacdent figures suffer 1 damage.',
+    special: "On Death, all adjacdent figures suffer 1 damage.",
     health: 12,
     move: 2,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 1,
-    special: 'On Death, all adjacdent figures suffer 2 damage.',
+    special: "On Death, all adjacdent figures suffer 2 damage.",
     health: 9,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 1,
-    special: 'On Death, all adjacdent figures suffer 3 damage. Shield',
+    special: "On Death, all adjacdent figures suffer 3 damage. Shield",
     health: 12,
     move: 2,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 2,
-    special: 'On Death, all adjacdent figures suffer 2 damage.',
+    special: "On Death, all adjacdent figures suffer 2 damage.",
     health: 10,
     move: 2,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 2,
-    special: 'On Death, all adjacdent figures suffer 3 damage. Shield',
+    special: "On Death, all adjacdent figures suffer 3 damage. Shield",
     health: 15,
     move: 2,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: true,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 3,
-    special: 'On Death, all adjacdent figures suffer 3 damage.',
+    special: "On Death, all adjacdent figures suffer 3 damage.",
     health: 12,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Blood-Monstrosity',
+    isElite: false,
+  },
+  {
+    name: "Blood-Monstrosity",
     level: 3,
-    special: 'On Death, all adjacdent figures suffer 4 damage. Shield',
+    special: "On Death, all adjacdent figures suffer 4 damage. Shield",
     health: 18,
     move: 3,
     attack: 4,
-    isElite: true
-  },{
-    name: 'Zealot',
+    isElite: true,
+  },
+  {
+    name: "Zealot",
     level: 0,
     special: null,
     health: 4,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Zealot',
+    isElite: false,
+  },
+  {
+    name: "Zealot",
     level: 0,
     special: null,
     health: 7,
     move: 2,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Zealot',
+    isElite: true,
+  },
+  {
+    name: "Zealot",
     level: 1,
     special: null,
     health: 6,
     move: 2,
     attack: 2,
-    isElite: false
-  },{
-    name: 'Zealot',
+    isElite: false,
+  },
+  {
+    name: "Zealot",
     level: 1,
-    special: 'Wound',
+    special: "Wound",
     health: 8,
     move: 2,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Zealot',
+    isElite: true,
+  },
+  {
+    name: "Zealot",
     level: 2,
     special: null,
     health: 7,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Zealot',
+    isElite: false,
+  },
+  {
+    name: "Zealot",
     level: 2,
-    special: 'Wound',
+    special: "Wound",
     health: 11,
     move: 3,
     attack: 3,
-    isElite: true
-  },{
-    name: 'Zealot',
+    isElite: true,
+  },
+  {
+    name: "Zealot",
     level: 3,
-    special: 'Wound',
+    special: "Wound",
     health: 8,
     move: 3,
     attack: 3,
-    isElite: false
-  },{
-    name: 'Zealot',
+    isElite: false,
+  },
+  {
+    name: "Zealot",
     level: 3,
-    special: 'Wound',
+    special: "Wound",
     health: 13,
     move: 3,
     attack: 4,
-    isElite: true
-  }
+    isElite: true,
+  },
 ];
 
 const seedMonsters = () => Monster.bulkCreate(monsters);

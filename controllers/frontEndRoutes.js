@@ -11,7 +11,7 @@ const {
 } = require("../models");
 
 // TODO: route is localhost:3001
-router.get("/login", (req, res) => {
+router.get("/", (req, res) => {
   if (req.session.logged_in) {
     return res.redirect("/dashboard");
   }
@@ -27,7 +27,7 @@ router.get("/signup", (req, res) => {
 // dashboard page
 router.get("/dashboard", async (req, res) => {
   if (!req.session.logged_in) {
-    return res.redirect("/login");
+    return res.redirect("/");
   }
   try {
     const usersCampaign = await Campaign.findAll({
@@ -52,7 +52,7 @@ router.get("/dashboard", async (req, res) => {
 // new Campaign page
 router.get("/newCampaign", async (req, res) => {
   if (!req.session.logged_in) {
-    return res.redirect("/login");
+    return res.redirect("/");
   }
   try {
     res.render("newCampaign", {
@@ -66,7 +66,7 @@ router.get("/newCampaign", async (req, res) => {
 // new encounter page
 router.get("/newEncounter", async (req, res) => {
   if (!req.session.logged_in) {
-    return res.redirect("/login");
+    return res.redirect("/");
   }
   try {
     const monsters = await Monster.findAll({
@@ -91,7 +91,7 @@ router.get("/newEncounter", async (req, res) => {
 // current encounter page
 router.get("/currentEncounter", async (req, res) => {
   if (!req.session.logged_in) {
-    return res.redirect("/login");
+    return res.redirect("/");
   }
   console.log(req.session);
   try {

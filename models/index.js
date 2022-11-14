@@ -15,6 +15,7 @@ Encounter.belongsTo(Campaign);
 Campaign.hasMany(Player);
 Player.belongsTo(Campaign);
 
+// Change AddedMonster and Encounter relationship to One to Many
 AddedMonster.belongsToMany(Encounter,{through: `EncounterAddedMonster`})
 Encounter.belongsToMany(AddedMonster,{through: `EncounterAddedMonster`});
 

@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
     const AddedMonsterData = await AddedMonster.findAll({
       // add separate modals connected to AddedMonster if needed
-      // include: [{ model:  }],
+      include: [{ model: Encounter}],
     });
     res.status(200).json(AddedMonsterData);
   } catch (err) {
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
       console.log(`I'm GETTING ADDED MOM!` + numToAdd)
     }
 
-    res.status(200);
+    res.status(200).json({msg: req.body.monsterId + " was added"});
   } catch (err) {
     res.status(400).json(err);
   }

@@ -112,7 +112,6 @@ router.get("/currentEncounter", async (req, res) => {
     const campPlayers = campaignPlayers.map((player) =>
       player.get({ plain: true })
     );
-    console.log(campPlayers);
     const specificEncounter = await Encounter.findByPk(req.session.encounter_id);
     const encounterMonsters = await specificEncounter.getAddedMonsters({
       include: [

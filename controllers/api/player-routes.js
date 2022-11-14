@@ -116,8 +116,6 @@ router.delete(`/:id/effect`, async (req, res) => {
         name: req.body.effectName
       }
     });
-    console.log(effectToRemove);
-    console.log(effectToRemove.id);
     await targetPlayer.removeEffect(effectToRemove.id);
 
     const updatedTargetPlayer = await Player.findOne({

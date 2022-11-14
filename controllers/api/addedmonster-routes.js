@@ -32,16 +32,15 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body);
-    const MonsterToAdd = await Monster.findOne({
+    let MonsterToAdd = await Monster.findOne({
       where: {
         id: req.body.monsterId
       }
     });
-    console.log("==============" + MonsterToAdd);
-    const numToAdd = req.body.numToAdd;
+    let numToAdd = req.body.numToAdd;
+    console.log("ADDING THIS MANY" + numToAdd)
     for (let i = 0; i < numToAdd; i++) {
-      const AddedMonsterData = await AddedMonster.create({
+      let AddedMonsterData = await AddedMonster.create({
         name: MonsterToAdd.name,
         level: MonsterToAdd.level,
         special: MonsterToAdd.special,
@@ -51,8 +50,7 @@ router.post('/', async (req, res) => {
         isElite: MonsterToAdd.isElite,
       });
       AddedMonsterData.addEncounter(req.session.encounter_id);
-      console.log(AddedMonsterData);
-      console.log(req.session.encounter_id + " " + req.session.campaign_id)
+      console.log(`I'm GETTING ADDED MOM!` + numToAdd)
     }
 
     res.status(200);
@@ -122,19 +120,32 @@ router.post('/', async (req, res) => {
     }
   });
 
-// router.post('/:id/encounter', async (req,res)=> {
-//   try {
-//     const numAdding = req.body.numToAdd;
-//     for (let i = 0; i < numAdding; i++) {
-//       const encounterAddedMonster = await AddedMonster.findByPk(req.params.id);
-//       await encounterAddedMonster.addEncounter(req.session.encounter_id);
-//       console.log(encounterAddedMonster);
-//     }
-//     res.status(200);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// })
+  router.delete(`/:id/effect`, async (req, res) => {
+    try{
+      const targetPlayer = await AddedMonster.findByPk(req.params.id);
+      const effectToRemove = await Effect.findOne({
+        where: {
+          name: req.body.effectName
+        }
+      });
+      await targetPlayer.removeEffect(effectToRemove.id);
+  
+      const updatedTargetMonster = await AddedMonster.findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [{
+          model: Effect,
+          attributes: ["name"],
+          through: {
+            attributes: []
+          }
+        }],
+      });
+      res.status(200).json(updatedTargetMonster);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
   module.exports = router;

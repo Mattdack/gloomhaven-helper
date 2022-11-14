@@ -23,8 +23,7 @@ function addParty() {
     if((!addVoidBtn.checked) && (!addHatchetBtn.checked) && (!addDemoBtn.checked) && (!addRedGuardBtn.checked)) {
         alert("You did not select a character to add!")
     } else {
-        location.reload();
-        alert("Your characters have been added.");
+        location.assign(`newEncounter`)
     }
 }
 

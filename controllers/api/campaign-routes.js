@@ -78,18 +78,18 @@ router.post(`/:id`, async (req, res) => {
     const newEncounter = await Encounter.create({
       CampaignId: findCampaign.id,
     });
-    const findEncounter = await Encounter.findOne({
-      where: {
-        CampaignId: findCampaign.id
-      }
-    });
+    // const findEncounter = await Encounter.findOne({
+    //   where: {
+    //     CampaignId: findCampaign.id
+    //   }
+    // });
 
     req.session.save(() => {
       req.session.campaign_id = req.params.id;
       console.log("Campaign ID has been stored as" + req.params.id);
       console.log(req.session.campaign_id);
-      req.session.encounter_id = findEncounter.id;
-      console.log("Encounter ID has been stored as" + findEncounter.id);
+      req.session.encounter_id = newEncounter.id;
+      console.log("Encounter ID has been stored as" + newEncounter.id);
       console.log(req.session.encounter_id);
       res.status(200).json({msg: "Campaign Id and Encounter Id have been updated"});
     });

@@ -372,15 +372,6 @@ const monsters = [
   },
   {
     name: "Giant-Viper",
-    level: 0,
-    special: "Poison",
-    health: 3,
-    move: 2,
-    attack: 2,
-    isElite: false,
-  },
-  {
-    name: "Giant-Viper",
     level: 1,
     special: "Poison",
     health: 3,

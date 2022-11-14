@@ -16,59 +16,72 @@ let atLeastOne = false;
 
 addMonstersBtn.addEventListener('click', addMonsters);
 
-function addMonsters(event) {
+async function addMonsters(event) {
     event.preventDefault();
     if(addCorpseBtn.checked) {
-        addCorpse();
+        await addCorpse();
         atLeastOne = true;
+        console.log("Corpse")
     }
     if(addGolemBtn.checked) {
-        addGolem();
+        await addGolem();
         atLeastOne = true;
+        console.log("Golem")
     }
     if(addRaiderBtn.checked) {
-        addRaider();
+        await addRaider();
         atLeastOne = true;
+        console.log("Raider")
     }
     if(addViperBtn.checked) {
-        addViper();
+        await addViper();
         atLeastOne = true;
+        console.log("Viper")
     }
     if(addSludgeBtn.checked) {
-        addSludge();
+        await addSludge();
         atLeastOne = true;
+        console.log("Sludge")
     }
     if(addSpiritBtn.checked) {
-        addSpirit();
+        await addSpirit();
         atLeastOne = true;
+        console.log("Spirit")
     }
     if(addBloodImpBtn.checked) {
-        addBloodImp();
+        await addBloodImp();
         atLeastOne = true;
+        console.log("BloodImp")
     }
     if(addBlackImpBtn.checked) {
-        addBlackImp();
+        await addBlackImp();
         atLeastOne = true;
+        console.log("BlackImp")
     }
     if(addScoutBtn.checked) {
-        addScout();
+        await addScout();
         atLeastOne = true;
+        console.log("Scout")
     }
     if(addRatBtn.checked) {
-        addRat();
+        await addRat();
         atLeastOne = true;
+        console.log("Rat")
     }
     if(addBloodBtn.checked) {
-        addBlood();
+        await addBlood();
         atLeastOne = true;
+        console.log("Blood Monster")
     }
     if(addZealotBtn.checked) {
-        addZealot();
+        await addZealot();
         atLeastOne = true;
+        console.log("Zealot")
     }
     if(addDemonBtn.checked) {
-        addDemon();
+        await addDemon();
         atLeastOne = true;
+        console.log("Demon")
     }
     if(!atLeastOne) {
         alert("You did not select any monsters to add!");
@@ -232,7 +245,7 @@ async function addBlackImp() {
 }
 
 async function addScout() {
-    const numScout = {numToAdd: parseInt(document.querySelector(`#numBlack-Sludge`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId"))}
+    const numScout = {numToAdd: parseInt(document.querySelector(`#numVermling-Scout`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId"))}
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numScout),

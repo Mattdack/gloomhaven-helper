@@ -1,31 +1,36 @@
-<form class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md" id="newMonsterForm">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="newmonstername" placeholder="Zealot" />
-    </div>
-    <div>
-        <label for="level">Level:</label>
-        <input type="number" name="level" id="newmonsterlevel" placeholder="1" />
-    </div>
-    <div>
-        <label for="special">special:</label>
-        <input type="text" name="special" id="newmonsterspecial" placeholder="muddle" />
-    </div>
-    <div>
-        <label for="hp">HP:</label>
-        <input type="number" name="hp" id="newmonsterhp" placeholder="8" />
-    </div>
-    <div>
-        <label for="move">Move:</label>
-        <input type="number" name="move" id="newmonstermove" placeholder="2" />
-    </div>
-    <div>
-        <label for="attack">Atk:</label>
-        <input type="number" name="attack" id="newmonsterattack" placeholder="3" />
-    </div>
-    <div>
-        <label for="isElite">IsElite:</label>
-        <input type="checkbox" name="isElite" id="newmonsteriselite" /><br>
-    </div>
-    <button id="newMonsterBtn">Save</button>
-</form>
+<div class="flex justify-center border-t-4 border-slate-800 m-4 p-4 grid-col-1 place-items-center text-md">
+    <form id="newMonsterForm">
+        <h2 class="flex justify-center text-yellow-600">INPUT STATS</h2>
+        <div>
+            <label class="text-yellow-600" for="name">Name:</label>
+            <input type="text" name="name" id="newmonstername" placeholder="Zealot" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="level">Level:</label>
+            <input type="number" name="level" id="newmonsterlevel" placeholder="1" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="special">Special:</label>
+            <input type="text" name="special" id="newmonsterspecial" placeholder="muddle" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="hp">HP:</label>
+            <input type="number" name="hp" id="newmonsterhp" placeholder="8" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="move">Move:</label>
+            <input type="number" name="move" id="newmonstermove" placeholder="2" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="attack">Atk:</label>
+            <input type="number" name="attack" id="newmonsterattack" placeholder="3" />
+        </div>
+        <div>
+            <label class="text-yellow-600" for="isElite">IsElite:</label>
+            <input type="checkbox" name="isElite" id="newmonsteriselite" /><br>
+        </div>
+        <div class="flex justify-center">
+        <button class="px-6 py-4 bg-yellow-600 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out my-1 mx-2"id="newMonsterBtn">Save</button>
+        </div>
+    </form>
+</div>

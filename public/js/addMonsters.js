@@ -16,7 +16,8 @@ let atLeastOne = false;
 
 addMonstersBtn.addEventListener('click', addMonsters);
 
-function addMonsters() {
+function addMonsters(event) {
+    event.preventDefault();
     if(addCorpseBtn.checked) {
         addCorpse();
         atLeastOne = true;

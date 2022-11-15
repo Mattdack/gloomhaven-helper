@@ -31,7 +31,7 @@ const effectIcons = [
   },
   {
     name: 'Shield',
-    image: '/images/Shield.png;'
+    image: '/images/Shield.png'
   }
 ];
 

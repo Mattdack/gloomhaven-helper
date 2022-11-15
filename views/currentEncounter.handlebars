@@ -2,38 +2,46 @@
   <div class="bordering // flex justify-center md:col-span-2 md:h-[100%] md:overflow-y-auto xl:col-span-2">
     <div class="mb-6">
       {{#each players as |player|}}
+      {{!-- updateForm modal button --}}
+
       {{>playerStats}}
       {{/each}}
     </div>
-    {{#each effectz}}
-    {{image}}
-    {{/each}}
+    <div>
+ 
+ 
   </div>
-  
+  {{>updateForm}}
+  </div>
+  </div>
+
+
   {{!-- Turn Order --}}
   <div class="bordering // flex flex-col pl-8 pr-8 md:col-span-2 md:h-[100%] md:overflow-y-auto">
     <div class="turn-ridge border-8">
       <form id="turnorders">
         <div id="sortable1" class="connectedSortable">
           {{#each players as |player|}}
-            <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-6 border-2"> {{playerName}} 
-              <input class="relative left-0" type="number" name="turnorder" min="1" max="100"/>
-            </div>
+          <div class="ui-state-defadivt {{playerName}} text-black pl-2 pr-2 mb-6 border-2"> {{playerName}}
+            <input class="relative left-0" type="number" name="turnorder" min="1" max="100" />
+          </div>
           {{/each}}
-          {{!-- <script type="text/x-handlebars-template"> --}}
+
           {{#eachUnique monsters as |monster|}}
-            <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
-              <input type="number" name="turnorder" min="1" max="100"/>
-            </div>
+          <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
+            <input type="number" name="turnorder" min="1" max="100" />
+          </div>
           {{/eachUnique}}
-          {{!-- </script> --}}
-        </div> 
+
+        </div>
       </form>
-    </div> 
-    <button class="delBtn //  border-double border-4 mb-6 bg-black/50 text-lg font-bold " id="clearInput">Next Round</button>
+    </div>
+    <button class="delBtn //  border-double border-4 mb-6 bg-black/50 text-lg font-bold " id="clearInput">Next
+      Round</button>
   </div>
 
-  <div class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
+  <div
+    class="bordering // flex place-items-center overflow-auto grid grid-cols-3 gap-2 md:h-[100%] md:grid-cols-5 md:overflow-y-auto md:col-span-4 xl:grid-cols-3 xl:col-span-2">
     {{#each monsters as |monster|}}
     {{>monsterstats}}
     {{/each}}

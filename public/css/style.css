@@ -21,12 +21,9 @@ body {
 
 .tinyimage {
     height:50px;
-    padding:-3px;
+    margin:-8px;
 }
 
-.effectspadding {
-    padding:-5px;
-}
 
 .bordering { 
     border: solid transparent;

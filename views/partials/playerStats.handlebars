@@ -26,8 +26,8 @@
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
 
       {{#each Effects}}
-      <button class="flex flex-col text-red-500 removePlayerEffect" type="button" data-effect={{name}}>{{name}}
-        </button><span><img src="{{image}}" class="tinyimage"></span>
+      <button class="flex flex-row items-center text-red-500 removePlayerEffect" type="button" data-effect={{name}}><img src="{{image}}" class="tinyimage">{{name}}
+        </button>
       {{/each}}
 
       <button id="dropdownDefault-{{id}}" data-dropdown-toggle="dropdown-{{id}}"

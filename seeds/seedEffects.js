@@ -27,11 +27,11 @@ const effectIcons = [
   },
   {
     name: 'Wound',
-    image: '/images/wound.png'
+    image: '/images/Wound.png'
   },
   {
     name: 'Shield',
-    image: '&#xf3ed;'
+    image: '/images/Shield.png;'
   }
 ];
 

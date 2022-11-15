@@ -19,6 +19,12 @@ body {
     /* background-size: cover; */
 }
 
+.tinyimage {
+    height:50px;
+    margin:-8px;
+}
+
+
 .bordering { 
     border: solid transparent;
     border-width: 20px;

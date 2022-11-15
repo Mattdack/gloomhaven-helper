@@ -117,7 +117,7 @@ router.get("/currentEncounter", async (req, res) => {
       include: [
         {
           model: Effect,
-          attributes: ["name"],
+          attributes: ["name","image"],
           through: {
             attributes: [],
           },

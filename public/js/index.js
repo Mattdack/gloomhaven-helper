@@ -133,8 +133,9 @@ for (let i = 0; i < minusXP.length; i++) {
 for (let i = 0; i < openUpdateModal.length; i++) {
     openUpdateModal[i].addEventListener("click", e => {
         e.preventDefault();
- targetId = e.target.getAttribute("data-playa");
- console.log(targetId, "id")
+        targetId = e.target.getAttribute("data-playa");
+        console.log(targetId, "id")
+        document.getElementById("newCharacterForm").reset()
 })
 }
 // update stats
@@ -155,7 +156,6 @@ for (let i = 0; i < updateChar.length; i++) {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json()) 
-        document.getElementById("newCharacterForm").reset()
         console.log("character updated!")
     })
 }

@@ -26,7 +26,7 @@ Player.init(
       allowNull: false,
       default: 10,
       validate: {
-        // isInt: true,
+        isInt: true,
         min: 0,
       },
     },

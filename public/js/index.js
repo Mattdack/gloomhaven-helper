@@ -128,7 +128,8 @@ for (let i = 0; i < minusXP.length; i++) {
         }
     })
 }
-
+// update Characters-----------
+// open modal button
 for (let i = 0; i < openUpdateModal.length; i++) {
     openUpdateModal[i].addEventListener("click", e => {
         e.preventDefault();
@@ -136,24 +137,14 @@ for (let i = 0; i < openUpdateModal.length; i++) {
  console.log(targetId, "id")
 })
 }
-
-
-
-// update Characters-----------
+// update stats
 for (let i = 0; i < updateChar.length; i++) {
     updateChar[i].addEventListener("click", e => {
         e.preventDefault();
-        
-        // const addCharId = document.querySelector(".updateCharacterOpenModal").value
-        // console.log(addCharId, "id")
-        // console.log(targetId, "id")
-        console.log(document.querySelector("#newcharacterlevel").value, "level")
-        console.log(document.querySelector("#newcharacterhealth").value, "health")
-        console.log(document.querySelector("#newexperience").value, "exp")
 
         const characterObj = {
-            playerLevel: parseInt(document.querySelector("#newcharacterlevel").value),
-            playerHealth: parseInt(document.querySelector("#newcharacterhealth").value),
+            level: parseInt(document.querySelector("#newcharacterlevel").value),
+            health: parseInt(document.querySelector("#newcharacterhealth").value),
             experience: document.querySelector("#newexperience").value,
         }
 

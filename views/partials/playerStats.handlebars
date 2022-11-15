@@ -1,7 +1,14 @@
 <div
   class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
   <img class="player-img // flex-initial m-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
-  <div class="m-1 p-1 w-full">
+       {{!-- open modal button --}}
+     <button data-playa={{id}} data-modal-toggle="popup-modal"
+        class="updateCharacterOpenModal text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 flex leading-5">Update
+        Character
+      </button>
+     
+      {{!-- end modal button --}}
+      <div class="m-1 p-1 w-full">
     <div class="-space-y-.5 card-details" id={{id}}>
       <p class="pName // font-bold underline underline-offset-4">{{playerName}}</p>
       <p class="font-semibold">level: <span class="font-light"><span>{{playerLevel}}</span></p>
@@ -11,18 +18,13 @@
         class="plusPHP w-[40%] font-sans font-bold text-black border-2 border-emerald-900 bg-emerald-500 rounded-l-lg text-lg hover:bg-emerald-700">+</button>
       <button type="button"
         class="minusPHP -ml-1 w-[40%] font-sans font-bold text-black border-2 border-red-900 bg-red-500 rounded-r-lg text-lg hover:bg-red-700">-</button>
-      <p class="font-semibold">experience: <span class="pXP // font-light text-blue-500">0</span></p>
+      <p class="font-semibold">experience: <span class="pXP // font-light text-blue-500">{{experience}}</span></p>
       <button type="button"
         class="plusXP // w-[40%] font-sans font-bold text-black border-2 border-blue-900 bg-blue-600 rounded-l-lg text-lg hover:bg-blue-800">+</button>
       <button type="button"
         class="minusXP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-yellow-900 bg-yellow-500 rounded-r-lg text-lg hover:bg-yellow-700">-</button>
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
-      {{!-- open modal button --}}
-      <button data-playa={{id}} data-modal-toggle="popup-modal"
-        class="updateCharacterOpenModal text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 flex leading-5">Update
-        Character
-      </button>
-      {{!-- end modal button --}}
+ 
       {{#each Effects}}
       <p class="text-red-500 removePlayerEffect" data-effect={{name}}>{{name}}</p>
       {{/each}}

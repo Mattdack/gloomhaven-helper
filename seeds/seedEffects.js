@@ -3,27 +3,27 @@ const { Effect } = require('../models');
 const effectIcons = [
   {
     name: 'Muddle',
-    image: '../../public/images/muddle'
+    image: '/images/Muddle.png'
   },
   {
     name: 'Immobilize',
-    image: '/images/immobilize.png'
+    image: '/images/Immobilize.png'
   },
   {
     name: 'Stun',
-    image: "<img src='/images/stun.png'></img>"
+    image: "/images/Stun.png"
   },
   {
     name: 'Strengthen',
-    image: '/images/strengthen.png'
+    image: '/images/Strengthen.png'
   },
   {
     name: 'Disarm',
-    image: '/images/disarm.png'
+    image: '/images/Disarm.png'
   },
   {
     name: 'Poison',
-    image: '/images/poison.png'
+    image: '/images/Poison.png'
   },
   {
     name: 'Wound',

@@ -24,10 +24,12 @@
       <button type="button"
         class="minusXP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-yellow-900 bg-yellow-500 rounded-r-lg text-lg hover:bg-yellow-700">-</button>
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
- 
+
       {{#each Effects}}
-      <p class="text-red-500 removePlayerEffect" data-effect={{name}}>{{name}}</p>
+      <button class="flex flex-col text-red-500 removePlayerEffect" type="button" data-effect={{name}}>{{name}}
+        </button><span><img src="{{image}}" class="tinyimage"></span>
       {{/each}}
+
       <button id="dropdownDefault-{{id}}" data-dropdown-toggle="dropdown-{{id}}"
         class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">Add Effect

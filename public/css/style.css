@@ -19,6 +19,15 @@ body {
     /* background-size: cover; */
 }
 
+.tinyimage {
+    height:50px;
+    padding:-3px;
+}
+
+.effectspadding {
+    padding:-5px;
+}
+
 .bordering { 
     border: solid transparent;
     border-width: 20px;

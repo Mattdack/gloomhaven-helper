@@ -11,16 +11,16 @@
                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                 type="checkbox" name="Monster" id="add{{name}}" data-monsterId={{id}} data-monsterName={{name}}>
             <label class="form-check-label inline-block text-gray-400" for="flexCheckDefault">
-                {{name}}
+                : {{name}}
             </label>
             <br />
-            <input type="number" name="monster" id="num{{name}}" placeholder="0"></br>
-            <p>Is the monster elite?</p>
+            <input type="number" name="monster" id="num{{name}}" placeholder="Quantity"></br>
+            {{!-- <label>Total: {{name}}</label><br/> --}}
             <input
                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                 type="checkbox" name="Level" id="{{name}}Elite">  
-            <input type="number" name="monster" id="{{name}}Level" placeholder="0">
-            <label>Total: {{name}}</label>
+            <p class="text-gray-400">: Elite Status</p>
+            <input type="number" name="monster" id="{{name}}Level" placeholder="Level">
         </div>
         {{/each}}
     </div>

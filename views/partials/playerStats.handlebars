@@ -1,14 +1,14 @@
 <div
-  class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
-  <img class="player-img // flex-initial m-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
-       {{!-- open modal button --}}
-     <button data-playa={{id}} data-modal-toggle="popup-modal"
-        class="updateCharacterOpenModal text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 flex leading-5">Update
-        Character
+  class="card-background // flex flex-row w-80 player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
+    <div class="flex flex-col w-1/2 place-items-center pl-2 pb-2">
+      <img class="player-img // w-full flex-initial m-3" src="/images/characters/{{playerName}}.jpg" alt="">
+        {{!-- open modal button --}}
+      <button data-playa={{id}} data-modal-toggle="popup-modal"
+        class="updateCharacterOpenModal // max-w-fit text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 flex leading-5">Update
       </button>
-     
       {{!-- end modal button --}}
-      <div class="m-1 p-1 w-full">
+    </div>
+      <div class="m-1 p-1 w-1/2">
     <div class="-space-y-.5 card-details" id={{id}}>
       <p class="pName // font-bold underline underline-offset-4">{{playerName}}</p>
       <p class="font-semibold">level: <span class="font-light"><span>{{playerLevel}}</span></p>

@@ -117,7 +117,12 @@ async function addCorpse() {
 }
 
 async function addGolem() {
-    const numGolems = {numToAdd: parseInt(document.querySelector(`#numStone-Golem`).value), monsterId: parseInt(addGolemBtn.getAttribute("data-monsterId"))}
+    const numGolems = {
+        numToAdd: parseInt(document.querySelector(`#numStone-Golem`).value), monsterId: parseInt(addGolemBtn.getAttribute("data-monsterId")),
+        monsterName: addGolemBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Stone-GolemElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Stone-GolemLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numGolems),
@@ -136,7 +141,13 @@ async function addGolem() {
 }
 
 async function addRaider() {
-    const numRaiders = {numToAdd: parseInt(document.querySelector(`#numVermling-Raider`).value), monsterId: parseInt(addRaiderBtn.getAttribute("data-monsterId"))}
+    const numRaiders = {
+        numToAdd: parseInt(document.querySelector(`#numVermling-Raider`).value), 
+        monsterId: parseInt(addRaiderBtn.getAttribute("data-monsterId")),
+        monsterName: addRaiderBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Vermling-RaiderElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Vermling-RaiderLevel`).value),
+    }
 
     await fetch(`/api/addedMonsters`, {
         method: "POST",
@@ -156,7 +167,12 @@ async function addRaider() {
 }
 
 async function addViper() {
-    const numVipers = {numToAdd: parseInt(document.querySelector(`#numGiant-Viper`).value), monsterId: parseInt(addViperBtn.getAttribute("data-monsterId"))}
+    const numVipers = {
+        numToAdd: parseInt(document.querySelector(`#numGiant-Viper`).value), monsterId: parseInt(addViperBtn.getAttribute("data-monsterId")),
+        monsterName: addViperBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Giant-ViperElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Giant-ViperLevel`).value),
+    }
 
     await fetch(`/api/addedMonsters`, {
         method: "POST",
@@ -176,7 +192,12 @@ async function addViper() {
 }
 
 async function addSludge() {
-    const numSludge = {numToAdd: parseInt(document.querySelector(`#numBlack-Sludge`).value), monsterId: parseInt(addSludgeBtn.getAttribute("data-monsterId"))}
+    const numSludge = {
+        numToAdd: parseInt(document.querySelector(`#numBlack-Sludge`).value), monsterId: parseInt(addSludgeBtn.getAttribute("data-monsterId")),
+        monsterName: addSludgeBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Black-SludgeElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Black-SludgeLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numSludge),
@@ -195,7 +216,12 @@ async function addSludge() {
 }
 
 async function addSpirit() {
-    const numSpirit = {numToAdd: parseInt(document.querySelector(`#numLiving-Spirit`).value), monsterId: parseInt(addSpiritBtn.getAttribute("data-monsterId"))}
+    const numSpirit = {
+        numToAdd: parseInt(document.querySelector(`#numLiving-Spirit`).value), monsterId: parseInt(addSpiritBtn.getAttribute("data-monsterId")),
+        monsterName: addSpiritBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Living-SpiritElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Living-SpiritLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numSpirit),
@@ -214,7 +240,12 @@ async function addSpirit() {
 }
 
 async function addBloodImp() {
-    const numImp = {numToAdd: parseInt(document.querySelector(`#numBlood-Imp`).value), monsterId: parseInt(addBloodImpBtn.getAttribute("data-monsterId"))}
+    const numImp = {
+        numToAdd: parseInt(document.querySelector(`#numBlood-Imp`).value), monsterId: parseInt(addBloodImpBtn.getAttribute("data-monsterId")),
+        monsterName: addBloodImpBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Blood-ImpElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Blood-ImpLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numImp),
@@ -233,7 +264,12 @@ async function addBloodImp() {
 }
 
 async function addBlackImp() {
-    const numImp = {numToAdd: parseInt(document.querySelector(`#numBlack-Imp`).value), monsterId: parseInt(addBlackImpBtn.getAttribute("data-monsterId"))}
+    const numImp = {
+        numToAdd: parseInt(document.querySelector(`#numBlack-Imp`).value), monsterId: parseInt(addBlackImpBtn.getAttribute("data-monsterId")),
+        monsterName: addBlackImpBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Black-ImpElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Black-ImpLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numImp),
@@ -252,7 +288,12 @@ async function addBlackImp() {
 }
 
 async function addScout() {
-    const numScout = {numToAdd: parseInt(document.querySelector(`#numVermling-Scout`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId"))}
+    const numScout = {
+        numToAdd: parseInt(document.querySelector(`#numVermling-Scout`).value), monsterId: parseInt(addScoutBtn.getAttribute("data-monsterId")),
+        monsterName: addScoutBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Vermling-ScoutElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Vermling-ScoutLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numScout),
@@ -271,7 +312,13 @@ async function addScout() {
 }
 
 async function addRat() {
-    const numRat = {numToAdd: parseInt(document.querySelector(`#numRat-Monstrosity`).value), monsterId: parseInt(addRatBtn.getAttribute("data-monsterId"))}
+    const numRat = {
+        numToAdd: parseInt(document.querySelector(`#numRat-Monstrosity`).value), 
+        monsterId: parseInt(addRatBtn.getAttribute("data-monsterId")),
+        monsterName: addRatBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Rat-MonstrosityElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Rat-MonstrosityLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numRat),
@@ -290,7 +337,13 @@ async function addRat() {
 }
 
 async function addBlood() {
-    const numBlood = {numToAdd: parseInt(document.querySelector(`#numBlood-Monstrosity`).value), monsterId: parseInt(addBloodBtn.getAttribute("data-monsterId"))}
+    const numBlood = {
+        numToAdd: parseInt(document.querySelector(`#numBlood-Monstrosity`).value), 
+        monsterId: parseInt(addBloodBtn.getAttribute("data-monsterId")),
+        monsterName: addBloodBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Blood-MonstrosityElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Blood-MonstrosityLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numBlood),
@@ -309,7 +362,13 @@ async function addBlood() {
 }
 
 async function addZealot() {
-    const numZealot = {numToAdd: parseInt(document.querySelector(`#numZealot`).value), monsterId: parseInt(addZealotBtn.getAttribute("data-monsterId"))}
+    const numZealot = {
+        numToAdd: parseInt(document.querySelector(`#numZealot`).value), 
+        monsterId: parseInt(addZealotBtn.getAttribute("data-monsterId")),
+        monsterName: addZealotBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#ZealotElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#ZealotLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numZealot),
@@ -328,7 +387,12 @@ async function addZealot() {
 }
 
 async function addDemon() {
-    const numDemon = {numToAdd: parseInt(document.querySelector(`#numChaos-Demon`).value), monsterId: parseInt(addDemonBtn.getAttribute("data-monsterId"))}
+    const numDemon = {
+        numToAdd: parseInt(document.querySelector(`#numChaos-Demon`).value), monsterId: parseInt(addDemonBtn.getAttribute("data-monsterId")),
+        monsterName: addDemonBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Chaos-DemonElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Chaos-DemonLevel`).value),
+    }
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numDemon),

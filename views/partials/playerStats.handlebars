@@ -1,101 +1,79 @@
-<div class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
+<div
+  class="card-background flex flex-row w-fit player-ridge border-8 mb-4 shadow-[0_0px_10px_5px_rgba(210,70,33,0.3)] transition ease-in-out delay-150 hover:scale-105 duration-150 place-items-center text-md">
   <img class="player-img // flex-initial m-1 h-48" src="/images/characters/{{playerName}}.jpg" alt="">
   <div class="m-1 p-1 w-full">
-    <div class="-space-y-.5 card-details" id = {{id}}>
+    <div class="-space-y-.5 card-details" id={{id}}>
       <p class="pName // font-bold underline underline-offset-4">{{playerName}}</p>
       <p class="font-semibold">level: <span class="font-light"><span>{{playerLevel}}</span></p>
-      <p class="font-semibold">health: <span class="pMaxHP // font-light">{{playerHealth}}</span> | <span class="pSpanHP // font-light text-red-500">{{playerHealth}} </span> </p>
-      <button type="button" class="plusPHP w-[40%] font-sans font-bold text-black border-2 border-emerald-900 bg-emerald-500 rounded-l-lg text-lg hover:bg-emerald-700">+</button>
-      <button type="button" class="minusPHP -ml-1 w-[40%] font-sans font-bold text-black border-2 border-red-900 bg-red-500 rounded-r-lg text-lg hover:bg-red-700">-</button>
+      <p class="font-semibold">health: <span class="pMaxHP // font-light">{{playerHealth}}</span> | <span
+          class="pSpanHP // font-light text-red-500">{{playerHealth}} </span> </p>
+      <button type="button"
+        class="plusPHP w-[40%] font-sans font-bold text-black border-2 border-emerald-900 bg-emerald-500 rounded-l-lg text-lg hover:bg-emerald-700">+</button>
+      <button type="button"
+        class="minusPHP -ml-1 w-[40%] font-sans font-bold text-black border-2 border-red-900 bg-red-500 rounded-r-lg text-lg hover:bg-red-700">-</button>
       <p class="font-semibold">experience: <span class="pXP // font-light text-blue-500">0</span></p>
-      <button type="button" class="plusXP // w-[40%] font-sans font-bold text-black border-2 border-blue-900 bg-blue-600 rounded-l-lg text-lg hover:bg-blue-800">+</button>
-      <button type="button" class="minusXP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-yellow-900 bg-yellow-500 rounded-r-lg text-lg hover:bg-yellow-700">-</button>
+      <button type="button"
+        class="plusXP // w-[40%] font-sans font-bold text-black border-2 border-blue-900 bg-blue-600 rounded-l-lg text-lg hover:bg-blue-800">+</button>
+      <button type="button"
+        class="minusXP // -ml-1 w-[40%] font-sans font-bold text-black border-2 border-yellow-900 bg-yellow-500 rounded-r-lg text-lg hover:bg-yellow-700">-</button>
       <p class="font-semibold">effect(s): <span class="font-light">{{effect}}</span></p>
+      {{!-- open modal button --}}
+      <button data-playa={{id}} data-modal-toggle="popup-modal"
+        class="updateCharacterOpenModal text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 flex leading-5">Update
+        Character
+      </button>
+      {{!-- end modal button --}}
       {{#each Effects}}
       <p class="text-red-500 removePlayerEffect" data-effect={{name}}>{{name}}</p>
       {{/each}}
-            <button
-          id="dropdownDefault-{{id}}"
-          data-dropdown-toggle="dropdown-{{id}}"
-          class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          type="button"
-        >Add Effect
-          <svg
-            class="ml-2 w-4 h-4"
-            aria-hidden="true"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            ></path></svg>
-            </button>
-        <div
-          id="dropdown-{{id}}"
-          class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-          data-popper-reference-hidden=""
-          data-popper-escaped=""
-          data-popper-placement="bottom"
-          style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);"
-        >
-          <ul
-            class="py-1 text-sm text-gray-700 dark:text-gray-200 addPlayerEffect"
-            aria-labelledby="dropdownDefault"
-          >
-            <li>
-              <a
-                href="#" data-effect="1" data-player={{id}}
-                class="text-brown block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Muddle</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="2" data-player={{id}}
-                class="text-orange block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Immobolize</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="3" data-player={{id}}
-                class="text-yellow block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Stun</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="4" data-player={{id}}
-                class="text-purple block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Strengthen</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="5" data-player={{id}}
-                class="text-pink block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Disarm</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="6" data-player={{id}}
-                class="text-green block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Poison</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="7" data-player={{id}}
-                class="text-red block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Wound</a>
-            </li>
-            <li>
-              <a
-                href="#" data-effect="8" data-player={{id}}
-                class="text-blue block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Shield</a>
-            </li>
-          </ul>
-        </div>
+      <button id="dropdownDefault-{{id}}" data-dropdown-toggle="dropdown-{{id}}"
+        class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">Add Effect
+        <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div id="dropdown-{{id}}"
+        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+        data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+        style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 11px, 0px);">
+        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 addPlayerEffect" aria-labelledby="dropdownDefault">
+          <li>
+            <a href="#" data-effect="1" data-player={{id}}
+              class="text-brown block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Muddle</a>
+          </li>
+          <li>
+            <a href="#" data-effect="2" data-player={{id}}
+              class="text-orange block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Immobolize</a>
+          </li>
+          <li>
+            <a href="#" data-effect="3" data-player={{id}}
+              class="text-yellow block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stun</a>
+          </li>
+          <li>
+            <a href="#" data-effect="4" data-player={{id}}
+              class="text-purple block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Strengthen</a>
+          </li>
+          <li>
+            <a href="#" data-effect="5" data-player={{id}}
+              class="text-pink block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Disarm</a>
+          </li>
+          <li>
+            <a href="#" data-effect="6" data-player={{id}}
+              class="text-green block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Poison</a>
+          </li>
+          <li>
+            <a href="#" data-effect="7" data-player={{id}}
+              class="text-red block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Wound</a>
+          </li>
+          <li>
+            <a href="#" data-effect="8" data-player={{id}}
+              class="text-blue block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shield</a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </div>

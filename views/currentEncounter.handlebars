@@ -2,21 +2,17 @@
   <div class="bordering // flex justify-center md:col-span-2 md:h-[100%] md:overflow-y-auto xl:col-span-2">
     <div class="mb-6">
       {{#each players as |player|}}
+      {{!-- updateForm modal button --}}
+
       {{>playerStats}}
       {{/each}}
     </div>
     <div>
-      <button id="updateCharacter" data-modal-toggle="popup-modal" type="button"
-        class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-slate-200 bg-slate-700 text-white-100 border duration-200 ease-in-out border-yellow-600 transition">
-        <div class="flex leading-5">Update Character
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-chevron-right w-5 h-5 ml-1">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-      </button>
-      {{>updateForm}}
-    </div>
+ 
+ 
+  </div>
+  {{>updateForm}}
+  </div>
   </div>
 
 
@@ -32,11 +28,11 @@
           {{/each}}
 
           {{#eachUnique monsters as |monster|}}
-            <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
-              <input type="number" name="turnorder" min="1" max="100"/>
-            </div>
+          <div class="text-black pl-2 pr-2 mb-6 bg-red-600 border-2 border-black-500"> {{name}}
+            <input type="number" name="turnorder" min="1" max="100" />
+          </div>
           {{/eachUnique}}
-  
+
         </div>
       </form>
     </div>

@@ -17,6 +17,10 @@ const plusXP = document.querySelectorAll('.plusXP');
 const minusXP = document.querySelectorAll('.minusXP');
 //turn order gloabl elements
 const clearBtn = document.getElementById("clearInput");
+// update character element
+const updateChar = document.querySelectorAll(".saveUpdateCharacter");
+const openUpdateModal = document.querySelectorAll(".updateCharacterOpenModal")
+let targetId = ""
 
 
 // turn Order: Clear Input ---------
@@ -125,25 +129,42 @@ for (let i = 0; i < minusXP.length; i++) {
     })
 }
 
-// update Characters
-const updateCharacter = document.querySelector("#updateCharacter");
-
-updateCharacter.addEventListener("click", e => {
-    e.preventDefault();
-    const addCharId = document.querySelector("#chosenCharcter").value
-
-    const characterObj = {
-        playerLevel: document.querySelector("#newcharacterlevel").value,
-        playerHealth: document.querySelector("#newcharacterhealth").value,
-        experience: document.querySelector("#newexperience").value,
-    }
-
-    fetch(`/api/players/${addCharId}`, {
-        method: "PUT",
-        body: JSON.stringify(characterObj),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => res.json()) 
-    document.getElementById("newCharacterForm").reset()
+for (let i = 0; i < openUpdateModal.length; i++) {
+    openUpdateModal[i].addEventListener("click", e => {
+        e.preventDefault();
+ targetId = e.target.getAttribute("data-playa");
+ console.log(targetId, "id")
 })
+}
+
+
+
+// update Characters-----------
+for (let i = 0; i < updateChar.length; i++) {
+    updateChar[i].addEventListener("click", e => {
+        e.preventDefault();
+        
+        // const addCharId = document.querySelector(".updateCharacterOpenModal").value
+        // console.log(addCharId, "id")
+        // console.log(targetId, "id")
+        console.log(document.querySelector("#newcharacterlevel").value, "level")
+        console.log(document.querySelector("#newcharacterhealth").value, "health")
+        console.log(document.querySelector("#newexperience").value, "exp")
+
+        const characterObj = {
+            playerLevel: parseInt(document.querySelector("#newcharacterlevel").value),
+            playerHealth: parseInt(document.querySelector("#newcharacterhealth").value),
+            experience: document.querySelector("#newexperience").value,
+        }
+
+        fetch(`/api/players/${targetId}`, {
+            method: "PUT",
+            body: JSON.stringify(characterObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json()) 
+        document.getElementById("newCharacterForm").reset()
+        console.log("character updated!")
+    })
+}

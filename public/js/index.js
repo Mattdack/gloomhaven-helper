@@ -17,31 +17,10 @@ const plusXP = document.querySelectorAll('.plusXP');
 const minusXP = document.querySelectorAll('.minusXP');
 //turn order gloabl elements
 const clearBtn = document.getElementById("clearInput");
-
-// TODO: what is this function used for??
-// // register new function
-// Handlebars.registerHelper('eachUnique', function(array, options) {
-//     // this is used for the lookup
-//     var  dupCheck = {};
-//     // template buffer
-//     var buffer = '';
-//     for( var i=0; i< array.length; i++){
-//       var entry = array[i];
-//       var uniqueKey = entry.name + entry.level;
-//       // check if the entry has been added already
-//       if(!dupCheck[uniqueKey]){
-//         // here there are only unique values
-//         dupCheck[uniqueKey] = true;
-//         // add this in the template
-//         buffer += options.fn(entry);
-//       }
-//     }
-//     // return the template compiled
-//     return buffer;
-//   });
-
-// const { parse } = require("dotenv");
-
+// update character element
+const updateChar = document.querySelectorAll(".saveUpdateCharacter");
+const openUpdateModal = document.querySelectorAll(".updateCharacterOpenModal")
+let targetId = ""
 
 
 // turn Order: Clear Input ---------
@@ -55,14 +34,14 @@ clearBtn.addEventListener("click", e => {
 for (let i = 0; i < plusMHP.length; i++) {
     plusMHP[i].addEventListener("click", e => {
         e.preventDefault();
-        if (parseInt(mSpanHealth[i].innerText) === 0){
+        if (parseInt(mSpanHealth[i].innerText) === 0) {
             console.log(`${mName[i].innerText} was healed!`)
             console.log(`${mName[i].innerText} has been revived!`)
             mImg[i].classList.add('h-36');
             mImg[i].classList.remove('h-24');
             mSpanHealth[i].innerText = parseInt(mSpanHealth[i].innerText) + 1;
-            mImg[i].src=`/images/monsters/${mName[i].innerText}.jpg`
-        } else if (parseInt(mSpanHealth[i].innerText) === parseInt(mMaxHealth[i].innerText)){
+            mImg[i].src = `/images/monsters/${mName[i].innerText}.jpg`
+        } else if (parseInt(mSpanHealth[i].innerText) === parseInt(mMaxHealth[i].innerText)) {
             console.log(`${mName[i].innerText}'s health is already maxed!`)
             return mSpanHealth[i] = mMaxHealth[i]
         } else {
@@ -75,14 +54,14 @@ for (let i = 0; i < plusMHP.length; i++) {
 for (let i = 0; i < minusMHP.length; i++) {
     minusMHP[i].addEventListener("click", e => {
         e.preventDefault();
-        if (parseInt(mSpanHealth[i].innerText) === 1){
+        if (parseInt(mSpanHealth[i].innerText) === 1) {
             console.log(`${mName[i].innerText} took damage!`)
             console.log(`${mName[i].innerText} has died`)
             mImg[i].classList.remove('h-36');
             mImg[i].classList.add('h-24');
             mSpanHealth[i].innerText = parseInt(mSpanHealth[i].innerText) - 1;
-            mImg[i].src=`./images/loot.png`
-        } else if (parseInt(mSpanHealth[i].innerText) === 0){
+            mImg[i].src = `./images/loot.png`
+        } else if (parseInt(mSpanHealth[i].innerText) === 0) {
             console.log(`${mName[i].innerText}'s health is already zero!`)
             return mSpanHealth[i] = mMaxHealth[i]
         } else {
@@ -96,12 +75,12 @@ for (let i = 0; i < minusMHP.length; i++) {
 for (let i = 0; i < plusPHP.length; i++) {
     plusPHP[i].addEventListener("click", e => {
         e.preventDefault();
-        if (parseInt(pSpanHealth[i].innerText) === 0){
+        if (parseInt(pSpanHealth[i].innerText) === 0) {
             console.log(`${pName[i].innerText} was revived!`)
             console.log(`${pName[i].innerText} was healed!`)
             pSpanHealth[i].innerText = parseInt(pSpanHealth[i].innerText) + 1;
-            pImg[i].src=`/images/characters/${pName[i].innerText}.jpg`
-        } else if (parseInt(pSpanHealth[i].innerText) === parseInt(pMaxHealth[i].innerText)){
+            pImg[i].src = `/images/characters/${pName[i].innerText}.jpg`
+        } else if (parseInt(pSpanHealth[i].innerText) === parseInt(pMaxHealth[i].innerText)) {
             console.log(`${pName[i].innerText}'s HP is already maxed!`)
             return pSpanHealth[i] = pMaxHealth[i]
         } else {
@@ -115,12 +94,12 @@ for (let i = 0; i < plusPHP.length; i++) {
 for (let i = 0; i < minusPHP.length; i++) {
     minusPHP[i].addEventListener("click", e => {
         e.preventDefault();
-        if (parseInt(pSpanHealth[i].innerText) === 1){
+        if (parseInt(pSpanHealth[i].innerText) === 1) {
             console.log(`${pName[i].innerText} took damage!`)
             console.log(`${pName[i].innerText} is dead!`)
             pSpanHealth[i].innerText = parseInt(pSpanHealth[i].innerText) - 1;
-            pImg[i].src=`./images/death.png`
-        } else if (parseInt(pSpanHealth[i].innerText) === 0){
+            pImg[i].src = `./images/death.png`
+        } else if (parseInt(pSpanHealth[i].innerText) === 0) {
             console.log(`${pName[i].innerText}'s HP is already zero!`)
             return pSpanHealth[i] = pMaxHealth[i]
         } else {
@@ -141,11 +120,42 @@ for (let i = 0; i < plusXP.length; i++) {
 for (let i = 0; i < minusXP.length; i++) {
     minusXP[i].addEventListener("click", e => {
         e.preventDefault();
-        if(parseInt(pXP[i].innerText) === 0){
+        if (parseInt(pXP[i].innerText) === 0) {
             console.log(`${pName[i].innerText}'s XP is already 0!`)
-        }else{
+        } else {
             console.log(`${pName[i].innerText} lost XP!`)
             pXP[i].innerText = parseInt(pXP[i].innerText) - 1;
         }
+    })
+}
+// update Characters-----------
+// open modal button
+for (let i = 0; i < openUpdateModal.length; i++) {
+    openUpdateModal[i].addEventListener("click", e => {
+        e.preventDefault();
+        targetId = e.target.getAttribute("data-playa");
+        console.log(targetId, "id")
+        document.getElementById("newCharacterForm").reset()
+})
+}
+// update stats
+for (let i = 0; i < updateChar.length; i++) {
+    updateChar[i].addEventListener("click", e => {
+        e.preventDefault();
+
+        const characterObj = {
+            level: parseInt(document.querySelector("#newcharacterlevel").value),
+            health: parseInt(document.querySelector("#newcharacterhealth").value),
+            experience: document.querySelector("#newexperience").value,
+        }
+
+        fetch(`/api/players/${targetId}`, {
+            method: "PUT",
+            body: JSON.stringify(characterObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json()) 
+        console.log("character updated!")
     })
 }

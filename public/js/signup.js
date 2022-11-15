@@ -14,7 +14,7 @@ signupForm.addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.assign('/login')
+           location.assign('/')
         } else {
             alert("trumpet sound")
         }

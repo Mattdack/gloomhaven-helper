@@ -1,23 +1,27 @@
-<form class="flex flex-row flex-wrap w-fit border-5 place-items-center text-md" id="newCharacterForm">
+<form class="flex flex-row flex-wrap w-fit border-5 justify-center text-md" id="newCharacterForm">
 
     {{!-- <div class="form-check p-3"> --}}
         {{#each monsters}}
         <div class="form-check p-3">
             <div class="flex justify-center">
-                <img class="flex-initial border-2 card-background monster-ridge m-1 p-1 h-80 transition ease-in-out delay-150 hover:scale-105 duration-150"
+                <img class="flex-initial border-2 card-background monster-ridge m-1 p-1 h-64 transition"
                     src="/images/monsters/{{name}}.jpg" alt="{{name}} Character">
             </div>
             <input
                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                type="checkbox" name="character" id="add{{name}}" data-monsterId={{id}}>
+                type="checkbox" name="Monster" id="add{{name}}" data-monsterId={{id}} data-monsterName={{name}}>
             <label class="form-check-label inline-block text-gray-400" for="flexCheckDefault">
-                {{name}}
+                : {{name}}
             </label>
             <br />
-            <input type="number" name="monster" id="num{{name}}" placeholder="0"></br>
-            <label>Total: {{name}}</label>
+            <input type="number" name="monster" id="num{{name}}" placeholder="Quantity"></br>
+            {{!-- <label>Total: {{name}}</label><br/> --}}
+            <input
+                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                type="checkbox" name="Level" id="{{name}}Elite">  
+            <p class="text-gray-400">: Elite Status</p>
+            <input type="number" name="monster" id="{{name}}Level" placeholder="Level">
         </div>
         {{/each}}
-
     </div>
 </form>

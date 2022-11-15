@@ -91,7 +91,14 @@ async function addMonsters(event) {
 }
 
 async function addCorpse() {
-    const numCorpses = {numToAdd: parseInt(document.querySelector(`#numLiving-Corpse`).value), monsterId: parseInt(addCorpseBtn.getAttribute("data-monsterId"))}
+    const numCorpses = {
+        numToAdd: parseInt(document.querySelector(`#numLiving-Corpse`).value), 
+        monsterId: parseInt(addCorpseBtn.getAttribute("data-monsterId")),
+        monsterName: addCorpseBtn.getAttribute('data-monsterName'),
+        isElite: (document.querySelector('#Living-CorpseElite').checked) ? true:false,
+        monsterLevel: parseInt(document.querySelector(`#Living-CorpseLevel`).value),
+    }
+    console.log(numCorpses);
     await fetch(`/api/addedMonsters`, {
         method: "POST",
         body: JSON.stringify(numCorpses),

@@ -32,9 +32,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     let MonsterToAdd = await Monster.findOne({
       where: {
-        id: req.body.monsterId
+        name: req.body.monsterName,
+        level: req.body.monsterLevel,
+        isElite: req.body.isElite,
       }
     });
     let numToAdd = req.body.numToAdd;
